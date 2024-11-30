@@ -1,6 +1,5 @@
 //
 // Created by Jamie Briggs on 06/12/2023.
-// Copyright (c) 2023 jbriggs.dev All rights reserved.
 //
 
 #include "AOCInitializer.h"

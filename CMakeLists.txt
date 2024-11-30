@@ -11,13 +11,8 @@ add_executable(aoc2024 main.cpp
         cpp/helper/SolutionInput.cpp
         cpp/helper/SolutionInput.h
         cpp/Day.h
-        cpp/helper/StringUtils.cpp
-        cpp/helper/StringUtils.h
-        cpp/helper/NumberUtils.cpp
-        cpp/helper/NumberUtils.h
         cpp/helper/AOCInitializer.cpp
         cpp/helper/AOCInitializer.h
-        cpp/core/Vector2D.h
-        cpp/helper/VectorUtils.cpp
-        cpp/helper/VectorUtils.h
+        cpp/helper/StringUtils.cpp
+        cpp/helper/StringUtils.h
 )

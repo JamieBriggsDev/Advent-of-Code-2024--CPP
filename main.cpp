@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 
   // List time elapsed to load data
   const auto inputDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endInput - startInput);
-  printf("\nTook %lldms to load data", inputDuration);
+  printf("\nTook %lldms to load data", inputDuration.count());
 
   // Solve part one of solution
   printf("Solving Part 1 of solution...");
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
   const auto endPartOne = std::chrono::high_resolution_clock::now();
   const auto partOneDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endPartOne - startPartOne);
   printf("\nPart 1 solution: %s", solve_part_one.c_str());
-  printf("\nPart 1 took %lldms to solve\n", partOneDuration);
+  printf("\nPart 1 took %lldms to solve\n", partOneDuration.count());
 
   cout << endl;
 
@@ -40,8 +40,8 @@ int main(int argc, char* argv[]) {
   const auto solve_part_two = day->solvePartTwo(inputTwo);
   const auto endPartTwo = std::chrono::high_resolution_clock::now();
   const auto partTwoDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endPartTwo - startPartTwo);
-  printf("\nPart 2 solution: %s\n", solve_part_two.c_str());
-  printf("\nPart 2 took %lldms to solve\n", partTwoDuration);
+  printf("\nPart 2 solution: %s", solve_part_two.c_str());
+  printf("\nPart 2 took %lldms to solve\n", partTwoDuration.count());
   return 0;
 }
 
