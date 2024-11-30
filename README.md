@@ -1,6 +1,9 @@
-# Advent of Code 2023
+# Advent of Code 2024
 
-Here are my personal solutions for Advent of Code 2023 written in C++.
+If you would like to run this project locally, it is easiest to run in CLion as configurations 
+should already be setup to run each day individually.
+
+However, you can compile and run the project yourself using CMake.
 
 | Day   | Link                        |
 |-------|-----------------------------|
