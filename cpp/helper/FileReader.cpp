@@ -13,15 +13,19 @@ using namespace std;
 using namespace helper;
 
 SolutionInput* FileReader::readFile(const string& fileLocation) {
+
   vector<string> solutionInput;
+  // Open a file in read mode
   if (FILE *fp = fopen(fileLocation.c_str(), "r")) {
     char row[500];
 
     // This reads a line up to 500 characters long
-    while (fscanf(fp, "%500s", &row) == 1) {
+    while (fscanf(fp, "%500[^\n]\n", &row) != EOF) {
       solutionInput.emplace_back(row);
     }
     fclose(fp);
+  }else {
+    std::cerr << "Error opening file " << fileLocation << std::endl;
   }
 
   return new SolutionInput(solutionInput);

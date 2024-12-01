@@ -15,4 +15,7 @@ add_executable(aoc2024 main.cpp
         cpp/helper/AOCInitializer.h
         cpp/helper/StringUtils.cpp
         cpp/helper/StringUtils.h
+        cpp/core/Pair.h
+        cpp/day1/Day01PairBuilder.cpp
+        cpp/day1/Day01PairBuilder.h
 )
