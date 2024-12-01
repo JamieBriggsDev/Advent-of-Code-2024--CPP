@@ -88,3 +88,50 @@ TEST(Day01PairBuilder, ShouldCreateQueueInNumericalOrder) {
   result.pop();
   EXPECT_EQ(core::Pair(2,4), result.front());
 }
+
+TEST(Day01PairBuilder, ShouldCreateAndReturnEmptyDictionary) {
+  // Given
+  auto* builder = new Day01PairBuilder();
+  // When I do nothing
+  // Then
+  std::unordered_map<int, int> result = builder->getListTwoQuantities();
+  EXPECT_EQ(true, result.empty());
+}
+
+TEST(Day01PairBuilder, ShouldCreateAndReturnDictionaryWithOneItem) {
+  // Given
+  auto* builder = new Day01PairBuilder();
+  // When I do nothing
+  builder->addToListTwo(2);
+  // Then
+  std::unordered_map<int, int> result = builder->getListTwoQuantities();
+  EXPECT_EQ(1, result.size());
+  EXPECT_EQ(1, result[2]);
+}
+
+TEST(Day01PairBuilder, ShouldCreateAndReturnDictionaryWithTwoItems) {
+  // Given
+  auto* builder = new Day01PairBuilder();
+  // When I do nothing
+  builder->addToListTwo(2);
+  builder->addToListTwo(3);
+  // Then
+  std::unordered_map<int, int> result = builder->getListTwoQuantities();
+  EXPECT_EQ(2, result.size());
+  EXPECT_EQ(1, result[2]);
+  EXPECT_EQ(1, result[3]);
+}
+
+TEST(Day01PairBuilder, ShouldCreateAndReturnDictionaryWithTwoItemsButDuplicates) {
+  // Given
+  auto* builder = new Day01PairBuilder();
+  // When I do nothing
+  builder->addToListTwo(2);
+  builder->addToListTwo(3);
+  builder->addToListTwo(2);
+  // Then
+  std::unordered_map<int, int> result = builder->getListTwoQuantities();
+  EXPECT_EQ(2, result.size());
+  EXPECT_EQ(2, result[2]);
+  EXPECT_EQ(1, result[3]);
+}

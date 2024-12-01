@@ -7,6 +7,7 @@
 #include <__algorithm/ranges_sort.h>
 #include <algorithm>
 #include <queue>
+#include <unordered_map>
 #include <vector>
 
 #include "../core/Pair.h"
@@ -25,6 +26,7 @@ public:
     return listTwo;
   }
   std::queue<core::Pair> getPairs();
+  std::unordered_map <int, int> getListTwoQuantities();
 
 };
 }
