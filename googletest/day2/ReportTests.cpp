@@ -184,3 +184,26 @@ TEST(Report_IsSafeDueToDifference_Tests, ShouldReturnTrueWithFiveNumbers) {
   // Then
   EXPECT_EQ(true, subject->isSafeDueToDifference());
 }
+
+TEST(Report_GetDampenerReports_Tests, ShouldReturnEmptyVectorWithOneNumber){
+  // Given
+  std::string rawReport = "1";
+  auto* subject = new solutions::Report(rawReport);
+  // When
+  std::vector<solutions::Report> result = subject->getDampenerReports();
+  // Then
+  EXPECT_EQ(true, result.empty());
+}
+
+TEST(Report_GetDampenerReports_Tests, ShouldReturnTwoVectorsWithTwoNumbers){
+  // Given
+  std::string rawReport = "1 3";
+  auto* subject = new solutions::Report(rawReport);
+  // When
+  std::vector<solutions::Report> result = subject->getDampenerReports();
+  // Then
+  EXPECT_EQ(2, result.size());
+  EXPECT_EQ(1, result[0].getReportContents().size());
+  EXPECT_EQ(1, result[1].getReportContents().size());
+
+}

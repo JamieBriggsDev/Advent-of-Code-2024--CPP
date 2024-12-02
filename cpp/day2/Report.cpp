@@ -12,6 +12,9 @@ solutions::Report::Report(const std::string &reportRaw) {
     this->reportContents.push_back(helper::StringUtils::toInt(item));
   }
 }
+solutions::Report::Report() {
+  // Empty constructor
+}
 bool solutions::Report::isSafeDueToTrajectory() {
 
   // Ensures that even two identical numbers at the start are caught
@@ -37,8 +40,23 @@ bool solutions::Report::isSafeDueToDifference() {
     int b = this->reportContents[i];
     int result = (a - b) < 0 ? (a - b) * -1 : (a - b);
     if (result < 1 || result > 3) {
-        return false;
+      return false;
     }
   }
   return true;
+}
+std::vector<solutions::Report> solutions::Report::getDampenerReports() {
+  std::vector<solutions::Report> dampenerReports;
+  for(int i = 0; i < this->reportContents.size(); i++) {
+    // Create a report with every number in existing report apart from
+    //  report at index `i`
+    Report report = Report();
+    for(int ix = 0; ix < this->reportContents.size(); ix++) {
+      if(ix != i) {
+        report.addNumber(this->reportContents[ix]);
+      }
+    }
+    dampenerReports.emplace_back(report);
+  }
+  return dampenerReports;
 }

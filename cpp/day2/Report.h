@@ -12,11 +12,16 @@ namespace solutions {
     std::vector<int> reportContents;
   public:
     explicit Report(const std::string& reportRaw);
+    explicit Report();
+    void addNumber(int number) {
+      this->reportContents.emplace_back(number);
+    }
     std::vector<int> getReportContents() {
       return reportContents;
     }
     bool isSafeDueToTrajectory();
     bool isSafeDueToDifference();
+    std::vector<Report> getDampenerReports();
   };
 }
 
