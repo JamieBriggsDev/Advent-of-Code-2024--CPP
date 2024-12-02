@@ -9,7 +9,7 @@
 
 using namespace solutions;
 
-TEST(Day01PairBuilder, ShouldAddToListOne)
+TEST(Day01PairBuilder_Tests, ShouldAddToListOne)
 {
   // Given
   auto* builder = new Day01PairBuilder();
@@ -20,7 +20,7 @@ TEST(Day01PairBuilder, ShouldAddToListOne)
   EXPECT_EQ(true, result[0] == 5);
 }
 
-TEST(Day01PairBuilder, ShouldAddToListTwo)
+TEST(Day01PairBuilder_Tests, ShouldAddToListTwo)
 {
   // Given
   auto* builder = new Day01PairBuilder();
@@ -31,7 +31,7 @@ TEST(Day01PairBuilder, ShouldAddToListTwo)
   EXPECT_EQ(true, result[0] == 7);
 }
 
-TEST(Day01PairBuilder, ShouldAddToBothLists)
+TEST(Day01PairBuilder_Tests, ShouldAddToBothLists)
 {
   // Given
   auto* builder = new Day01PairBuilder();
@@ -45,7 +45,7 @@ TEST(Day01PairBuilder, ShouldAddToBothLists)
   EXPECT_EQ(true, resultTwo[0] == 7);
 }
 
-TEST(Day01PairBuilder, ShouldCreateQueue) {
+TEST(Day01PairBuilder_Tests, ShouldCreateQueue) {
   // Given
   auto* builder = new Day01PairBuilder();
   // When
@@ -57,7 +57,7 @@ TEST(Day01PairBuilder, ShouldCreateQueue) {
   EXPECT_EQ(true, result.front() == core::Pair(3,7));
 }
 
-TEST(Day01PairBuilder, ShouldCreateQueueWithTwoValues) {
+TEST(Day01PairBuilder_Tests, ShouldCreateQueueWithTwoValues) {
   // Given
   auto* builder = new Day01PairBuilder();
   // When
@@ -73,7 +73,7 @@ TEST(Day01PairBuilder, ShouldCreateQueueWithTwoValues) {
   EXPECT_EQ(core::Pair(2,4), result.front());
 }
 
-TEST(Day01PairBuilder, ShouldCreateQueueInNumericalOrder) {
+TEST(Day01PairBuilder_Tests, ShouldCreateQueueInNumericalOrder) {
   // Given
   auto* builder = new Day01PairBuilder();
   // When
@@ -89,7 +89,7 @@ TEST(Day01PairBuilder, ShouldCreateQueueInNumericalOrder) {
   EXPECT_EQ(core::Pair(2,4), result.front());
 }
 
-TEST(Day01PairBuilder, ShouldCreateAndReturnEmptyDictionary) {
+TEST(Day01PairBuilder_Tests, ShouldCreateAndReturnEmptyDictionary) {
   // Given
   auto* builder = new Day01PairBuilder();
   // When I do nothing
@@ -98,7 +98,7 @@ TEST(Day01PairBuilder, ShouldCreateAndReturnEmptyDictionary) {
   EXPECT_EQ(true, result.empty());
 }
 
-TEST(Day01PairBuilder, ShouldCreateAndReturnDictionaryWithOneItem) {
+TEST(Day01PairBuilder_Tests, ShouldCreateAndReturnDictionaryWithOneItem) {
   // Given
   auto* builder = new Day01PairBuilder();
   // When I do nothing
@@ -109,7 +109,7 @@ TEST(Day01PairBuilder, ShouldCreateAndReturnDictionaryWithOneItem) {
   EXPECT_EQ(1, result[2]);
 }
 
-TEST(Day01PairBuilder, ShouldCreateAndReturnDictionaryWithTwoItems) {
+TEST(Day01PairBuilder_Tests, ShouldCreateAndReturnDictionaryWithTwoItems) {
   // Given
   auto* builder = new Day01PairBuilder();
   // When I do nothing
@@ -122,7 +122,7 @@ TEST(Day01PairBuilder, ShouldCreateAndReturnDictionaryWithTwoItems) {
   EXPECT_EQ(1, result[3]);
 }
 
-TEST(Day01PairBuilder, ShouldCreateAndReturnDictionaryWithTwoItemsButDuplicates) {
+TEST(Day01PairBuilder_Tests, ShouldCreateAndReturnDictionaryWithTwoItemsButDuplicates) {
   // Given
   auto* builder = new Day01PairBuilder();
   // When I do nothing

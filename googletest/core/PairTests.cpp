@@ -8,7 +8,7 @@
 
 using namespace core;
 
-TEST(PairTest, ShouldReturnDistanceOfZero)
+TEST(Pair_Tests, ShouldReturnDistanceOfZero)
 {
   // Given
   Pair myPair(0,0);
@@ -18,7 +18,7 @@ TEST(PairTest, ShouldReturnDistanceOfZero)
   EXPECT_EQ(0, result);
 }
 
-TEST(PairTest, ShouldReturnDistanceOfFiveWhenFirstValueSmaller)
+TEST(Pair_Tests, ShouldReturnDistanceOfFiveWhenFirstValueSmaller)
 {
   // Given
   Pair myPair(0,5);
@@ -29,7 +29,7 @@ TEST(PairTest, ShouldReturnDistanceOfFiveWhenFirstValueSmaller)
 }
 
 
-TEST(PairTest, ShouldReturnDistanceOfFiveWhenSecondValueSmaller)
+TEST(Pair_Tests, ShouldReturnDistanceOfFiveWhenSecondValueSmaller)
 {
   // Given
   Pair myPair(5,0);

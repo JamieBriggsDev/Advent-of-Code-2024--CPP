@@ -8,6 +8,7 @@
 #include <stdexcept>
 
 #include "../day1/Day01.h"
+#include "../day2/Day02.h"
 #include "FileReader.h"
 
 namespace helper {
@@ -15,6 +16,9 @@ solutions::Day *AOCInitializer::getDay(int dayNumber) {
   switch (dayNumber) {
   case 1:
     return new solutions::Day01();
+    break;
+  case 2:
+    return new solutions::Day02();
   default:
     printf("Unknown day passed %d", dayNumber);
     throw std::invalid_argument("Day could not be found");

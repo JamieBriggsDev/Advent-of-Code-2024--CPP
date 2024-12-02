@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 23)
 add_executable(aoc2024 main.cpp
         cpp/day1/Day01.cpp
         cpp/day1/Day01.h
+        cpp/day2/Day02.cpp
+        cpp/day2/Day02.h
         cpp/helper/FileReader.cpp
         cpp/helper/FileReader.h
         cpp/helper/SolutionInput.cpp
@@ -18,4 +20,6 @@ add_executable(aoc2024 main.cpp
         cpp/core/Pair.h
         cpp/day1/Day01PairBuilder.cpp
         cpp/day1/Day01PairBuilder.h
+        cpp/day2/Report.cpp
+        cpp/day2/Report.h
 )

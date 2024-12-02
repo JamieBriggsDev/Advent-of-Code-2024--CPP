@@ -20,8 +20,11 @@ add_executable(Google_Tests_run
         ../cpp/core/Pair.h
         ../cpp/day1/Day01PairBuilder.cpp
         ../cpp/day1/Day01PairBuilder.h
+        ../cpp/day2/Report.cpp
+        ../cpp/day2/Report.h
         core/PairTests.cpp
         day1/Day01PairBuilderTests.cpp
+        day2/ReportTests.cpp
 )
 
 # Set optimization flags for Release configuration
