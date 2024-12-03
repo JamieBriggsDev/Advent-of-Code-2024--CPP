@@ -47,6 +47,9 @@ bool solutions::Report::isSafeDueToDifference() {
 }
 std::vector<solutions::Report> solutions::Report::getDampenerReports() {
   std::vector<solutions::Report> dampenerReports;
+  if(reportContents.size() <= 1) {
+    return dampenerReports;
+  }
   for(int i = 0; i < this->reportContents.size(); i++) {
     // Create a report with every number in existing report apart from
     //  report at index `i`

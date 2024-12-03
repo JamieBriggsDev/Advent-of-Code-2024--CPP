@@ -47,7 +47,7 @@ TEST(Report_IsSafeDueToTrajectory_Tests, ShouldReturnTrueForTrajectoryWhenOneNum
   // When
   auto* subject = new solutions::Report(rawReport);
   // Then
-  EXPECT_EQ(true, subject->isSafeDueToTrajectory());
+  EXPECT_TRUE(subject->isSafeDueToTrajectory());
 }
 
 TEST(Report_IsSafeDueToTrajectory_Tests, ShouldReturnTrueForTrajectoryWhenTwoNumbers) {
@@ -56,7 +56,7 @@ TEST(Report_IsSafeDueToTrajectory_Tests, ShouldReturnTrueForTrajectoryWhenTwoNum
   // When
   auto* subject = new solutions::Report(rawReport);
   // Then
-  EXPECT_EQ(true, subject->isSafeDueToTrajectory());
+  EXPECT_TRUE(subject->isSafeDueToTrajectory());
 }
 
 TEST(Report_IsSafeDueToTrajectory_Tests, ShouldReturnTrueForTrajectoryWhenThreeNumbers) {
@@ -65,7 +65,7 @@ TEST(Report_IsSafeDueToTrajectory_Tests, ShouldReturnTrueForTrajectoryWhenThreeN
   // When
   auto* subject = new solutions::Report(rawReport);
   // Then
-  EXPECT_EQ(true, subject->isSafeDueToTrajectory());
+  EXPECT_TRUE(subject->isSafeDueToTrajectory());
 }
 
 TEST(Report_IsSafeDueToTrajectory_Tests, ShouldReturnFalseWhenNumbersIncreaseThenDecrease) {
@@ -92,7 +92,7 @@ TEST(Report_IsSafeDueToTrajectory_Tests, ShouldReturnTrueWhenLoadsOfNumbersIncre
   // When
   auto* subject = new solutions::Report(rawReport);
   // Then
-  EXPECT_EQ(true, subject->isSafeDueToTrajectory());
+  EXPECT_TRUE(subject->isSafeDueToTrajectory());
 }
 
 TEST(Report_IsSafeDueToTrajectory_Tests, ShouldReturnTrueWhenLoadsOfNumbersDescreasing) {
@@ -101,7 +101,7 @@ TEST(Report_IsSafeDueToTrajectory_Tests, ShouldReturnTrueWhenLoadsOfNumbersDescr
   // When
   auto* subject = new solutions::Report(rawReport);
   // Then
-  EXPECT_EQ(true, subject->isSafeDueToTrajectory());
+  EXPECT_TRUE(subject->isSafeDueToTrajectory());
 }
 
 TEST(Report_IsSafeDueToTrajectory_Tests, ShouldReturnFalseWhenTwoIdenticalNumbers) {
@@ -137,7 +137,7 @@ TEST(Report_IsSafeDueToDifference_Tests, ShouldReturnTrueWhenOneNumber) {
   // When
   auto* subject = new solutions::Report(rawReport);
   // Then
-  EXPECT_EQ(true, subject->isSafeDueToDifference());
+  EXPECT_TRUE(subject->isSafeDueToDifference());
 }
 
 TEST(Report_IsSafeDueToDifference_Tests, ShouldReturnTrueWhenTwoNumbersWith1Difference) {
@@ -146,7 +146,7 @@ TEST(Report_IsSafeDueToDifference_Tests, ShouldReturnTrueWhenTwoNumbersWith1Diff
   // When
   auto* subject = new solutions::Report(rawReport);
   // Then
-  EXPECT_EQ(true, subject->isSafeDueToDifference());
+  EXPECT_TRUE(subject->isSafeDueToDifference());
 }
 
 TEST(Report_IsSafeDueToDifference_Tests, ShouldReturnTrueWhenTwoNumbersWith2Difference) {
@@ -155,7 +155,7 @@ TEST(Report_IsSafeDueToDifference_Tests, ShouldReturnTrueWhenTwoNumbersWith2Diff
   // When
   auto* subject = new solutions::Report(rawReport);
   // Then
-  EXPECT_EQ(true, subject->isSafeDueToDifference());
+  EXPECT_TRUE(subject->isSafeDueToDifference());
 }
 
 TEST(Report_IsSafeDueToDifference_Tests, ShouldReturnTrueWhenTwoNumbersWith3Difference) {
@@ -164,7 +164,7 @@ TEST(Report_IsSafeDueToDifference_Tests, ShouldReturnTrueWhenTwoNumbersWith3Diff
   // When
   auto* subject = new solutions::Report(rawReport);
   // Then
-  EXPECT_EQ(true, subject->isSafeDueToDifference());
+  EXPECT_TRUE(subject->isSafeDueToDifference());
 }
 
 TEST(Report_IsSafeDueToDifference_Tests, ShouldReturnTrueWhenTwoNumbersWith4Difference) {
@@ -182,7 +182,7 @@ TEST(Report_IsSafeDueToDifference_Tests, ShouldReturnTrueWithFiveNumbers) {
   // When
   auto* subject = new solutions::Report(rawReport);
   // Then
-  EXPECT_EQ(true, subject->isSafeDueToDifference());
+  EXPECT_TRUE(subject->isSafeDueToDifference());
 }
 
 TEST(Report_GetDampenerReports_Tests, ShouldReturnEmptyVectorWithOneNumber){
@@ -192,7 +192,7 @@ TEST(Report_GetDampenerReports_Tests, ShouldReturnEmptyVectorWithOneNumber){
   // When
   std::vector<solutions::Report> result = subject->getDampenerReports();
   // Then
-  EXPECT_EQ(true, result.empty());
+  EXPECT_TRUE(result.empty());
 }
 
 TEST(Report_GetDampenerReports_Tests, ShouldReturnTwoVectorsWithTwoNumbers){

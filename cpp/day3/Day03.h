@@ -1,9 +1,9 @@
 //
-// Created by Jamie Briggs on 02/12/2024.
+// Created by Jamie Briggs on 03/12/2024.
 //
 
-#ifndef DAY_02_H
-#define DAY_02_H
+#ifndef DAY_03_H
+#define DAY_03_H
 
 #include <string>
 
@@ -13,11 +13,11 @@
 using namespace helper;
 
 namespace solutions {
-    class Day02 final : public Day {
+    class Day03 final : public Day {
     public:
         std::string solvePartOne(const helper::SolutionInput* input) override;
         std::string solvePartTwo(const helper::SolutionInput* input) override;
     };
 } // solutions
 
-#endif //DAY_02_H
+#endif //DAY_03_H

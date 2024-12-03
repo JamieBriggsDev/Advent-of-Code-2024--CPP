@@ -8,6 +8,8 @@ add_executable(aoc2024 main.cpp
         cpp/day1/Day01.h
         cpp/day2/Day02.cpp
         cpp/day2/Day02.h
+        cpp/day3/Day03.cpp
+        cpp/day3/Day03.h
         cpp/helper/FileReader.cpp
         cpp/helper/FileReader.h
         cpp/helper/SolutionInput.cpp
@@ -22,4 +24,7 @@ add_executable(aoc2024 main.cpp
         cpp/day1/Day01PairBuilder.h
         cpp/day2/Report.cpp
         cpp/day2/Report.h
+        cpp/day3/Computer.h
+        cpp/day3/Computer.cpp
+        cpp/day3/MultiplyCommand.h
 )

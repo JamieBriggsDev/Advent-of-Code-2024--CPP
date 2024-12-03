@@ -17,10 +17,10 @@ SolutionInput* FileReader::readFile(const string& fileLocation) {
   vector<string> solutionInput;
   // Open a file in read mode
   if (FILE *fp = fopen(fileLocation.c_str(), "r")) {
-    char row[500];
+    char row[10000];
 
     // This reads a line up to 500 characters long
-    while (fscanf(fp, "%500[^\n]\n", &row) != EOF) {
+    while (fscanf(fp, "%10000[^\n]\n", &row) != EOF) {
       solutionInput.emplace_back(row);
     }
     fclose(fp);
