@@ -6,18 +6,19 @@
 #define COMPUTER_H
 #include <queue>
 
-#include "MultiplyCommand.h"
+#include "MultiplyInstruction.h"
 
 
 class Computer {
-  std::queue<MultiplyCommand> commands;
+  std::queue<Instruction*> commands;
 public:
   Computer() = default;
   void loadMemory(const std::string& rawMemory);
-  bool containsAnyCommands() const;
-  int totalCommands() const;
-  MultiplyCommand peekNextCommand() const;
-  MultiplyCommand popNextCommand();
+  [[nodiscard]] bool containsAnyCommands() const;
+  [[nodiscard]] int totalCommands() const;
+  [[nodiscard]] Instruction* peekNextCommand() const;
+  Instruction* popNextCommand();
+  [[nodiscard]] std::vector<Instruction*> peekAllCommands() const;
 };
 
 

@@ -27,8 +27,11 @@ add_executable(Google_Tests_run
         day2/ReportTests.cpp
         ../cpp/day3/Computer.cpp
         ../cpp/day3/Computer.h
-        ../cpp/day3/MultiplyCommand.h
+        ../cpp/day3/MultiplyInstruction.h
         day3/ComputerTests.cpp
+        ../cpp/day3/Instruction.h
+        ../cpp/day3/DoInstruction.h
+        ../cpp/day3/DontInstruction.h
 )
 
 # Set optimization flags for Release configuration
