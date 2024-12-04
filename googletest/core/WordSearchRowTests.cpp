@@ -2,7 +2,7 @@
 // Created by Jamie Briggs on 04/12/2024.
 //
 
-#include "../../cpp/day4/WordSearchRow.h"
+#include "../../cpp/core/WordSearchRow.h"
 
 
 #include <gtest/gtest.h>

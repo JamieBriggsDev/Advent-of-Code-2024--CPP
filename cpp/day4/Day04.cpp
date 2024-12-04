@@ -4,7 +4,7 @@
 
 #include "Day04.h"
 
-#include "WordSearchGrid.h"
+#include "../core/WordSearchGrid.h"
 std::string solutions::Day04::solvePartOne(const helper::SolutionInput *input) {
 
   int totalXmas = 0;

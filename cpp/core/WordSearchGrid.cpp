@@ -2,7 +2,7 @@
 // Created by Jamie Briggs on 04/12/2024.
 //
 
-#include "WordSearchGrid.h"
+#include "../core/WordSearchGrid.h"
 
 WordSearchGrid::WordSearchGrid(std::vector<std::string> rawRows) {
   // First initialize **grid

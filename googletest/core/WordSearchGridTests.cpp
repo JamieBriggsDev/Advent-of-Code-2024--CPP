@@ -4,7 +4,7 @@
 
 #include <cmath>
 
-#include "../../cpp/day4/WordSearchGrid.h"
+#include "../../cpp/core/WordSearchGrid.h"
 
 #include <gtest/gtest.h>
 

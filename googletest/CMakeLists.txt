@@ -32,12 +32,12 @@ add_executable(Google_Tests_run
         ../cpp/day3/Instruction.h
         ../cpp/day3/DoInstruction.h
         ../cpp/day3/DontInstruction.h
-        ../cpp/day4/WordSearchRow.h
-        ../cpp/day4/WordSearchRow.cpp
+        ../cpp/core/WordSearchRow.cpp
+        ../cpp/core/WordSearchRow.h
+        ../cpp/core/WordSearchGrid.h
+        ../cpp/core/WordSearchGrid.cpp
         core/WordSearchRowTests.cpp
-        ../cpp/day4/WordSearchGrid.cpp
-        ../cpp/day4/WordSearchGrid.h
-        day4/WordSearchGridTests.cpp
+        core/WordSearchGridTests.cpp
         testHelper/InputUtils.cpp
         testHelper/InputUtils.h
 )
