@@ -29,4 +29,9 @@ add_executable(aoc2024 main.cpp
         cpp/day3/MultiplyInstruction.h
         cpp/day3/DoInstruction.h
         cpp/day3/DontInstruction.h
+        cpp/day4/WordSearchRow.cpp
+        cpp/day4/WordSearchRow.h
+        cpp/day4/Day04.cpp
+        cpp/day4/Day04.h
+        cpp/day4/WordSearchGrid.cpp
 )
