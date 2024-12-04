@@ -10,6 +10,7 @@
 
 
 class WordSearchGrid {
+protected:
   char** grid;
   int verticalLength;
   int horizontalLength;

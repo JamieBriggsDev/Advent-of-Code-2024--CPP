@@ -40,6 +40,9 @@ add_executable(Google_Tests_run
         core/WordSearchGridTests.cpp
         testHelper/InputUtils.cpp
         testHelper/InputUtils.h
+        ../cpp/day4/MasSearchGrid.cpp
+        ../cpp/day4/MasSearchGrid.h
+        day4/MasSearchGridTests.cpp
 )
 
 # Set optimization flags for Release configuration

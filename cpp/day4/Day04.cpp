@@ -5,6 +5,7 @@
 #include "Day04.h"
 
 #include "../core/WordSearchGrid.h"
+#include "MasSearchGrid.h"
 std::string solutions::Day04::solvePartOne(const helper::SolutionInput *input) {
 
   int totalXmas = 0;
@@ -17,5 +18,9 @@ std::string solutions::Day04::solvePartOne(const helper::SolutionInput *input) {
   return std::to_string(totalXmas);
 }
 std::string solutions::Day04::solvePartTwo(const helper::SolutionInput *input) {
-  return "Haven't solved yet!";
+  auto* grid = new MasSearchGrid(input->getTestInput());
+
+  int totalXmas = grid->findTotalOccurrencesOfXMas();
+
+  return std::to_string(totalXmas);
 }

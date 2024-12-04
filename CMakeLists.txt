@@ -35,4 +35,6 @@ add_executable(aoc2024 main.cpp
         cpp/core/WordSearchGrid.cpp
         cpp/day4/Day04.cpp
         cpp/day4/Day04.h
+        cpp/day4/MasSearchGrid.h
+        cpp/day4/MasSearchGrid.cpp
 )
