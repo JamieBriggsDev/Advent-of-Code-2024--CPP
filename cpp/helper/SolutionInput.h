@@ -12,18 +12,18 @@ using namespace std;
 
 namespace helper {
 
-class SolutionInput {
+  class SolutionInput {
     const vector<string> testInput;
-public:
-    SolutionInput(vector<string> input): testInput(std::move(input)){ }
+
+  public:
+    SolutionInput(vector<string> input) : testInput(std::move(input)) {}
 
     vector<string> getTestInput() const;
-    [[nodiscard]] int getTotalRowsInInput() const {
-        return testInput.size();
-    };
-};
+    vector<vector<string>> getSplitTestInput(std::string rowToSplitBy) const;
+    [[nodiscard]] int getTotalRowsInInput() const { return testInput.size(); };
+  };
 
-}
+} // namespace helper
 
 
-#endif //TESTINPUT_H
+#endif // TESTINPUT_H

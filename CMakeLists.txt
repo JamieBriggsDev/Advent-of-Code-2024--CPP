@@ -37,4 +37,10 @@ add_executable(aoc2024 main.cpp
         cpp/day4/Day04.h
         cpp/day4/MasSearchGrid.h
         cpp/day4/MasSearchGrid.cpp
+        cpp/day5/Day05.h
+        cpp/day5/Day05.cpp
+        cpp/day5/PageOrderingRules.cpp
+        cpp/day5/PageOrderingRules.h
+        cpp/day5/PageUpdate.cpp
+        cpp/day5/PageUpdate.h
 )

@@ -43,6 +43,13 @@ add_executable(Google_Tests_run
         ../cpp/day4/MasSearchGrid.cpp
         ../cpp/day4/MasSearchGrid.h
         day4/MasSearchGridTests.cpp
+        helper/SolutionHelperTests.cpp
+        ../cpp/day5/PageOrderingRules.cpp
+        ../cpp/day5/PageOrderingRules.h
+        day5/PageOrderingRulesTests.cpp
+        ../cpp/day5/PageUpdate.cpp
+        ../cpp/day5/PageUpdate.h
+        day5/PageUpdateTests.cpp
 )
 
 # Set optimization flags for Release configuration

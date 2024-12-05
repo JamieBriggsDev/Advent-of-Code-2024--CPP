@@ -20,9 +20,17 @@ SolutionInput* FileReader::readFile(const string& fileLocation) {
     char row[10000];
 
     // This reads a line up to 500 characters long
-    while (fscanf(fp, "%10000[^\n]\n", &row) != EOF) {
+    /*while (fscanf(fp, "%10000[^\n]\n", &row) != EOF) {
+      solutionInput.emplace_back(row);
+    }*/
+    while (fgets(row, sizeof(row), fp)) {
+      // Remove potential newline character at the end
+      size_t len = strcspn(row, "\n");
+      row[len] = '\0'; // Replace newline with null terminator
+
       solutionInput.emplace_back(row);
     }
+
     fclose(fp);
   }else {
     std::cerr << "Error opening file " << fileLocation << std::endl;

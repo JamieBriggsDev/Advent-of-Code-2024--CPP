@@ -51,3 +51,6 @@ needs solving.
 | Day   | Link                        |
 |-------|-----------------------------|
 | Day 1 | [Day1.md](puzzle%2FDay1.md) |
+| Day 2 | [Day2.md](puzzle%2FDay2.md) |
+| Day 3 | [Day3.md](puzzle%2FDay3.md) |
+| Day 4 | [Day4.md](puzzle%2FDay4.md) |
