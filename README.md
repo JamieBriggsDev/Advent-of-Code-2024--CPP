@@ -54,3 +54,10 @@ needs solving.
 | Day 2 | [Day2.md](puzzle%2FDay2.md) |
 | Day 3 | [Day3.md](puzzle%2FDay3.md) |
 | Day 4 | [Day4.md](puzzle%2FDay4.md) |
+| Day 5 | [Day5.md](puzzle%2FDay5.md) |
+| Day 6 | [Day6.md](puzzle%2FDay6.md) |
+
+## Unit Testing
+To write these solutions, TDD has been used for the most part. Tests are created using Google Tests, and can
+easily be run in CLion by loading the CMakeLists.txt project in the `./googletest/` directory. 
+Currently, there are `147` tests!

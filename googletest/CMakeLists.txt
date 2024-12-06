@@ -51,6 +51,12 @@ add_executable(Google_Tests_run
         ../cpp/day5/PageUpdate.h
         day5/PageUpdateTests.cpp
         ../cpp/core/Grid.h
+        ../cpp/day6/LabGrid.cpp
+        ../cpp/day6/LabGrid.h
+        day6/LabGridTests.cpp
+        ../cpp/core/Orientation.h
+        day6/LabGuardTests.cpp
+        ../cpp/day6/LabEntity.h
 )
 
 # Set optimization flags for Release configuration

@@ -44,4 +44,6 @@ add_executable(aoc2024 main.cpp
         cpp/day5/PageUpdate.cpp
         cpp/day5/PageUpdate.h
         cpp/day6/Day06.cpp
+        cpp/day6/LabGrid.cpp
+        cpp/day6/LabEntity.h
 )

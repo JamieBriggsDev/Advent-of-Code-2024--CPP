@@ -13,11 +13,14 @@
 namespace core {
 
 class WordSearchGrid : public Grid<char> {
-public:
-  [[nodiscard]] char convertToObject(char c) const override {
+protected:
+  [[nodiscard]] char convertToObject(const char c, const int x, const int y) override {
     return c;
   }
-  explicit WordSearchGrid(std::vector<std::string> rawRows) : Grid<char>(std::move(rawRows)){};
+public:
+  explicit WordSearchGrid(std::vector<std::string> rawRows) {
+    this->init(std::move(rawRows));
+  };
   [[nodiscard]] int findTotalHorizontalInstances(const std::string& word) const;
   [[nodiscard]] int findTotalVerticalInstances(const std::string& word) const;
   [[nodiscard]] int findTotalDiagonalInstances(const std::string& word) const;

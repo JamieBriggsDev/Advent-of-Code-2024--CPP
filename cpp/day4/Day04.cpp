@@ -9,7 +9,7 @@
 std::string solutions::Day04::solvePartOne(const helper::SolutionInput *input) {
 
   int totalXmas = 0;
-  auto* grid = new WordSearchGrid(input->getTestInput());
+  auto* grid = new core::WordSearchGrid(input->getTestInput());
 
   totalXmas += grid->findTotalHorizontalInstances("XMAS");
   totalXmas += grid->findTotalVerticalInstances("XMAS");
