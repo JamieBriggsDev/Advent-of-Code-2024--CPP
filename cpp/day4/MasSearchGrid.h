@@ -8,7 +8,7 @@
 #include "../core/WordSearchGrid.h"
 
 
-class MasSearchGrid : public WordSearchGrid{
+class MasSearchGrid : public core::WordSearchGrid{
 public:
   explicit MasSearchGrid(const std::vector<std::string> &rawRows) : WordSearchGrid(rawRows) {}
   int findTotalOccurrencesOfXMas();

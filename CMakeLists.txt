@@ -43,4 +43,5 @@ add_executable(aoc2024 main.cpp
         cpp/day5/PageOrderingRules.h
         cpp/day5/PageUpdate.cpp
         cpp/day5/PageUpdate.h
+        cpp/day6/Day06.cpp
 )

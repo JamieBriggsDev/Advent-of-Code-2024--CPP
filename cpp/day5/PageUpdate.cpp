@@ -39,21 +39,29 @@ namespace day5 {
     return this->updates[middleIndex];
   }
   bool PageUpdate::isInCorrectOrder(PageOrderingRules orderingRules) const {
-    for(int pageCurrentlyCheckingIndex = 0; pageCurrentlyCheckingIndex < updates.size(); pageCurrentlyCheckingIndex++) {
-      for(int pageCurrentlyCrossReferencingIndex = 0; pageCurrentlyCrossReferencingIndex < updates.size(); pageCurrentlyCrossReferencingIndex++) {
+    bool hadToBeCorrected = false;
+    for (int pageCurrentlyCheckingIndex = 0; pageCurrentlyCheckingIndex < updates.size();
+         pageCurrentlyCheckingIndex++) {
+      for (int pageCurrentlyCrossReferencingIndex = 0; pageCurrentlyCrossReferencingIndex < updates.size();
+           pageCurrentlyCrossReferencingIndex++) {
         // Skip if both indices are the same
-        if(pageCurrentlyCheckingIndex == pageCurrentlyCrossReferencingIndex) { continue; }
+        if (pageCurrentlyCheckingIndex == pageCurrentlyCrossReferencingIndex) {
+          continue;
+        }
         int pageNumberCurrentlyChecking = this->updates[pageCurrentlyCheckingIndex];
         int pageNumberCurrentlyCrossReferencing = this->updates[pageCurrentlyCrossReferencingIndex];
+
         // Before numbers
-        if(pageCurrentlyCrossReferencingIndex < pageCurrentlyCheckingIndex) {
-          if(!orderingRules.isSubjectNumberBeforeTargetNumber(pageNumberCurrentlyChecking, pageNumberCurrentlyCrossReferencing)) {
+        if (pageCurrentlyCrossReferencingIndex < pageCurrentlyCheckingIndex) {
+          if (!orderingRules.isSubjectNumberBeforeTargetNumber(pageNumberCurrentlyChecking,
+                                                               pageNumberCurrentlyCrossReferencing)) {
             return false;
           }
         }
-        // Before numbers
+        // After numbers
         else {
-          if(!orderingRules.isSubjectNumberAfterTargetNumber(pageNumberCurrentlyChecking, pageNumberCurrentlyCrossReferencing)) {
+          if (!orderingRules.isSubjectNumberAfterTargetNumber(pageNumberCurrentlyChecking,
+                                                              pageNumberCurrentlyCrossReferencing)) {
             return false;
           }
         }
@@ -61,4 +69,34 @@ namespace day5 {
     }
     return true;
   }
-} // day5
+  void PageUpdate::fixOrder(PageOrderingRules orderingRules) {
+    for (int pageCurrentlyCheckingIndex = 0; pageCurrentlyCheckingIndex < updates.size();
+         pageCurrentlyCheckingIndex++) {
+      for (int pageCurrentlyCrossReferencingIndex = 0; pageCurrentlyCrossReferencingIndex < updates.size();
+           pageCurrentlyCrossReferencingIndex++) {
+        // Skip if both indices are the same
+        if (pageCurrentlyCheckingIndex == pageCurrentlyCrossReferencingIndex) {
+          continue;
+        }
+        int pageNumberCurrentlyChecking = this->updates[pageCurrentlyCheckingIndex];
+        int pageNumberCurrentlyCrossReferencing = this->updates[pageCurrentlyCrossReferencingIndex];
+
+        // Before numbers
+        if (pageCurrentlyCrossReferencingIndex < pageCurrentlyCheckingIndex) {
+          if (!orderingRules.isSubjectNumberBeforeTargetNumber(pageNumberCurrentlyChecking,
+                                                               pageNumberCurrentlyCrossReferencing)) {
+            // Move before number to be after target index
+            std::swap(updates[pageCurrentlyCheckingIndex], updates[pageCurrentlyCrossReferencingIndex]);
+          }
+        }
+        // After numbers
+        else {
+          if (!orderingRules.isSubjectNumberAfterTargetNumber(pageNumberCurrentlyChecking,
+                                                              pageNumberCurrentlyCrossReferencing)) {
+            std::swap(updates[pageCurrentlyCheckingIndex], updates[pageCurrentlyCrossReferencingIndex]);
+          }
+        }
+      }
+    }
+  }
+} // namespace day5

@@ -4,32 +4,26 @@
 
 #ifndef WORDSEARCHGRID_H
 #define WORDSEARCHGRID_H
+#include <utility>
 #include <vector>
 
+#include "Grid.h"
 #include "WordSearchRow.h"
 
+namespace core {
 
-class WordSearchGrid {
-protected:
-  char** grid;
-  int verticalLength;
-  int horizontalLength;
+class WordSearchGrid : public Grid<char> {
 public:
-  explicit WordSearchGrid(std::vector<std::string> rawRows);
-  [[nodiscard]] char** getGrid() const {
-    return grid;
+  [[nodiscard]] char convertToObject(char c) const override {
+    return c;
   }
-  [[nodiscard]] int getVerticalLength() const {
-    return verticalLength;
-  }
-  [[nodiscard]] int getHorizontalLength() const {
-    return horizontalLength;
-  }
+  explicit WordSearchGrid(std::vector<std::string> rawRows) : Grid<char>(std::move(rawRows)){};
   [[nodiscard]] int findTotalHorizontalInstances(const std::string& word) const;
   [[nodiscard]] int findTotalVerticalInstances(const std::string& word) const;
   [[nodiscard]] int findTotalDiagonalInstances(const std::string& word) const;
 };
 
+}
 
 
 #endif //WORDSEARCHGRID_H

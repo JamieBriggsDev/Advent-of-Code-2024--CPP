@@ -233,3 +233,124 @@ TEST(PageUpdate_IsInCorrectOrder_Tests, ShouldReturnFalseExampleFour) {
   // Then
   ASSERT_EQ(false, result);
 }
+
+TEST(PageUpdate_FixOrder_Tests, ShouldFixOrderOfThreeNumbersMoveHigher) {
+  // Given
+  auto* updates = new day5::PageUpdate("1,3,2");
+  day5::PageOrderingRules rules = day5::PageOrderingRules();
+  rules.importPageOrderingRule("1|2");
+  rules.importPageOrderingRule("1|3");
+  rules.importPageOrderingRule("2|3");
+  // When
+  updates->fixOrder(rules);
+  // Then
+  ASSERT_EQ(1, updates->getUpdates()[0]);
+  ASSERT_EQ(2, updates->getUpdates()[1]);
+  ASSERT_EQ(3, updates->getUpdates()[2]);
+}
+TEST(PageUpdate_FixOrder_Tests, ShouldFixOrderExampleOne) {
+  // Given
+  auto* updates = new day5::PageUpdate("75,97,47,61,53");
+  day5::PageOrderingRules rules = day5::PageOrderingRules();
+  rules.importPageOrderingRule("75|47");
+  rules.importPageOrderingRule("47|53");
+  rules.importPageOrderingRule("97|13");
+  rules.importPageOrderingRule("97|61");
+  rules.importPageOrderingRule("97|47");
+  rules.importPageOrderingRule("75|29");
+  rules.importPageOrderingRule("61|13");
+  rules.importPageOrderingRule("75|53");
+  rules.importPageOrderingRule("29|13");
+  rules.importPageOrderingRule("97|29");
+  rules.importPageOrderingRule("53|29");
+  rules.importPageOrderingRule("61|53");
+  rules.importPageOrderingRule("97|53");
+  rules.importPageOrderingRule("61|29");
+  rules.importPageOrderingRule("47|13");
+  rules.importPageOrderingRule("75|47");
+  rules.importPageOrderingRule("97|75");
+  rules.importPageOrderingRule("47|61");
+  rules.importPageOrderingRule("75|61");
+  rules.importPageOrderingRule("47|29");
+  rules.importPageOrderingRule("75|13");
+  rules.importPageOrderingRule("53|13");
+
+  // When
+  updates->fixOrder(rules);
+  // Then
+  ASSERT_EQ(97, updates->getUpdates()[0]);
+  ASSERT_EQ(75, updates->getUpdates()[1]);
+  ASSERT_EQ(47, updates->getUpdates()[2]);
+  ASSERT_EQ(61, updates->getUpdates()[3]);
+  ASSERT_EQ(53, updates->getUpdates()[4]);
+}
+TEST(PageUpdate_FixOrder_Tests, ShouldFixOrderExampleTwo) {
+  // Given
+  auto* updates = new day5::PageUpdate("61,13,29");
+  day5::PageOrderingRules rules = day5::PageOrderingRules();
+  rules.importPageOrderingRule("75|47");
+  rules.importPageOrderingRule("47|53");
+  rules.importPageOrderingRule("97|13");
+  rules.importPageOrderingRule("97|61");
+  rules.importPageOrderingRule("97|47");
+  rules.importPageOrderingRule("75|29");
+  rules.importPageOrderingRule("61|13");
+  rules.importPageOrderingRule("75|53");
+  rules.importPageOrderingRule("29|13");
+  rules.importPageOrderingRule("97|29");
+  rules.importPageOrderingRule("53|29");
+  rules.importPageOrderingRule("61|53");
+  rules.importPageOrderingRule("97|53");
+  rules.importPageOrderingRule("61|29");
+  rules.importPageOrderingRule("47|13");
+  rules.importPageOrderingRule("75|47");
+  rules.importPageOrderingRule("97|75");
+  rules.importPageOrderingRule("47|61");
+  rules.importPageOrderingRule("75|61");
+  rules.importPageOrderingRule("47|29");
+  rules.importPageOrderingRule("75|13");
+  rules.importPageOrderingRule("53|13");
+
+  // When
+  updates->fixOrder(rules);
+  // Then
+  ASSERT_EQ(61, updates->getUpdates()[0]);
+  ASSERT_EQ(29, updates->getUpdates()[1]);
+  ASSERT_EQ(13, updates->getUpdates()[2]);
+}
+TEST(PageUpdate_FixOrder_Tests, ShouldFixOrderExampleThree) {
+  // Given
+  auto* updates = new day5::PageUpdate("97,13,75,29,47");
+  day5::PageOrderingRules rules = day5::PageOrderingRules();
+  rules.importPageOrderingRule("75|47");
+  rules.importPageOrderingRule("47|53");
+  rules.importPageOrderingRule("97|13");
+  rules.importPageOrderingRule("97|61");
+  rules.importPageOrderingRule("97|47");
+  rules.importPageOrderingRule("75|29");
+  rules.importPageOrderingRule("61|13");
+  rules.importPageOrderingRule("75|53");
+  rules.importPageOrderingRule("29|13");
+  rules.importPageOrderingRule("97|29");
+  rules.importPageOrderingRule("53|29");
+  rules.importPageOrderingRule("61|53");
+  rules.importPageOrderingRule("97|53");
+  rules.importPageOrderingRule("61|29");
+  rules.importPageOrderingRule("47|13");
+  rules.importPageOrderingRule("75|47");
+  rules.importPageOrderingRule("97|75");
+  rules.importPageOrderingRule("47|61");
+  rules.importPageOrderingRule("75|61");
+  rules.importPageOrderingRule("47|29");
+  rules.importPageOrderingRule("75|13");
+  rules.importPageOrderingRule("53|13");
+
+  // When
+  updates->fixOrder(rules);
+  // Then
+  ASSERT_EQ(97, updates->getUpdates()[0]);
+  ASSERT_EQ(75, updates->getUpdates()[1]);
+  ASSERT_EQ(47, updates->getUpdates()[2]);
+  ASSERT_EQ(29, updates->getUpdates()[3]);
+  ASSERT_EQ(13, updates->getUpdates()[4]);
+}

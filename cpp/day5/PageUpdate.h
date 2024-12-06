@@ -22,6 +22,7 @@ namespace day5 {
     [[nodiscard]] std::vector<int> getUpdates() const { return updates; }
     int getMiddleNumber() const;
     bool isInCorrectOrder(PageOrderingRules orderingRules) const;
+    void fixOrder(PageOrderingRules orderingRules);
   };
 
 } // namespace day5

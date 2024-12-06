@@ -10,6 +10,7 @@
 
 #include "../testHelper/InputUtils.h"
 
+using namespace core;
 
 TEST(WordSearchGrid_Tests, ShouldLoadInput) {
   // Given

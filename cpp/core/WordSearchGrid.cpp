@@ -4,29 +4,8 @@
 
 #include "../core/WordSearchGrid.h"
 
-WordSearchGrid::WordSearchGrid(std::vector<std::string> rawRows) {
-  // First initialize **grid
-  // Get vertical length
-  this->verticalLength = rawRows.size();
-  // Get horizontal length
-  this->horizontalLength = rawRows[0].size();
-  // Initialize grid
-  grid = new char *[this->verticalLength];
-  for (int i = 0; i < this->verticalLength; ++i) {
-    grid[i] = new char[this->horizontalLength];
-    for (int j = 0; j < this->horizontalLength; ++j) {
-      grid[i][j] = rawRows[i][j];
-    }
-  }
+using namespace core;
 
-  for (int y = 0; y < this->verticalLength; ++y) {
-    const std::string &row = rawRows[y];
-    for (int x = 0; x < this->horizontalLength; ++x) {
-      const char character = row[x];
-      grid[y][x] = character;
-    }
-  }
-}
 int WordSearchGrid::findTotalHorizontalInstances(const std::string& word) const {
 
   int count = 0;
