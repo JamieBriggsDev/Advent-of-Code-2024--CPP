@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Day 3 - TEST" type="CMakeRunConfiguration" factoryName="Application" folderName="Test" PROGRAM_PARAMS="3 --test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Google_tests" TARGET_NAME="aoc2024" RUN_TARGET_PROJECT_NAME="Google_tests" RUN_TARGET_NAME="aoc2024">
+  <configuration default="false" name="Day 3 - TEST" type="CMakeRunConfiguration" factoryName="Application" folderName="Test" PROGRAM_PARAMS="3 --test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aoc2024" TARGET_NAME="aoc2024" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="aoc2024" RUN_TARGET_NAME="aoc2024">
     <method v="2">
       <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
     </method>
