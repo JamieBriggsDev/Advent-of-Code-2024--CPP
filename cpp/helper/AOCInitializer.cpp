@@ -13,6 +13,7 @@
 #include "../day4/Day04.h"
 #include "../day5/Day05.h"
 #include "../day6/Day06.h"
+#include "../day8/Day08.h"
 #include "FileReader.h"
 
 namespace helper {
@@ -30,6 +31,8 @@ namespace helper {
         return new solutions::Day05();
       case 6:
         return new solutions::Day06();
+      case 8:
+        return new solutions::Day08();
       default:
         printf("Unknown day passed %d", dayNumber);
         throw std::invalid_argument("Day could not be found");

@@ -6,8 +6,10 @@
 #define GRID_H
 
 
-#include <vector>
 #include <string>
+#include <vector>
+
+#include "Pair.h"
 
 namespace core {
 
@@ -18,6 +20,9 @@ namespace core {
     T** grid;
     int verticalLength;
     int horizontalLength;
+    [[nodiscard]] bool isPairValid(core::Pair pair) const {
+      return pair.x >= 0 && pair.y >= 0 && pair.x < getHorizontalLength() && pair.y < getVerticalLength();
+    }
   public:
     void init (std::vector<std::string> rawRows) {
       // First initialize **grid

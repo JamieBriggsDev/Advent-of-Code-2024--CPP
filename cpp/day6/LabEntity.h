@@ -33,7 +33,7 @@ namespace day6 {
     core::Pair getNextPosition() {
       switch (orientation) {
         case core::NORTH:
-          return {x, static_cast<double>(y - 1)};
+          return {x, (y - 1)};
         case core::EAST:
           return core::Pair(x + 1, y);
         case core::SOUTH:

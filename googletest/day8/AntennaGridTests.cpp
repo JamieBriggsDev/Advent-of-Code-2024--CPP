@@ -35,6 +35,7 @@ TEST(AntennaGrid_Initialize_Tests, ShouldCreateRowWithOneAntenna) {
   ASSERT_EQ('A', grid.getGrid()[0][1]->getIdentifier());
   ASSERT_EQ(nullptr, grid.getGrid()[0][2]);
   ASSERT_EQ(nullptr, grid.getGrid()[0][3]);
+  ASSERT_EQ(core::Pair(1,0), grid.getAntennaLocations()[0]);
 }
 
 TEST(AntennaGrid_Initialize_Tests, ShouldCreateWithTwoRowWithTwoAntenna) {
@@ -58,8 +59,8 @@ TEST(AntennaGrid_Initialize_Tests, ShouldCreateWithTwoRowWithTwoAntenna) {
   ASSERT_EQ(3, grid.getGrid()[1][3]->x);
   ASSERT_EQ(1, grid.getGrid()[1][3]->y);
   ASSERT_EQ('A', grid.getGrid()[1][3]->getIdentifier());
-
-  // TODO: Fix test to use getAntennaLocations method to assert
+  ASSERT_EQ(core::Pair(1,0), grid.getAntennaLocations()[0]);
+  ASSERT_EQ(core::Pair(3,1), grid.getAntennaLocations()[1]);
 }
 
 
@@ -95,9 +96,202 @@ TEST(AntennaGrid_GetAntinode_Tests, ShouldCreateWithTwoRowWithTwoAntennaAndAntin
   auto antinodeLocations = grid.getAntinodeLocations('A');
   // Then
   ASSERT_EQ(nullptr, grid.getGrid()[0][0]);
-  ASSERT_TRUE(grid.getGrid()[0][1]);
-  ASSERT_TRUE(grid.getGrid()[1][3]);
+  ASSERT_TRUE(grid.getGrid()[1][1]);
+  ASSERT_TRUE(grid.getGrid()[2][1]);
+  ASSERT_TRUE(grid.getGrid()[1][2]);
+  ASSERT_TRUE(grid.getGrid()[2][2]);
   ASSERT_EQ(2, antinodeLocations.size());
   ASSERT_EQ(core::Pair(0,0), antinodeLocations[0]);
   ASSERT_EQ(core::Pair(3,3), antinodeLocations[1]);
+}
+
+TEST(AntennaGrid_GetAntinode_Tests, ShouldCreateWithTwoRowWithTwoAntennaAndAntinodesAlt) {
+  // Given
+  std::string rawInput =
+    "....\n"
+    ".AB.\n"
+    ".BA.\n"
+    "....\n"
+  ;
+  std::vector<std::string> input =
+    InputUtils::convertToVector(rawInput);
+  auto grid = day8::AntennaGrid(input);
+  // When
+  auto antinodeLocations = grid.getAntinodeLocations('B');
+  // Then
+  ASSERT_EQ(nullptr, grid.getGrid()[0][0]);
+  ASSERT_TRUE(grid.getGrid()[1][1]);
+  ASSERT_TRUE(grid.getGrid()[2][1]);
+  ASSERT_TRUE(grid.getGrid()[1][2]);
+  ASSERT_TRUE(grid.getGrid()[2][2]);
+  ASSERT_EQ(2, antinodeLocations.size());
+  ASSERT_EQ(core::Pair(3,0), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(0,3), antinodeLocations[1]);
+}
+
+TEST(AntennaGrid_GetAntinode_Tests, ShouldCreateWithTwoRowWithTwoAntennaAndAntinodesLarger) {
+  // Given
+  std::string rawInput =
+    ".......\n"
+    ".......\n"
+    "..A.B..\n"
+    ".......\n"
+    "..B.A..\n"
+    ".......\n"
+    ".......\n"
+  ;
+  std::vector<std::string> input =
+    InputUtils::convertToVector(rawInput);
+  auto grid = day8::AntennaGrid(input);
+  // When
+  auto antinodeLocations = grid.getAntinodeLocations('A');
+  // Then
+  ASSERT_EQ(nullptr, grid.getGrid()[0][0]);
+  ASSERT_TRUE(grid.getGrid()[2][2]);
+  ASSERT_TRUE(grid.getGrid()[4][2]);
+  ASSERT_TRUE(grid.getGrid()[2][4]);
+  ASSERT_TRUE(grid.getGrid()[4][4]);
+  ASSERT_EQ(2, antinodeLocations.size());
+  ASSERT_EQ(core::Pair(0,0), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(6,6), antinodeLocations[1]);
+}
+
+TEST(AntennaGrid_GetAntinode_Tests, ShouldNotContainNodesWhichHaveFallenOffTheMapNorth) {
+  // Given
+  std::string rawInput =
+    ".......\n"
+    "..A....\n"
+    ".......\n"
+    "..A....\n"
+    ".......\n"
+    ".......\n"
+  ;
+  std::vector<std::string> input =
+    InputUtils::convertToVector(rawInput);
+  auto grid = day8::AntennaGrid(input);
+  // When
+  auto antinodeLocations = grid.getAntinodeLocations('A');
+  // Then
+  ASSERT_TRUE(grid.getGrid()[1][2]);
+  ASSERT_TRUE(grid.getGrid()[3][2]);
+  ASSERT_EQ(1, antinodeLocations.size());
+  ASSERT_EQ(core::Pair(2,5), antinodeLocations[0]);
+}
+
+TEST(AntennaGrid_GetAntinode_Tests, ShouldNotContainNodesWhichHaveFallenOffTheMapEast) {
+  // Given
+  std::string rawInput =
+    "......\n"
+    "..A.A.\n"
+    "......\n"
+  ;
+  std::vector<std::string> input =
+    InputUtils::convertToVector(rawInput);
+  auto grid = day8::AntennaGrid(input);
+  // When
+  auto antinodeLocations = grid.getAntinodeLocations('A');
+  // Then
+  ASSERT_TRUE(grid.getGrid()[1][2]);
+  ASSERT_TRUE(grid.getGrid()[1][4]);
+  ASSERT_EQ(1, antinodeLocations.size());
+  ASSERT_EQ(core::Pair(0,1), antinodeLocations[0]);
+}
+
+TEST(AntennaGrid_GetAntinode_Tests, ShouldNotContainNodesWhichHaveFallenOffTheMapSouth) {
+  // Given
+  std::string rawInput =
+    ".......\n"
+    ".......\n"
+    "..A....\n"
+    ".......\n"
+    "..A....\n"
+    ".......\n"
+  ;
+  std::vector<std::string> input =
+    InputUtils::convertToVector(rawInput);
+  auto grid = day8::AntennaGrid(input);
+  // When
+  auto antinodeLocations = grid.getAntinodeLocations('A');
+  // Then
+  ASSERT_TRUE(grid.getGrid()[2][2]);
+  ASSERT_TRUE(grid.getGrid()[4][2]);
+  ASSERT_EQ(1, antinodeLocations.size());
+  ASSERT_EQ(core::Pair(2,0), antinodeLocations[0]);
+}
+
+
+TEST(AntennaGrid_GetAntinode_Tests, ShouldNotContainNodesWhichHaveFallenOffTheMapWest) {
+  // Given
+  std::string rawInput =
+    "......\n"
+    ".A.A..\n"
+    "......\n"
+  ;
+  std::vector<std::string> input =
+    InputUtils::convertToVector(rawInput);
+  auto grid = day8::AntennaGrid(input);
+  // When
+  auto antinodeLocations = grid.getAntinodeLocations('A');
+  // Then
+  ASSERT_TRUE(grid.getGrid()[1][1]);
+  ASSERT_TRUE(grid.getGrid()[1][3]);
+  ASSERT_EQ(1, antinodeLocations.size());
+  ASSERT_EQ(core::Pair(5,1), antinodeLocations[0]);
+}
+
+
+TEST(AntennaGrid_GetAntinode_Tests, ShouldCreateWithFourAntennas) {
+  // Given
+  std::string rawInput =
+    ".......\n"
+    ".......\n"
+    "..A.A..\n"
+    ".......\n"
+    "..A.A..\n"
+    ".......\n"
+    ".......\n"
+  ;
+  std::vector<std::string> input =
+    InputUtils::convertToVector(rawInput);
+  auto grid = day8::AntennaGrid(input);
+  // When
+  auto antinodeLocations = grid.getAntinodeLocations('A');
+  // Then
+  ASSERT_EQ(nullptr, grid.getGrid()[0][0]);
+  ASSERT_TRUE(grid.getGrid()[2][2]);
+  ASSERT_TRUE(grid.getGrid()[4][2]);
+  ASSERT_TRUE(grid.getGrid()[2][4]);
+  ASSERT_TRUE(grid.getGrid()[4][4]);
+  ASSERT_EQ(12, antinodeLocations.size());
+  ASSERT_EQ(core::Pair(0,2), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(6,2), antinodeLocations[1]);
+  ASSERT_EQ(core::Pair(2,0), antinodeLocations[2]);
+  ASSERT_EQ(core::Pair(2,6), antinodeLocations[3]);
+  ASSERT_EQ(core::Pair(0,0), antinodeLocations[4]);
+  ASSERT_EQ(core::Pair(6,6), antinodeLocations[5]);
+  ASSERT_EQ(core::Pair(6,0), antinodeLocations[6]);
+  ASSERT_EQ(core::Pair(0,6), antinodeLocations[7]);
+  ASSERT_EQ(core::Pair(4,0), antinodeLocations[8]);
+  ASSERT_EQ(core::Pair(4,6), antinodeLocations[9]);
+  ASSERT_EQ(core::Pair(0,4), antinodeLocations[10]);
+  ASSERT_EQ(core::Pair(6,4), antinodeLocations[11]);
+}
+
+TEST(AntennaGrid_GetAntinode_Tests, ShouldNotContainDuplicates) {
+  // Given
+  std::string rawInput =
+    "......\n"
+    ".A.A..\n"
+    "......\n"
+  ;
+  std::vector<std::string> input =
+    InputUtils::convertToVector(rawInput);
+  auto grid = day8::AntennaGrid(input);
+  // When
+  auto antinodeLocations = grid.getAntinodeLocations('A');
+  // Then
+  ASSERT_TRUE(grid.getGrid()[1][1]);
+  ASSERT_TRUE(grid.getGrid()[1][3]);
+  ASSERT_EQ(1, antinodeLocations.size());
+  ASSERT_EQ(core::Pair(5,1), antinodeLocations[0]);
 }
