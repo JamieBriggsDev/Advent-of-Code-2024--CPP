@@ -4,7 +4,7 @@
 
 #include "PageUpdate.h"
 #include <sstream>
-
+#include <algorithm>
 
 namespace day5 {
   bool PageUpdate::isNumberAfterTargetNumber(int numberToCheck, int targetNumber) const {

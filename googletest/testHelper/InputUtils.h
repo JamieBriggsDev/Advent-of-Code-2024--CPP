@@ -5,6 +5,7 @@
 #ifndef INPUTUTILS_H
 #define INPUTUTILS_H
 #include <vector>
+#include <string>
 
 
 class InputUtils {

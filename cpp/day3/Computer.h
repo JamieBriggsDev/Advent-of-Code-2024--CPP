@@ -5,6 +5,7 @@
 #ifndef COMPUTER_H
 #define COMPUTER_H
 #include <queue>
+#include <string>
 
 #include "MultiplyInstruction.h"
 

@@ -4,6 +4,8 @@
 
 #include "Day01PairBuilder.h"
 
+#include <stdexcept>
+
 using namespace std;
 
 void solutions::Day01PairBuilder::addToListOne(int number) {

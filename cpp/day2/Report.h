@@ -5,7 +5,7 @@
 #ifndef REPORT_H
 #define REPORT_H
 #include <queue>
-
+#include <string>
 
 namespace solutions {
   class Report {

@@ -12,7 +12,7 @@ class Pair {
 public:
   int x = 0, y = 0;
   Pair() = default;
-  Pair(int a, double b) : x(a), y(b) {}
+  Pair(int a, int b) : x(a), y(b) {}
   [[nodiscard]] int distance() const {
     int result = x - y;
     if(result < 0) result = -result;

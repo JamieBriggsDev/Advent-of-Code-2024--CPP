@@ -60,6 +60,7 @@ namespace day6 {
           break;
         default:
           // Do nothing
+          break;
       }
     }
     [[nodiscard]] unsigned long totalPositionVisits() const { return positionsVisited.size(); }

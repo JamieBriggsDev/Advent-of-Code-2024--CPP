@@ -8,6 +8,7 @@
 #include <fstream>
 #include <iostream>
 #include <list>
+#include <cstring>
 
 using namespace std;
 using namespace helper;
