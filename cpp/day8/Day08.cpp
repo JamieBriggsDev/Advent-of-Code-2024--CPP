@@ -21,5 +21,12 @@ std::string solutions::Day08::solvePartOne(const helper::SolutionInput *input) {
   return std::to_string(locations.size());
 }
 std::string solutions::Day08::solvePartTwo(const helper::SolutionInput *input) {
-  return "Yet to solve";
+  day8::AntennaGrid grid = day8::AntennaGrid(input->getTestInput());
+  std::unordered_set<core::Pair> locations;
+  for(const auto &antennaType : grid.getTypesOfAntennas()) {
+    for(const auto & antinodeLocation : grid.getAntinodeLocationsUpdated(antennaType)) {
+      locations.emplace(antinodeLocation);
+    }
+  }
+  return std::to_string(locations.size());
 }

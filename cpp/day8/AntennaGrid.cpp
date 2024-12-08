@@ -23,28 +23,78 @@ namespace day8 {
 
   std::vector<core::Pair> AntennaGrid::getAntinodeLocations(char c) {
     std::vector<core::Pair> antinodeLocations;
-    std::vector<Antenna*> antennas = this->antennas[c];
-      if(antennas.size() < 2) {
-        return antinodeLocations;
+    std::vector<Antenna *> antennas = this->antennas[c];
+    if (antennas.size() < 2) {
+      return antinodeLocations;
+    }
+    for (int i = 0; i < antennas.size(); i++) {
+      // Find antinode locations using all antennas
+      for (int j = i + 1; j < antennas.size(); j++) {
+        Antenna *one = antennas[i];
+        Antenna *two = antennas[j];
+        // Get distance
+        core::Pair distance = *one - *two;
+        // Add to list
+        core::Pair locationOne = core::Pair(one->x + distance.x, one->y + distance.y);
+        if (isPairValid(locationOne)) {
+          antinodeLocations.emplace_back(locationOne);
+        }
+        core::Pair locationTwo = core::Pair(two->x - distance.x, two->y - distance.y);
+        if (isPairValid(locationTwo)) {
+          antinodeLocations.emplace_back(locationTwo);
+        }
       }
-      for(int i = 0; i < antennas.size(); i++) {
-        // Find antinode locations using all antennas
-        for(int j = i + 1; j < antennas.size(); j++) {
-          Antenna* one = antennas[i];
-          Antenna* two = antennas[j];
-          // Get distance
-          core::Pair distance = *one - *two;
-          // Add to list
-          core::Pair locationOne = core::Pair(one->x + distance.x, one->y + distance.y);
-          if(isPairValid(locationOne)) {
-            antinodeLocations.emplace_back(locationOne);
+    }
+
+    return antinodeLocations;
+  }
+  std::vector<core::Pair> AntennaGrid::getAntinodeLocationsUpdated(char c) {
+    std::vector<core::Pair> antinodeLocations;
+    std::unordered_set<core::Pair> antinodeLocationsSet;
+    std::vector<Antenna *> antennas = this->antennas[c];
+    if (antennas.size() < 2) {
+      return antinodeLocations;
+    }
+    for (int i = 0; i < antennas.size(); i++) {
+      // Find antinode locations using all antennas
+      for (int j = i + 1; j < antennas.size(); j++) {
+        Antenna *one = antennas[i];
+        Antenna *two = antennas[j];
+        // Get distance
+        core::Pair distance = *one - *two;
+        // Add to list
+
+        // Handle direction one
+        bool ranOutOfSpaceOne = false;
+        int oneIdx = 0;
+        while(!ranOutOfSpaceOne) {
+          core::Pair locationOne = core::Pair(one->x + (distance.x * oneIdx), one->y + (distance.y * oneIdx));
+          if (isPairValid(locationOne)) {
+            antinodeLocationsSet.emplace(locationOne);
+            oneIdx++;
+          }else {
+            ranOutOfSpaceOne = true;
           }
-          core::Pair locationTwo = core::Pair(two->x - distance.x,  two->y - distance.y);
-          if(isPairValid(locationTwo)) {
-            antinodeLocations.emplace_back(locationTwo);
+        }
+
+        // Handle direction two
+        bool ranOutOfSpaceTwo = false;
+        int twoIdx = 0;
+        while(!ranOutOfSpaceTwo) {
+          core::Pair locationTwo = core::Pair(two->x - (distance.x * twoIdx), two->y - (distance.y * twoIdx));
+          if (isPairValid(locationTwo)) {
+            antinodeLocationsSet.emplace(locationTwo);
+            twoIdx++;
+          }
+          else {
+            ranOutOfSpaceTwo = true;
           }
         }
       }
+    }
+
+
+    antinodeLocations.assign(antinodeLocationsSet.begin(), antinodeLocationsSet.end());
 
     return antinodeLocations;
   }

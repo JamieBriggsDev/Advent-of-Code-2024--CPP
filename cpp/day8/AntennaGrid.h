@@ -38,6 +38,7 @@ namespace day8 {
     }
     explicit AntennaGrid(std::vector<std::string> lines) { this->init(lines); }
     std::vector<core::Pair> getAntinodeLocations(char c);
+    std::vector<core::Pair> getAntinodeLocationsUpdated(char c);
     std::vector<core::Pair> getAntennaLocations();
   };
 
