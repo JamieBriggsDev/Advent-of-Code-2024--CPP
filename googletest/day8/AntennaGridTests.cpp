@@ -334,10 +334,10 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldCreateWithTwoRowWithTw
   ASSERT_TRUE(grid.getGrid()[1][2]);
   ASSERT_TRUE(grid.getGrid()[2][2]);
   ASSERT_EQ(4, antinodeLocations.size());
-  ASSERT_EQ(core::Pair(2,2), antinodeLocations[0]);
-  ASSERT_EQ(core::Pair(3,3), antinodeLocations[1]);
-  ASSERT_EQ(core::Pair(0,0), antinodeLocations[2]);
-  ASSERT_EQ(core::Pair(1,1), antinodeLocations[3]);
+  ASSERT_EQ(core::Pair(0,0), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(1,1), antinodeLocations[1]);
+  ASSERT_EQ(core::Pair(2,2), antinodeLocations[2]);
+  ASSERT_EQ(core::Pair(3,3), antinodeLocations[3]);
 }
 
 TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldCreateWithTwoRowWithTwoAntennaAndAntinodesAlt) {
@@ -361,8 +361,8 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldCreateWithTwoRowWithTw
   ASSERT_TRUE(grid.getGrid()[2][2]);
   ASSERT_EQ(4, antinodeLocations.size());
   ASSERT_EQ(core::Pair(0,3), antinodeLocations[0]);
-  ASSERT_EQ(core::Pair(3,0), antinodeLocations[1]);
-  ASSERT_EQ(core::Pair(1,2), antinodeLocations[2]);
+  ASSERT_EQ(core::Pair(1,2), antinodeLocations[1]);
+  ASSERT_EQ(core::Pair(3,0), antinodeLocations[2]);
   ASSERT_EQ(core::Pair(2,1), antinodeLocations[3]);
 }
 
@@ -389,10 +389,10 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldCreateWithTwoRowWithTw
   ASSERT_TRUE(grid.getGrid()[2][4]);
   ASSERT_TRUE(grid.getGrid()[4][4]);
   ASSERT_EQ(4, antinodeLocations.size());
-  ASSERT_EQ(core::Pair(4,4), antinodeLocations[0]);
-  ASSERT_EQ(core::Pair(6,6), antinodeLocations[1]);
-  ASSERT_EQ(core::Pair(0,0), antinodeLocations[2]);
-  ASSERT_EQ(core::Pair(2,2), antinodeLocations[3]);
+  ASSERT_EQ(core::Pair(0,0), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(2,2), antinodeLocations[1]);
+  ASSERT_EQ(core::Pair(4,4), antinodeLocations[2]);
+  ASSERT_EQ(core::Pair(6,6), antinodeLocations[3]);
 }
 
 TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldNotContainNodesWhichHaveFallenOffTheMapNorth) {
@@ -414,9 +414,9 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldNotContainNodesWhichHa
   ASSERT_TRUE(grid.getGrid()[1][2]);
   ASSERT_TRUE(grid.getGrid()[3][2]);
   ASSERT_EQ(3, antinodeLocations.size());
-  ASSERT_EQ(core::Pair(2,5), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(2,1), antinodeLocations[0]);
   ASSERT_EQ(core::Pair(2,3), antinodeLocations[1]);
-  ASSERT_EQ(core::Pair(2,1), antinodeLocations[2]);
+  ASSERT_EQ(core::Pair(2,5), antinodeLocations[2]);
 }
 
 TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldNotContainNodesWhichHaveFallenOffTheMapEast) {
@@ -435,9 +435,9 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldNotContainNodesWhichHa
   ASSERT_TRUE(grid.getGrid()[1][2]);
   ASSERT_TRUE(grid.getGrid()[1][4]);
   ASSERT_EQ(3, antinodeLocations.size());
-  ASSERT_EQ(core::Pair(4,1), antinodeLocations[0]);
-  ASSERT_EQ(core::Pair(0,1), antinodeLocations[1]);
-  ASSERT_EQ(core::Pair(2,1), antinodeLocations[2]);
+  ASSERT_EQ(core::Pair(0,1), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(2,1), antinodeLocations[1]);
+  ASSERT_EQ(core::Pair(4,1), antinodeLocations[2]);
 }
 
 TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldNotContainNodesWhichHaveFallenOffTheMapSouth) {
@@ -459,9 +459,9 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldNotContainNodesWhichHa
   ASSERT_TRUE(grid.getGrid()[2][2]);
   ASSERT_TRUE(grid.getGrid()[4][2]);
   ASSERT_EQ(3, antinodeLocations.size());
-  ASSERT_EQ(core::Pair(2,4), antinodeLocations[0]);
-  ASSERT_EQ(core::Pair(2,0), antinodeLocations[1]);
-  ASSERT_EQ(core::Pair(2,2), antinodeLocations[2]);
+  ASSERT_EQ(core::Pair(2,0), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(2,2), antinodeLocations[1]);
+  ASSERT_EQ(core::Pair(2,4), antinodeLocations[2]);
 }
 
 
@@ -481,9 +481,9 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldNotContainNodesWhichHa
   ASSERT_TRUE(grid.getGrid()[1][1]);
   ASSERT_TRUE(grid.getGrid()[1][3]);
   ASSERT_EQ(3, antinodeLocations.size());
-  ASSERT_EQ(core::Pair(5,1), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(1,1), antinodeLocations[0]);
   ASSERT_EQ(core::Pair(3,1), antinodeLocations[1]);
-  ASSERT_EQ(core::Pair(1,1), antinodeLocations[2]);
+  ASSERT_EQ(core::Pair(5,1), antinodeLocations[2]);
 }
 
 
@@ -528,9 +528,9 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldNotContainDuplicates) 
   ASSERT_TRUE(grid.getGrid()[1][1]);
   ASSERT_TRUE(grid.getGrid()[1][3]);
   ASSERT_EQ(3, antinodeLocations.size());
-  ASSERT_EQ(core::Pair(5,1), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(1,1), antinodeLocations[0]);
   ASSERT_EQ(core::Pair(3,1), antinodeLocations[1]);
-  ASSERT_EQ(core::Pair(1,1), antinodeLocations[2]);
+  ASSERT_EQ(core::Pair(5,1), antinodeLocations[2]);
 }
 
 TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldFindMultipleInDistanceEast) {
@@ -549,12 +549,12 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldFindMultipleInDistance
   ASSERT_TRUE(grid.getGrid()[1][1]);
   ASSERT_TRUE(grid.getGrid()[1][3]);
   ASSERT_EQ(6, antinodeLocations.size());
-  ASSERT_EQ(core::Pair(11,1), antinodeLocations[0]);
-  ASSERT_EQ(core::Pair(7,1), antinodeLocations[1]);
+  ASSERT_EQ(core::Pair(1,1), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(3,1), antinodeLocations[1]);
   ASSERT_EQ(core::Pair(5,1), antinodeLocations[2]);
-  ASSERT_EQ(core::Pair(9,1), antinodeLocations[3]);
-  ASSERT_EQ(core::Pair(3,1), antinodeLocations[4]);
-  ASSERT_EQ(core::Pair(1,1), antinodeLocations[5]);
+  ASSERT_EQ(core::Pair(7,1), antinodeLocations[3]);
+  ASSERT_EQ(core::Pair(9,1), antinodeLocations[4]);
+  ASSERT_EQ(core::Pair(11,1), antinodeLocations[5]);
 }
 
 TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldFindMultipleInDistanceWest) {
@@ -573,12 +573,12 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldFindMultipleInDistance
   ASSERT_TRUE(grid.getGrid()[1][8]);
   ASSERT_TRUE(grid.getGrid()[1][10]);
   ASSERT_EQ(6, antinodeLocations.size());
-  ASSERT_EQ(core::Pair(10,1), antinodeLocations[0]);
-  ASSERT_EQ(core::Pair(0,1), antinodeLocations[1]);
+  ASSERT_EQ(core::Pair(0,1), antinodeLocations[0]);
+  ASSERT_EQ(core::Pair(2,1), antinodeLocations[1]);
   ASSERT_EQ(core::Pair(4,1), antinodeLocations[2]);
   ASSERT_EQ(core::Pair(6,1), antinodeLocations[3]);
-  ASSERT_EQ(core::Pair(2,1), antinodeLocations[4]);
-  ASSERT_EQ(core::Pair(8,1), antinodeLocations[5]);
+  ASSERT_EQ(core::Pair(8,1), antinodeLocations[4]);
+  ASSERT_EQ(core::Pair(10,1), antinodeLocations[5]);
 }
 
 TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldFindMultipleInDistanceExample) {

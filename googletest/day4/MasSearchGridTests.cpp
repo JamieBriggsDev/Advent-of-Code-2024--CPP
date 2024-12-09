@@ -14,7 +14,7 @@ TEST(MasSearchGridTests, ShouldLoadInput) {
     ".....\n"
     ".....\n"
     ".....\n"
-    ".....\n"
+    "....."
   ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(content);
   // When

@@ -4,8 +4,6 @@
 
 #ifndef ANTENNAGRID_H
 #define ANTENNAGRID_H
-#include <unordered_set>
-
 
 #include "../core/Grid.h"
 #include "../core/Pair.h"
@@ -36,7 +34,7 @@ namespace day8 {
       }
       return typesOfAntennas;
     }
-    explicit AntennaGrid(std::vector<std::string> lines) { this->init(lines); }
+    explicit AntennaGrid(std::vector<std::string> lines) { this->init(std::move(lines)); }
     std::vector<core::Pair> getAntinodeLocations(char c);
     std::vector<core::Pair> getAntinodeLocationsUpdated(char c);
     std::vector<core::Pair> getAntennaLocations();

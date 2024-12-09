@@ -23,6 +23,7 @@ public:
   bool operator==(const Pair &other) const { return (x == other.x) && (y == other.y); }
   Pair operator+(const Pair &other) const { return Pair(x + other.x, y + other.y); }
   Pair operator-(const Pair &other) const { return Pair(x - other.x, y - other.y); }
+  bool operator<(const Pair &other) const { return y < other.y || x < other.x; }
 };
 
 } // core

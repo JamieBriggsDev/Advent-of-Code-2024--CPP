@@ -20,6 +20,11 @@ protected:
 public:
   explicit WordSearchGrid(std::vector<std::string> rawRows) {
     this->init(std::move(rawRows));
+
+    for(int y = 0; y < verticalLength; y++) {
+      grid[y] = grid[y] + '\0'; // Adding escape character at the end of each row
+    }
+
   };
   [[nodiscard]] int findTotalHorizontalInstances(const std::string& word) const;
   [[nodiscard]] int findTotalVerticalInstances(const std::string& word) const;

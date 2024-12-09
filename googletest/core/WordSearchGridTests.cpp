@@ -7,6 +7,7 @@
 #include "../../cpp/core/WordSearchGrid.h"
 
 #include <gtest/gtest.h>
+#include <string>
 
 #include "../testHelper/InputUtils.h"
 
@@ -18,13 +19,15 @@ TEST(WordSearchGrid_Tests, ShouldLoadInput) {
   std::vector<std::string> gridContent;
   gridContent.emplace_back(content);
   // When
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // Then
-  
-  ASSERT_EQ(1, grid->getVerticalLength());
-  ASSERT_EQ(content.length(), grid->getHorizontalLength());
-  ASSERT_EQ("Hello World!", std::string(grid->getGrid()[0]));
+  ASSERT_EQ(1, grid.getVerticalLength());
+  ASSERT_EQ(content.length(), grid.getHorizontalLength());
+  std::string result(grid.getGrid()[0]);
+  ASSERT_EQ("Hello World!", result);
+  gridContent.clear();
 }
+
 
 TEST(WordSearchGrid_Tests, ShouldLoad3Rows) {
   // Given
@@ -36,14 +39,20 @@ TEST(WordSearchGrid_Tests, ShouldLoad3Rows) {
   gridContent.emplace_back(rowTwo);
   gridContent.emplace_back(rowThree);
   // When
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // Then
+  ASSERT_EQ(3, grid.getVerticalLength());
+  ASSERT_EQ(3, grid.getHorizontalLength());
 
-  ASSERT_EQ(3, grid->getVerticalLength());
-  ASSERT_EQ(3, grid->getHorizontalLength());
-  ASSERT_EQ("123", std::string(grid->getGrid()[0]));
-  ASSERT_EQ("456", std::string(grid->getGrid()[1]));
-  ASSERT_EQ("789", std::string(grid->getGrid()[2]));
+  ASSERT_EQ('1', grid.getGrid()[0][0]);
+  ASSERT_EQ('2', grid.getGrid()[0][1]);
+  ASSERT_EQ('3', grid.getGrid()[0][2]);
+  ASSERT_EQ('4', grid.getGrid()[1][0]);
+  ASSERT_EQ('5', grid.getGrid()[1][1]);
+  ASSERT_EQ('6', grid.getGrid()[1][2]);
+  ASSERT_EQ('7', grid.getGrid()[2][0]);
+  ASSERT_EQ('8', grid.getGrid()[2][1]);
+  ASSERT_EQ('9', grid.getGrid()[2][2]);
 }
 
 
@@ -52,11 +61,12 @@ TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldNotFindWord) {
   std::string content = "Hello World!";
   std::vector<std::string> gridContent;
   gridContent.emplace_back(content);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalHorizontalInstances = grid->findTotalHorizontalInstances("XMAS");
+  int totalHorizontalInstances = grid.findTotalHorizontalInstances("XMAS");
   // Then
   ASSERT_EQ(0, totalHorizontalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldFindOneInstance) {
@@ -64,11 +74,12 @@ TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldFindOneInstance) {
   std::string content = "Hello WoXMASrld!";
   std::vector<std::string> gridContent;
   gridContent.emplace_back(content);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalHorizontalInstances = grid->findTotalHorizontalInstances("XMAS");
+  int totalHorizontalInstances = grid.findTotalHorizontalInstances("XMAS");
   // Then
   ASSERT_EQ(1, totalHorizontalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldFindTwoInstances) {
@@ -76,11 +87,12 @@ TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldFindTwoInstances) {
   std::string content = "HeXMASllo WoXMASrld!";
   std::vector<std::string> gridContent;
   gridContent.emplace_back(content);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalHorizontalInstances = grid->findTotalHorizontalInstances("XMAS");
+  int totalHorizontalInstances = grid.findTotalHorizontalInstances("XMAS");
   // Then
   ASSERT_EQ(2, totalHorizontalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldFindBackwardsInstance) {
@@ -88,11 +100,12 @@ TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldFindBackwardsInstance) {
   std::string content = "Hello WoSAMXrld!";
   std::vector<std::string> gridContent;
   gridContent.emplace_back(content);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalHorizontalInstances = grid->findTotalHorizontalInstances("XMAS");
+  int totalHorizontalInstances = grid.findTotalHorizontalInstances("XMAS");
   // Then
   ASSERT_EQ(1, totalHorizontalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldFindTwoBackwardsInstance) {
@@ -100,11 +113,12 @@ TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldFindTwoBackwardsInstance) {
   std::string content = "Hello WoSAMXrlSAMXd!";
   std::vector<std::string> gridContent;
   gridContent.emplace_back(content);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalHorizontalInstances = grid->findTotalHorizontalInstances("XMAS");
+  int totalHorizontalInstances = grid.findTotalHorizontalInstances("XMAS");
   // Then
   ASSERT_EQ(2, totalHorizontalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldFindTwoInstanceOnTwoRows) {
@@ -114,11 +128,12 @@ TEST(WordSearchGrid_SearchHorizontal_Tests, ShouldFindTwoInstanceOnTwoRows) {
   std::vector<std::string> gridContent;
   gridContent.emplace_back(rowOne);
   gridContent.emplace_back(rowTwo);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalHorizontalInstances = grid->findTotalHorizontalInstances("XMAS");
+  int totalHorizontalInstances = grid.findTotalHorizontalInstances("XMAS");
   // Then
   ASSERT_EQ(2, totalHorizontalInstances);
+  
 }
 
 
@@ -137,11 +152,12 @@ TEST(WordSearchGrid_SearchVertical_Tests, ShouldNotFindWord) {
   gridContent.emplace_back(rowFour);
   gridContent.emplace_back(rowFive);
   gridContent.emplace_back(rowSix);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalVerticalInstances = grid->findTotalVerticalInstances("XMAS");
+  int totalVerticalInstances = grid.findTotalVerticalInstances("XMAS");
   // Then
   ASSERT_EQ(0, totalVerticalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchVertical_Tests, ShouldFindOneInstanceOfWord) {
@@ -159,11 +175,12 @@ TEST(WordSearchGrid_SearchVertical_Tests, ShouldFindOneInstanceOfWord) {
   gridContent.emplace_back(rowFour);
   gridContent.emplace_back(rowFive);
   gridContent.emplace_back(rowSix);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalVerticalInstances = grid->findTotalVerticalInstances("XMAS");
+  int totalVerticalInstances = grid.findTotalVerticalInstances("XMAS");
   // Then
   ASSERT_EQ(1, totalVerticalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchVertical_Tests, ShouldFindTwoInstancesOfWord) {
@@ -187,11 +204,12 @@ TEST(WordSearchGrid_SearchVertical_Tests, ShouldFindTwoInstancesOfWord) {
   gridContent.emplace_back(rowSeven);
   gridContent.emplace_back(rowEight);
   gridContent.emplace_back(rowNine);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalVerticalInstances = grid->findTotalVerticalInstances("XMAS");
+  int totalVerticalInstances = grid.findTotalVerticalInstances("XMAS");
   // Then
   ASSERT_EQ(2, totalVerticalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchVertical_Tests, ShouldFindTwoInstancesOfBackwardsWord) {
@@ -215,11 +233,12 @@ TEST(WordSearchGrid_SearchVertical_Tests, ShouldFindTwoInstancesOfBackwardsWord)
   gridContent.emplace_back(rowSeven);
   gridContent.emplace_back(rowEight);
   gridContent.emplace_back(rowNine);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalVerticalInstances = grid->findTotalVerticalInstances("XMAS");
+  int totalVerticalInstances = grid.findTotalVerticalInstances("XMAS");
   // Then
   ASSERT_EQ(2, totalVerticalInstances);
+  
 }
 
 
@@ -232,11 +251,12 @@ TEST(WordSearchGrid_SearchVertical_Tests, ShouldFindTwoInstancesOfBackwardsWordI
                     "XG\n"
                     "SG\n";
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalVerticalInstances = grid->findTotalVerticalInstances("XMAS");
+  int totalVerticalInstances = grid.findTotalVerticalInstances("XMAS");
   // Then
   ASSERT_EQ(2, totalVerticalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindNoInstances) {
@@ -249,11 +269,12 @@ TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindNoInstances) {
                     "ABCDEFG\n"
                     ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalDiagonalInstances = grid->findTotalDiagonalInstances("XMAS");
+  int totalDiagonalInstances = grid.findTotalDiagonalInstances("XMAS");
   // Then
   ASSERT_EQ(0, totalDiagonalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindOneInstanceNWtoSE) {
@@ -266,11 +287,12 @@ TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindOneInstanceNWtoSE) {
                     "ABCDEFG\n"
                     ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalDiagonalInstances = grid->findTotalDiagonalInstances("XMAS");
+  int totalDiagonalInstances = grid.findTotalDiagonalInstances("XMAS");
   // Then
   ASSERT_EQ(1, totalDiagonalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindTwoInstanceNWtoSE) {
@@ -283,11 +305,12 @@ TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindTwoInstanceNWtoSE) {
                     "ABCSEFG\n"
                     ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalDiagonalInstances = grid->findTotalDiagonalInstances("XMAS");
+  int totalDiagonalInstances = grid.findTotalDiagonalInstances("XMAS");
   // Then
   ASSERT_EQ(2, totalDiagonalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindOneInstanceSEtoNW) {
@@ -300,11 +323,12 @@ TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindOneInstanceSEtoNW) {
                     "ABCDEFG\n"
                     ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalDiagonalInstances = grid->findTotalDiagonalInstances("XMAS");
+  int totalDiagonalInstances = grid.findTotalDiagonalInstances("XMAS");
   // Then
   ASSERT_EQ(1, totalDiagonalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindTwoInstanceSEtoNW) {
@@ -317,11 +341,12 @@ TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindTwoInstanceSEtoNW) {
                     "ABCDEFG\n"
                     ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalDiagonalInstances = grid->findTotalDiagonalInstances("XMAS");
+  int totalDiagonalInstances = grid.findTotalDiagonalInstances("XMAS");
   // Then
   ASSERT_EQ(2, totalDiagonalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindOneInstanceNEtoSW) {
@@ -334,11 +359,12 @@ TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindOneInstanceNEtoSW) {
                     "ABCDEFG\n"
                     ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalDiagonalInstances = grid->findTotalDiagonalInstances("XMAS");
+  int totalDiagonalInstances = grid.findTotalDiagonalInstances("XMAS");
   // Then
   ASSERT_EQ(1, totalDiagonalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindTwoInstanceNEtoSW) {
@@ -351,11 +377,12 @@ TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindTwoInstanceNEtoSW) {
                     "ABCDEFG\n"
                     ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalDiagonalInstances = grid->findTotalDiagonalInstances("XMAS");
+  int totalDiagonalInstances = grid.findTotalDiagonalInstances("XMAS");
   // Then
   ASSERT_EQ(2, totalDiagonalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindOneInstanceSWtoNE) {
@@ -368,11 +395,12 @@ TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindOneInstanceSWtoNE) {
                     "ABCDEFG\n"
                     ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalDiagonalInstances = grid->findTotalDiagonalInstances("XMAS");
+  int totalDiagonalInstances = grid.findTotalDiagonalInstances("XMAS");
   // Then
   ASSERT_EQ(1, totalDiagonalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindTwoInstanceSWtoNE) {
@@ -385,11 +413,12 @@ TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindTwoInstanceSWtoNE) {
                     "ABCDEFG\n"
                     ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalDiagonalInstances = grid->findTotalDiagonalInstances("XMAS");
+  int totalDiagonalInstances = grid.findTotalDiagonalInstances("XMAS");
   // Then
   ASSERT_EQ(2, totalDiagonalInstances);
+  
 }
 
 TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindOverlappingInstances) {
@@ -402,9 +431,10 @@ TEST(WordSearchGrid_SearchDiagonal_Tests, ShouldFindOverlappingInstances) {
     ".S.S.\n"
                     ;
   std::vector<std::string> gridContent = InputUtils::convertToVector(raw);
-  auto* grid = new WordSearchGrid(gridContent);
+  auto grid = WordSearchGrid(gridContent);
   // When
-  int totalDiagonalInstances = grid->findTotalDiagonalInstances("XMAS");
+  int totalDiagonalInstances = grid.findTotalDiagonalInstances("XMAS");
   // Then
   ASSERT_EQ(3, totalDiagonalInstances);
+  
 }

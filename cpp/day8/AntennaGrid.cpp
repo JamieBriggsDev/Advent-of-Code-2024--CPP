@@ -3,6 +3,7 @@
 //
 
 #include "AntennaGrid.h"
+#include <set>
 
 namespace day8 {
   Antenna *AntennaGrid::convertToObject(const char c, const int x, const int y) {
@@ -50,7 +51,7 @@ namespace day8 {
   }
   std::vector<core::Pair> AntennaGrid::getAntinodeLocationsUpdated(char c) {
     std::vector<core::Pair> antinodeLocations;
-    std::unordered_set<core::Pair> antinodeLocationsSet;
+    std::set<core::Pair> antinodeLocationsSet;
     std::vector<Antenna *> antennas = this->antennas[c];
     if (antennas.size() < 2) {
       return antinodeLocations;
@@ -70,7 +71,7 @@ namespace day8 {
         while(!ranOutOfSpaceOne) {
           core::Pair locationOne = core::Pair(one->x + (distance.x * oneIdx), one->y + (distance.y * oneIdx));
           if (isPairValid(locationOne)) {
-            antinodeLocationsSet.emplace(locationOne);
+            antinodeLocationsSet.insert(locationOne);
             oneIdx++;
           }else {
             ranOutOfSpaceOne = true;
@@ -83,7 +84,7 @@ namespace day8 {
         while(!ranOutOfSpaceTwo) {
           core::Pair locationTwo = core::Pair(two->x - (distance.x * twoIdx), two->y - (distance.y * twoIdx));
           if (isPairValid(locationTwo)) {
-            antinodeLocationsSet.emplace(locationTwo);
+            antinodeLocationsSet.insert(locationTwo);
             twoIdx++;
           }
           else {
@@ -92,7 +93,6 @@ namespace day8 {
         }
       }
     }
-
 
     antinodeLocations.assign(antinodeLocationsSet.begin(), antinodeLocationsSet.end());
 
@@ -103,7 +103,7 @@ namespace day8 {
     std::vector<core::Pair> antenna_locations;
     for (const auto &[key, antenna_set]: this->antennas) {
       for (const auto &antenna: antenna_set) {
-        antenna_locations.emplace_back(core::Pair(antenna->x, antenna->y));
+        antenna_locations.emplace_back(antenna->x, antenna->y);
       }
     }
     return antenna_locations;
