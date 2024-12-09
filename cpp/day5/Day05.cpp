@@ -7,8 +7,6 @@
 
 #include "Day05.h"
 
-#include <__atomic/atomic_sync.h>
-
 #include "PageOrderingRules.h"
 #include "PageUpdate.h"
 

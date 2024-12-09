@@ -60,9 +60,10 @@ add_executable(Google_Tests_run
         ../cpp/day8/AntennaGrid.cpp
         ../cpp/day8/AntennaGrid.h
         day8/AntennaGridTests.cpp
-        ../cpp/day10/DiskMap.cpp
-        ../cpp/day10/DiskMap.h
-        day10/DiskMapTests.cpp
+        ../cpp/day9/DiskMap.cpp
+        ../cpp/day9/DiskMap.h
+        day9/DiskMapTests.cpp
+        ../cpp/day9/File.h
 )
 
 # Set optimization flags for Release configuration

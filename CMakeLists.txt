@@ -50,4 +50,7 @@ add_executable(aoc2024 main.cpp
         cpp/day8/Day08.h
         cpp/day8/AntennaGrid.h
         cpp/day8/AntennaGrid.cpp
+        cpp/day9/Day09.cpp
+        cpp/day9/Day09.h
+        cpp/day9/DiskMap.cpp
 )
