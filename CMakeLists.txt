@@ -55,6 +55,13 @@ add_executable(aoc2024 main.cpp
         cpp/day9/DiskMap.cpp
         cpp/day10/Day10.cpp
         cpp/day10/Day10.h
+        cpp/day10/TopographicMap.cpp
+        cpp/day10/TopographicMap.h
+        cpp/core/Node.h
+        cpp/core/Node.cpp
+        cpp/core/PathFinder.h
+        cpp/core/IncrementalPathFinder.cpp
+        cpp/core/IncrementalPathFinder.h
 )
 
 add_subdirectory(googletest)
