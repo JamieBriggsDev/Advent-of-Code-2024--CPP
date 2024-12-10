@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 
   // List time elapsed to load data
   const auto inputDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endInput - startInput);
-  printf("\nTook %lldms to load data", inputDuration.count());
+  printf("\nTook %lldms to load data\n", inputDuration.count());
 
   // Solve part one of solution
   printf("Solving Part 1 of solution...");

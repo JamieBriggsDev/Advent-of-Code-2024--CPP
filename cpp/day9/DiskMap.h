@@ -16,9 +16,14 @@ namespace solutions {
     std::vector<File*> fileLocations;
     int mostLeftEmptyIndex = -1;
     int mostRightFileIndex = -1;
+    long fileIdCurrentlyChecking = -1;
   public:
     DiskMap(std::string input);
     void performDefragStep();
+    void performDefragFullFileStep();
+    [[nodiscard]] bool hasFinishedFullDefrag() {
+      return fileIdCurrentlyChecking <= 0;
+    }
     [[nodiscard]] std::vector<int> getContents() {
       return unfilteredContents;
     }
@@ -33,6 +38,17 @@ namespace solutions {
     }
     [[nodiscard]] bool hasCompletedDefrag() const {
       return mostLeftEmptyIndex > mostRightFileIndex;
+    }
+    [[nodiscard]] std::string getCurrentLayout() {
+      std::string layout;
+      for(int i = 0; i < fileLocations.size(); i++) {
+        if(fileLocations[i] != nullptr) {
+          layout += std::to_string(fileLocations[i]->id);
+        }else {
+          layout += ".";
+        }
+      }
+      return layout;
     }
   };
 }

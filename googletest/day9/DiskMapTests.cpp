@@ -183,5 +183,138 @@ TEST(DiskMap_Defrag_Tests, ShouldDefragTwiceLonger) {
 }
 
 
+TEST(DiskMap_DefragWholeFile_Tests, ShouldDefragOnce) {
+  // Given
+  auto input = "23123";
+  auto diskMap = solutions::DiskMap(input);
+  // When
+  diskMap.performDefragFullFileStep();
+  // Before should be 00...1..222
+  // Then
+  auto contents = diskMap.getFileLocations();
+  // Should end 002221.....
+  ASSERT_EQ(11, contents.size());
+  ASSERT_FALSE(diskMap.hasFinishedFullDefrag());
+
+  // File One
+  ASSERT_EQ(0, contents[0]->id);
+  ASSERT_EQ(2, contents[0]->fileSize);
+  ASSERT_EQ(0, contents[1]->id);
+  ASSERT_EQ(2, contents[1]->fileSize);
+  // File Three
+  ASSERT_EQ(2, contents[2]->id);
+  ASSERT_EQ(3, contents[2]->fileSize);
+  ASSERT_EQ(2, contents[3]->id);
+  ASSERT_EQ(3, contents[3]->fileSize);
+  ASSERT_EQ(2, contents[4]->id);
+  ASSERT_EQ(3, contents[4]->fileSize);
+  // File Two
+  ASSERT_EQ(1, contents[5]->id);
+  ASSERT_EQ(1, contents[5]->fileSize);
+  ASSERT_EQ(nullptr, contents[6]);
+  ASSERT_EQ(nullptr, contents[7]);
+}
+
+TEST(DiskMap_DefragWholeFile_Tests, ShouldDefragTwiceAndFinish) {
+  // Given
+  auto input = "23123";
+  auto diskMap = solutions::DiskMap(input);
+  // When
+  diskMap.performDefragFullFileStep();
+  diskMap.performDefragFullFileStep();
+  // Before should be 00...1..222
+  // Then
+  auto contents = diskMap.getFileLocations();
+  // Should end 002221.....
+  ASSERT_EQ(11, contents.size());
+  ASSERT_TRUE(diskMap.hasFinishedFullDefrag());
+
+  // File One
+  ASSERT_EQ(0, contents[0]->id);
+  ASSERT_EQ(2, contents[0]->fileSize);
+  ASSERT_EQ(0, contents[1]->id);
+  ASSERT_EQ(2, contents[1]->fileSize);
+  // File Three
+  ASSERT_EQ(2, contents[2]->id);
+  ASSERT_EQ(3, contents[2]->fileSize);
+  ASSERT_EQ(2, contents[3]->id);
+  ASSERT_EQ(3, contents[3]->fileSize);
+  ASSERT_EQ(2, contents[4]->id);
+  ASSERT_EQ(3, contents[4]->fileSize);
+  // File Two
+  ASSERT_EQ(1, contents[5]->id);
+  ASSERT_EQ(1, contents[5]->fileSize);
+  ASSERT_EQ(nullptr, contents[6]);
+  ASSERT_EQ(nullptr, contents[7]);
+}
+
+TEST(DiskMap_DefragWholeFile_Tests, ShouldNotDefragWhenNotEnoughSpace) {
+  // Given
+  auto input = "22123";
+  auto diskMap = solutions::DiskMap(input);
+  // When
+  diskMap.performDefragFullFileStep();
+  // Before should be 00..1..222
+  // Then
+  auto contents = diskMap.getFileLocations();
+  // Should end 00..1..222 due to nothing happening
+  ASSERT_EQ(10, contents.size());
+  ASSERT_FALSE(diskMap.hasFinishedFullDefrag());
+
+  // File One
+  ASSERT_EQ(0, contents[0]->id);
+  ASSERT_EQ(2, contents[0]->fileSize);
+  ASSERT_EQ(0, contents[1]->id);
+  ASSERT_EQ(2, contents[1]->fileSize);
+  ASSERT_EQ(nullptr, contents[2]);
+  ASSERT_EQ(nullptr, contents[3]);
+  // File Two
+  ASSERT_EQ(1, contents[4]->id);
+  ASSERT_EQ(1, contents[4]->fileSize);
+  ASSERT_EQ(nullptr, contents[5]);
+  ASSERT_EQ(nullptr, contents[6]);
+  // File Three
+  ASSERT_EQ(2, contents[7]->id);
+  ASSERT_EQ(3, contents[7]->fileSize);
+  ASSERT_EQ(2, contents[8]->id);
+  ASSERT_EQ(3, contents[8]->fileSize);
+  ASSERT_EQ(2, contents[9]->id);
+  ASSERT_EQ(3, contents[9]->fileSize);
+}
+
+TEST(DiskMap_DefragWholeFile_Tests, ShouldDefragTwice) {
+  // Given
+  auto input = "22123";
+  auto diskMap = solutions::DiskMap(input);
+  // When
+  diskMap.performDefragFullFileStep();
+  diskMap.performDefragFullFileStep();
+  // Before should be 00..1..222
+  // Then
+  auto contents = diskMap.getFileLocations();
+  // Should end 001....222 due to nothing happening
+  ASSERT_EQ(10, contents.size());
+  ASSERT_TRUE(diskMap.hasFinishedFullDefrag());
+
+  // File One
+  ASSERT_EQ(0, contents[0]->id);
+  ASSERT_EQ(2, contents[0]->fileSize);
+  ASSERT_EQ(0, contents[1]->id);
+  ASSERT_EQ(2, contents[1]->fileSize);
+  // File Two
+  ASSERT_EQ(1, contents[2]->id);
+  ASSERT_EQ(1, contents[2]->fileSize);
+  ASSERT_EQ(nullptr, contents[3]);
+  ASSERT_EQ(nullptr, contents[4]);
+  ASSERT_EQ(nullptr, contents[5]);
+  ASSERT_EQ(nullptr, contents[6]);
+  // File Three
+  ASSERT_EQ(2, contents[7]->id);
+  ASSERT_EQ(3, contents[7]->fileSize);
+  ASSERT_EQ(2, contents[8]->id);
+  ASSERT_EQ(3, contents[8]->fileSize);
+  ASSERT_EQ(2, contents[9]->id);
+  ASSERT_EQ(3, contents[9]->fileSize);
+}
 
 
