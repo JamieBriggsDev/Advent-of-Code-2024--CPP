@@ -53,6 +53,8 @@ add_executable(aoc2024 main.cpp
         cpp/day9/Day09.cpp
         cpp/day9/Day09.h
         cpp/day9/DiskMap.cpp
+        cpp/day10/Day10.cpp
+        cpp/day10/Day10.h
 )
 
 add_subdirectory(googletest)

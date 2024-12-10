@@ -3,16 +3,21 @@
 Welcome to my 2024 Advent of Code project! This year I will be doing it in C++. I do plan to do the solutions in another
 language in perhaps another project, but this will be my main AoC.
 
-There are some files which have existed since the beginning of 2024's AoC, and they're taken from 2023. They are essentially
-core `helper` libraries which just help speed the process of working on a solution such as opening a file or code layout. 
+There are some files which have existed since the beginning of 2024's AoC, and they're taken from 2023. They are
+essentially
+core `helper` libraries which just help speed the process of working on a solution such as opening a file or code
+layout.
 This helps myself with focusing on working on the solution rather than project quality of life.
 
 ## Running the code
+
 ### CLion
-If you would like to run this project locally, it is easiest to open the project in CLion as there are configurations 
+
+If you would like to run this project locally, it is easiest to open the project in CLion as there are configurations
 which should already have been created.
 
 ### CMake
+
 However, you can compile and run the project yourself using CMake.
 
 ```shell
@@ -37,27 +42,32 @@ Once the application is built, you can run the solutions via arguments passed.
 ```
 
 ## Project layout
+
 There are 4 main directories within this project:
+
 - `./cpp`: Contains source code for Advent of Code
 - `./input`: Contains `.txt` files which hold the input for each puzzle. They should be labelled as `dayX.txt`.
-- `./sample_input`: Similar to `./input`, but created based on the puzzle instructions or created by myself. They should be labelled as `dayX.txt`.
+- `./sample_input`: Similar to `./input`, but created based on the puzzle instructions or created by myself. They should
+  be labelled as `dayX.txt`.
 - `./puzzle`: Contains markdown files which have the puzzles copied into them.
 
 ## Days
+
 Here are markdown files containing the various puzzles which need completing. They're essentially a copy and paste from
-Advent of Code's website, but copying them and formatting to markdown helps me to more time to understand the puzzle which
+Advent of Code's website, but copying them and formatting to markdown helps me to more time to understand the puzzle
+which
 needs solving.
 
-| Day   | Link                        |
-|-------|-----------------------------|
-| Day 1 | [Day1.md](puzzle%2FDay1.md) |
-| Day 2 | [Day2.md](puzzle%2FDay2.md) |
-| Day 3 | [Day3.md](puzzle%2FDay3.md) |
-| Day 4 | [Day4.md](puzzle%2FDay4.md) |
-| Day 5 | [Day5.md](puzzle%2FDay5.md) |
-| Day 6 | [Day6.md](puzzle%2FDay6.md) |
+| Day                         | Part One | Part Two |
+|-----------------------------|----------|----------|
+| [Day 1](puzzle%2FDay1.md)   | ✅        | ✅        | 
+| [Day 2](puzzle%2FDay2.md)   | ✅        | ✅        | 
+| [Day 3](puzzle%2FDay3.md)   | ✅        | ✅        | 
+| [Day 4](puzzle%2FDay4.md)   | ✅        | ✅        | 
+| [Day 5](puzzle%2FDay5.md)   | ✅        | ✅        | 
+| [Day 6](puzzle%2FDay6.md)   | ✅        | ✅        | 
+| Day 7                       |          |          | 
+| [Day 8](puzzle%2FDay8.md)   | ✅        | ✅        | 
+| [Day 9](puzzle%2FDay9.md)   | ✅        | ✅        | 
+| [Day 10](puzzle%2FDay10.md) |          |          | 
 
-## Unit Testing
-To write these solutions, TDD has been used for the most part. Tests are created using Google Tests, and can
-easily be run in CLion by loading the CMakeLists.txt project in the `./googletest/` directory. 
-Currently, there are `147` tests!

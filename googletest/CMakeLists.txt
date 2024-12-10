@@ -64,6 +64,8 @@ add_executable(Google_Tests_run
         ../cpp/day9/DiskMap.h
         day9/DiskMapTests.cpp
         ../cpp/day9/File.h
+        ../cpp/day10/Day10.cpp
+        ../cpp/day10/Day10.h
 )
 
 # Set optimization flags for Release configuration
