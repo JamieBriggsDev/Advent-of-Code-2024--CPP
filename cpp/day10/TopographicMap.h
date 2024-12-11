@@ -25,8 +25,8 @@ namespace core {
         }
       }
     }
-    explicit TopographicMap(std::vector<std::string> input) { this->init(std::move(input)); }
-    std::vector<Node *> getStartingPaths() {
+    explicit TopographicMap(std::vector<std::string> input);
+    std::vector<Node *> getStartingPositions() {
       return startingPaths;
     }
   };

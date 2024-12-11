@@ -52,9 +52,9 @@ TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnStackWithJustDestinationW
   // Then
   ASSERT_EQ(result.size(), 2);
 
-  ASSERT_EQ(second, result.front());
-  result.pop();
   ASSERT_EQ(start, result.front());
+  result.pop();
+  ASSERT_EQ(second, result.front());
 
   // Cleanup
   delete start;
@@ -74,11 +74,11 @@ TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnRouteWithThreeNodes) {
   // Then
   ASSERT_EQ(result.size(), 3);
 
-  ASSERT_EQ(third, result.front());
+  ASSERT_EQ(start, result.front());
   result.pop();
   ASSERT_EQ(second, result.front());
   result.pop();
-  ASSERT_EQ(start, result.front());
+  ASSERT_EQ(third, result.front());
 
   // Cleanup
   delete start;

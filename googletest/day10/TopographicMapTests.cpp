@@ -45,7 +45,7 @@ TEST(TopographicMap_Initialize_Tests, ShouldReturnWithStartingPaths) {
   std::vector<std::string> input = InputUtils::convertToVector(inputRaw);
   core::TopographicMap topographicMap = core::TopographicMap(input);
   // When
-  auto startingPaths = topographicMap.getStartingPaths();
+  auto startingPaths = topographicMap.getStartingPositions();
   // Then
   ASSERT_EQ(0, startingPaths[0]->x);
   ASSERT_EQ(0, startingPaths[0]->y);
