@@ -68,6 +68,8 @@ add_executable(aoc2024 main.cpp
         cpp/day11/Day11.cpp
         cpp/day12/Day12.cpp
         cpp/day12/Day12.h
+        cpp/day11/PebbleRow.cpp
+        cpp/day11/PebbleRow.h
 )
 
 add_subdirectory(googletest)

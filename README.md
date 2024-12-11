@@ -66,8 +66,23 @@ needs solving.
 | [Day 4](puzzle%2FDay4.md)   | ✅        | ✅        | 
 | [Day 5](puzzle%2FDay5.md)   | ✅        | ✅        | 
 | [Day 6](puzzle%2FDay6.md)   | ✅        | ✅        | 
-| Day 7          |          |          | 
+| Day 7                       |          |          | 
 | [Day 8](puzzle%2FDay8.md)   | ✅        | ✅        | 
 | [Day 9](puzzle%2FDay9.md)   | ✅        | ✅        | 
 | [Day 10](puzzle%2FDay10.md) | ✅        | ✅        | 
+| [Day 11](puzzle%2FDay11.md) |          |          | 
+| Day 12                      |          |          | 
+| Day 13                      |          |          | 
+| Day 14                      |          |          | 
+| Day 15                      |          |          | 
+| Day 16                      |          |          | 
+| Day 17                      |          |          | 
+| Day 18                      |          |          | 
+| Day 19                      |          |          | 
+| Day 20                      |          |          | 
+| Day 21                      |          |          | 
+| Day 22                      |          |          | 
+| Day 23                      |          |          | 
+| Day 24                      |          |          | 
+| 🎄 Day 25                   |          |          | 
 

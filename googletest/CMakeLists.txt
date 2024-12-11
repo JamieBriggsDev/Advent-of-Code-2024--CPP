@@ -81,6 +81,9 @@ add_executable(Google_Tests_run
         ../cpp/day11/Day11.cpp
         ../cpp/day12/Day12.cpp
         ../cpp/day12/Day12.h
+        ../cpp/day11/PebbleRow.cpp
+        ../cpp/day11/PebbleRow.h
+        day11/PebbleRowTests.cpp
 )
 
 # Set optimization flags for Release configuration
