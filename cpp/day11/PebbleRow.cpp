@@ -9,15 +9,8 @@
 #include <string>
 
 namespace solutions {
-  void PebbleRow::addPebble(long long pebbleTotal) {
-    if(pebbleQuantities.contains(pebbleTotal)) {
-      pebbleQuantities[pebbleTotal]++;
-    }
-    else {
-      pebbleQuantities[pebbleTotal] = 1L;
-    }
-  }
   PebbleRow::PebbleRow(std::string rawInput) {
+
     std::istringstream stream(rawInput);
     std::string token;
     while (std::getline(stream, token, ' ')) {
@@ -29,15 +22,12 @@ namespace solutions {
       }
     }
   }
-  bool PebbleRow::containsPebble(long long pebbleValue) {
+  long long PebbleRow::getPebbleAtIndex(int index) {
     auto front = this->pebbleList.begin();
-    for (auto it = this->getPebbleQuantities().begin(); it != this->getPebbleQuantities().end(); ++it) {
-      if(*it == pebbleValue) {
-        return true;
-      }
-    }
-    return false;
+    std::advance(front, index);
+    return *front;
   }
+
   bool PebbleRow::upgradeZeroEngraving(std::list<long long>::iterator &idx) {
     if (*idx == 0) {
       *idx = 1;
@@ -79,10 +69,13 @@ namespace solutions {
     return false;
   }
   void PebbleRow::printToConsole() {
-    for (auto it = this->getPebbleQuantities().begin(); it != this->getPebbleQuantities().end(); ++it) {
+    for (auto it = this->getStoneList().begin(); it != this->getStoneList().end(); ++it) {
       std::cout << *it << " ";
     }
     std::cout << "" << std::endl << std::endl;
+  }
+  int PebbleRow::getTotalStones() {
+    return this->getStoneList().size();
   }
 
 } // namespace solutions

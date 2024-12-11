@@ -5,6 +5,7 @@
 #include "Day11.h"
 
 #include <iostream>
+#include <unordered_map>
 
 #include "PebbleRow.h"
 
@@ -12,12 +13,9 @@ namespace solutions {
   std::string Day11::solvePartOne(const helper::SolutionInput *input) {
     PebbleRow pebbles = PebbleRow(input->getTestInput()[0]);
 
-    std::cout << "Initial arrangement:" << std::endl;
-    pebbles.printToConsole();
-
     for (int totalBlinks = 1; totalBlinks <= 25; totalBlinks++) {
 
-      for (auto it = pebbles.getPebbleQuantities().begin(); it != pebbles.getPebbleQuantities().end(); ++it) {
+      for (auto it = pebbles.getStoneList().begin(); it != pebbles.getStoneList().end(); ++it) {
         bool flag = false;
         flag = pebbles.upgradeZeroEngraving(it);
         if(!flag) {
@@ -28,20 +26,15 @@ namespace solutions {
         }
       }
 
-      //std::cout << "After " << totalBlinks << "  blinks:" << std::endl;
-      //pebbles.printToConsole();
     }
-    return std::to_string(pebbles.getPebbleQuantities().size());
+    return std::to_string(pebbles.getTotalStones());
   }
   std::string Day11::solvePartTwo(const helper::SolutionInput *input) {
     PebbleRow pebbles = PebbleRow(input->getTestInput()[0]);
 
-    std::cout << "Initial arrangement:" << std::endl;
-    pebbles.printToConsole();
-
     for (int totalBlinks = 1; totalBlinks <= 75; totalBlinks++) {
 
-      for (auto it = pebbles.getPebbleQuantities().begin(); it != pebbles.getPebbleQuantities().end(); ++it) {
+      for (auto it = pebbles.getStoneList().begin(); it != pebbles.getStoneList().end(); ++it) {
         bool flag = false;
         flag = pebbles.upgradeZeroEngraving(it);
         if(!flag) {
@@ -52,9 +45,7 @@ namespace solutions {
         }
       }
 
-      //std::cout << "After " << totalBlinks << "  blinks:" << std::endl;
-      //pebbles.printToConsole();
     }
-    return std::to_string(pebbles.getPebbleQuantities().size());
+    return std::to_string(pebbles.getTotalStones());
   }
 } // namespace solutions
