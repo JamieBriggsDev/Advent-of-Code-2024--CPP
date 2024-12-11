@@ -66,8 +66,8 @@ needs solving.
 | [Day 4](puzzle%2FDay4.md)   | ✅        | ✅        | 
 | [Day 5](puzzle%2FDay5.md)   | ✅        | ✅        | 
 | [Day 6](puzzle%2FDay6.md)   | ✅        | ✅        | 
-| Day 7                       |          |          | 
+| Day 7          |          |          | 
 | [Day 8](puzzle%2FDay8.md)   | ✅        | ✅        | 
 | [Day 9](puzzle%2FDay9.md)   | ✅        | ✅        | 
-| [Day 10](puzzle%2FDay10.md) |          |          | 
+| [Day 10](puzzle%2FDay10.md) | ✅        | ✅        | 
 

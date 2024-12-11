@@ -11,7 +11,8 @@
 namespace solutions {
     class Day{
     public:
-        virtual std::string solvePartOne(const helper::SolutionInput* input) = 0;
+      virtual ~Day() = default;
+      virtual std::string solvePartOne(const helper::SolutionInput* input) = 0;
         virtual std::string solvePartTwo(const helper::SolutionInput* input) = 0;
     };
 }

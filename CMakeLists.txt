@@ -62,6 +62,12 @@ add_executable(aoc2024 main.cpp
         cpp/core/PathFinder.h
         cpp/core/IncrementalPathFinder.cpp
         cpp/core/IncrementalPathFinder.h
+        cpp/day7/Day07.cpp
+        cpp/day7/Day07.h
+        cpp/day11/Day11.h
+        cpp/day11/Day11.cpp
+        cpp/day12/Day12.cpp
+        cpp/day12/Day12.h
 )
 
 add_subdirectory(googletest)

@@ -75,6 +75,12 @@ add_executable(Google_Tests_run
         ../cpp/core/IncrementalPathFinder.cpp
         ../cpp/core/IncrementalPathFinder.h
         day10/IncrementalPathFinderTests.cpp
+        ../cpp/day7/Day07.cpp
+        ../cpp/day7/Day07.h
+        ../cpp/day11/Day11.h
+        ../cpp/day11/Day11.cpp
+        ../cpp/day12/Day12.cpp
+        ../cpp/day12/Day12.h
 )
 
 # Set optimization flags for Release configuration
