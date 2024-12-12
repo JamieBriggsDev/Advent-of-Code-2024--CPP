@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.31)
 # 'Google_test' is the subproject name
 project(Google_tests)
 
@@ -84,6 +84,11 @@ add_executable(Google_Tests_run
         ../cpp/day11/PebbleRow.cpp
         ../cpp/day11/PebbleRow.h
         day11/PebbleRowTests.cpp
+        ../cpp/day12/FarmGrid.cpp
+        ../cpp/day12/FarmGrid.h
+        ../cpp/day12/Plant.cpp
+        ../cpp/day12/Plant.h
+        day12/FarmGridTests.cpp
 )
 
 # Set optimization flags for Release configuration

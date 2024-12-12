@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.31)
 project(aoc2024)
 
 set(CMAKE_CXX_STANDARD 23)
@@ -70,6 +70,10 @@ add_executable(aoc2024 main.cpp
         cpp/day12/Day12.h
         cpp/day11/PebbleRow.cpp
         cpp/day11/PebbleRow.h
+        cpp/day12/FarmGrid.cpp
+        cpp/day12/FarmGrid.h
+        cpp/day12/Plant.cpp
+        cpp/day12/Plant.h
 )
 
 add_subdirectory(googletest)

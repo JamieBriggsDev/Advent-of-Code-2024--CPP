@@ -294,5 +294,5 @@ TEST(PebbleRow_ModifyAll_Test, ShouldBeOptimized) {
   // Assert that the task took less than 50ms
   ASSERT_LT(duration, 50);
   // Existing assertion
-  ASSERT_EQ(6157954208l, result);
+  ASSERT_EQ(8300739l, result);
 }

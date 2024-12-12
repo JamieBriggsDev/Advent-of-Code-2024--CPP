@@ -56,6 +56,15 @@ namespace core {
     [[nodiscard]] int getHorizontalLength() const {
       return horizontalLength;
     }
+
+    // Override operator() to enable 2D array-like access to the grid property
+    T &operator()(int x, int y) {
+      return grid[y][x]; // Implement column-row access order
+    }
+
+    const T &operator()(int x, int y) const {
+      return grid[y][x]; // Implement column-row access order for const objects
+    }
   };
 
 } // namespace core
