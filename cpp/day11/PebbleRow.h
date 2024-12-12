@@ -11,18 +11,19 @@
 namespace solutions {
 
 class PebbleRow {
-  std::list<long long> pebbleList;
+  std::list<long long> stoneList;
 public:
   PebbleRow(std::string rawInput);
   // Return reference to pebbleList.
   std::list<long long> &getStoneList() {
-    return pebbleList;
+    return stoneList;
   }
-  long long getPebbleAtIndex(int index);
+  long long getStoneEngravingAtIndex(int index);
   // The three things which can happen to pebbles
+  long long performBlinks(int totalBlinks);
   bool upgradeZeroEngraving(std::list<long long>::iterator& idx);
-  bool splitPebbleIfEven(std::list<long long>::iterator& idx);
-  bool multiplyPebbleByYear(std::list<long long>::iterator& idx);
+  bool splitStoneIfEven(std::list<long long>::iterator& idx);
+  bool multiplyStoneEngravingByYear(std::list<long long>::iterator& idx);
 
   void printToConsole();
 

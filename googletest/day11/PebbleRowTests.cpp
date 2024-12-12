@@ -17,7 +17,7 @@ TEST(PebbleRow_Initialize_Test, ShouldInitializeWithSinglePebble) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   // Then
   ASSERT_EQ(1, pebbles.getStoneList().size());
-  ASSERT_EQ(20l, pebbles.getPebbleAtIndex(0));
+  ASSERT_EQ(20l, pebbles.getStoneEngravingAtIndex(0));
 }
 
 TEST(PebbleRow_Initialize_Test, ShouldInitializeWithTwoPebbles) {
@@ -27,8 +27,8 @@ TEST(PebbleRow_Initialize_Test, ShouldInitializeWithTwoPebbles) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   // Then
   ASSERT_EQ(2, pebbles.getStoneList().size());
-  ASSERT_EQ(20l, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(5l, pebbles.getPebbleAtIndex(1));
+  ASSERT_EQ(20l, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(5l, pebbles.getStoneEngravingAtIndex(1));
 }
 
 TEST(PebbleRow_Initialize_Test, ShouldInitializeWithThreePebbles) {
@@ -38,12 +38,12 @@ TEST(PebbleRow_Initialize_Test, ShouldInitializeWithThreePebbles) {
   // When
   auto begin = pebbles.getStoneList().begin();
   std::advance(begin, pebbles.getStoneList().size());
-  pebbles.splitPebbleIfEven(begin);
+  pebbles.splitStoneIfEven(begin);
   // Then
   ASSERT_EQ(3, pebbles.getStoneList().size());
-  ASSERT_EQ(20l, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(0l, pebbles.getPebbleAtIndex(1));
-  ASSERT_EQ(5l, pebbles.getPebbleAtIndex(2));
+  ASSERT_EQ(20l, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(0l, pebbles.getStoneEngravingAtIndex(1));
+  ASSERT_EQ(5l, pebbles.getStoneEngravingAtIndex(2));
 }
 
 TEST(PebbleRow_UpgradeZeroEngraving_Test, ShouldEngraveNumberToOne) {
@@ -56,9 +56,9 @@ TEST(PebbleRow_UpgradeZeroEngraving_Test, ShouldEngraveNumberToOne) {
   pebbles.upgradeZeroEngraving(front);
   // Then
   ASSERT_EQ(3, pebbles.getStoneList().size());
-  ASSERT_EQ(20l, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(1l, pebbles.getPebbleAtIndex(1));
-  ASSERT_EQ(5l, pebbles.getPebbleAtIndex(2));
+  ASSERT_EQ(20l, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(1l, pebbles.getStoneEngravingAtIndex(1));
+  ASSERT_EQ(5l, pebbles.getStoneEngravingAtIndex(2));
 }
 
 TEST(PebbleRow_UpgradeZeroEngraving_Test, ShouldNotModifyIfValueNotZero) {
@@ -70,9 +70,9 @@ TEST(PebbleRow_UpgradeZeroEngraving_Test, ShouldNotModifyIfValueNotZero) {
   pebbles.upgradeZeroEngraving(front);
   // Then
   ASSERT_EQ(3, pebbles.getStoneList().size());
-  ASSERT_EQ(20l, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(0l, pebbles.getPebbleAtIndex(1));
-  ASSERT_EQ(5l, pebbles.getPebbleAtIndex(2));
+  ASSERT_EQ(20l, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(0l, pebbles.getStoneEngravingAtIndex(1));
+  ASSERT_EQ(5l, pebbles.getStoneEngravingAtIndex(2));
 }
 
 TEST(PebbleRow_UpgradeZeroEngraving_Test, ShouldModifyMultipleValues) {
@@ -85,10 +85,10 @@ TEST(PebbleRow_UpgradeZeroEngraving_Test, ShouldModifyMultipleValues) {
   }
   // Then
   ASSERT_EQ(3, pebbles.getStoneList().size());
-  ASSERT_EQ(20l, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(1l, pebbles.getPebbleAtIndex(1));
-  ASSERT_EQ(5l, pebbles.getPebbleAtIndex(2));
-  ASSERT_EQ(1l, pebbles.getPebbleAtIndex(1));
+  ASSERT_EQ(20l, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(1l, pebbles.getStoneEngravingAtIndex(1));
+  ASSERT_EQ(5l, pebbles.getStoneEngravingAtIndex(2));
+  ASSERT_EQ(1l, pebbles.getStoneEngravingAtIndex(1));
 }
 
 TEST(PebbleRow_SplitPebble_Test, ShouldNotModifyIfPebbleHasOddNumberDigits) {
@@ -97,10 +97,10 @@ TEST(PebbleRow_SplitPebble_Test, ShouldNotModifyIfPebbleHasOddNumberDigits) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   auto front = pebbles.getStoneList().begin();
   // When
-  pebbles.splitPebbleIfEven(front);
+  pebbles.splitStoneIfEven(front);
   // Then
   ASSERT_EQ(1, pebbles.getStoneList().size());
-  ASSERT_EQ(213l, pebbles.getPebbleAtIndex(0));
+  ASSERT_EQ(213l, pebbles.getStoneEngravingAtIndex(0));
 }
 
 TEST(PebbleRow_SplitPebble_Test, ShouldNotModifyIfPebbleIsOddLonger) {
@@ -109,10 +109,10 @@ TEST(PebbleRow_SplitPebble_Test, ShouldNotModifyIfPebbleIsOddLonger) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   auto front = pebbles.getStoneList().begin();
   // When
-  pebbles.splitPebbleIfEven(front);
+  pebbles.splitStoneIfEven(front);
   // Then
   ASSERT_EQ(1, pebbles.getStoneList().size());
-  ASSERT_EQ(21575l, pebbles.getPebbleAtIndex(0));
+  ASSERT_EQ(21575l, pebbles.getStoneEngravingAtIndex(0));
 }
 
 TEST(PebbleRow_SplitPebble_Test, ShouldSplitPebbleIfEvenNumberDigits) {
@@ -121,11 +121,11 @@ TEST(PebbleRow_SplitPebble_Test, ShouldSplitPebbleIfEvenNumberDigits) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   auto front = pebbles.getStoneList().begin();
   // When
-  pebbles.splitPebbleIfEven(front);
+  pebbles.splitStoneIfEven(front);
   // Then
   ASSERT_EQ(2, pebbles.getStoneList().size());
-  ASSERT_EQ(21l, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(58l, pebbles.getPebbleAtIndex(1));
+  ASSERT_EQ(21l, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(58l, pebbles.getStoneEngravingAtIndex(1));
 }
 
 TEST(PebbleRow_SplitPebble_Test, ShouldSplitMultiplePebblesWhenEvenNumberDigits) {
@@ -134,14 +134,14 @@ TEST(PebbleRow_SplitPebble_Test, ShouldSplitMultiplePebblesWhenEvenNumberDigits)
   PebbleRow pebbles = PebbleRow(pebbleInput);
   // When
   for (auto it = pebbles.getStoneList().begin(); it != pebbles.getStoneList().end(); ++it) {
-    pebbles.splitPebbleIfEven(it);
+    pebbles.splitStoneIfEven(it);
   }
   // Then
   ASSERT_EQ(4, pebbles.getStoneList().size());
-  ASSERT_EQ(21l, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(58l, pebbles.getPebbleAtIndex(1));
-  ASSERT_EQ(51l, pebbles.getPebbleAtIndex(2));
-  ASSERT_EQ(28l, pebbles.getPebbleAtIndex(3));
+  ASSERT_EQ(21l, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(58l, pebbles.getStoneEngravingAtIndex(1));
+  ASSERT_EQ(51l, pebbles.getStoneEngravingAtIndex(2));
+  ASSERT_EQ(28l, pebbles.getStoneEngravingAtIndex(3));
 }
 
 TEST(PebbleRow_SplitPebble_Test, ShouldSplitMultiplePebblesWhenEvenNumberDigitsLonger) {
@@ -150,15 +150,15 @@ TEST(PebbleRow_SplitPebble_Test, ShouldSplitMultiplePebblesWhenEvenNumberDigitsL
   PebbleRow pebbles = PebbleRow(pebbleInput);
   // When
   for (auto it = pebbles.getStoneList().begin(); it != pebbles.getStoneList().end(); ++it) {
-    pebbles.splitPebbleIfEven(it);
+    pebbles.splitStoneIfEven(it);
   }
   // Then
   ASSERT_EQ(5, pebbles.getStoneList().size());
-  ASSERT_EQ(21l, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(58l, pebbles.getPebbleAtIndex(1));
-  ASSERT_EQ(512l, pebbles.getPebbleAtIndex(2));
-  ASSERT_EQ(51l, pebbles.getPebbleAtIndex(3));
-  ASSERT_EQ(28l, pebbles.getPebbleAtIndex(4));
+  ASSERT_EQ(21l, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(58l, pebbles.getStoneEngravingAtIndex(1));
+  ASSERT_EQ(512l, pebbles.getStoneEngravingAtIndex(2));
+  ASSERT_EQ(51l, pebbles.getStoneEngravingAtIndex(3));
+  ASSERT_EQ(28l, pebbles.getStoneEngravingAtIndex(4));
 }
 
 TEST(PebbleRow_SplitPebble_Test, ShouldSplitMultiplePebblesWhenEvenSuperLong) {
@@ -167,12 +167,12 @@ TEST(PebbleRow_SplitPebble_Test, ShouldSplitMultiplePebblesWhenEvenSuperLong) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   // When
   for (auto it = pebbles.getStoneList().begin(); it != pebbles.getStoneList().end(); ++it) {
-    pebbles.splitPebbleIfEven(it);
+    pebbles.splitStoneIfEven(it);
   }
   // Then
   ASSERT_EQ(2, pebbles.getStoneList().size());
-  ASSERT_EQ(21585l, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(12824l, pebbles.getPebbleAtIndex(1));
+  ASSERT_EQ(21585l, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(12824l, pebbles.getStoneEngravingAtIndex(1));
 }
 
 TEST(PebbleRow_SplitPebble_Test, ShouldNotModifyIfPebbleIsZero) {
@@ -181,10 +181,10 @@ TEST(PebbleRow_SplitPebble_Test, ShouldNotModifyIfPebbleIsZero) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   auto front = pebbles.getStoneList().begin();
   // When
-  pebbles.multiplyPebbleByYear(front);
+  pebbles.multiplyStoneEngravingByYear(front);
   // Then
   ASSERT_EQ(1, pebbles.getStoneList().size());
-  ASSERT_EQ(0, pebbles.getPebbleAtIndex(0));
+  ASSERT_EQ(0, pebbles.getStoneEngravingAtIndex(0));
 }
 
 TEST(PebbleRow_SplitPebble_Test, ShouldNotModifyIfPebbleIsEvenAmountOfDigits) {
@@ -193,10 +193,10 @@ TEST(PebbleRow_SplitPebble_Test, ShouldNotModifyIfPebbleIsEvenAmountOfDigits) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   auto front = pebbles.getStoneList().begin();
   // When
-  pebbles.multiplyPebbleByYear(front);
+  pebbles.multiplyStoneEngravingByYear(front);
   // Then
   ASSERT_EQ(1, pebbles.getStoneList().size());
-  ASSERT_EQ(21, pebbles.getPebbleAtIndex(0));
+  ASSERT_EQ(21, pebbles.getStoneEngravingAtIndex(0));
 }
 
 TEST(PebbleRow_MultiplyPebble_Test, ShouldNotModifyIfPebbleIsEvenLonger) {
@@ -205,10 +205,10 @@ TEST(PebbleRow_MultiplyPebble_Test, ShouldNotModifyIfPebbleIsEvenLonger) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   auto front = pebbles.getStoneList().begin();
   // When
-  pebbles.multiplyPebbleByYear(front);
+  pebbles.multiplyStoneEngravingByYear(front);
   // Then
   ASSERT_EQ(1, pebbles.getStoneList().size());
-  ASSERT_EQ(2865, pebbles.getPebbleAtIndex(0));
+  ASSERT_EQ(2865, pebbles.getStoneEngravingAtIndex(0));
 }
 
 TEST(PebbleRow_MultiplyPebble_Test, ShouldModifyIfPebbleIsOddTotalDigits) {
@@ -217,10 +217,10 @@ TEST(PebbleRow_MultiplyPebble_Test, ShouldModifyIfPebbleIsOddTotalDigits) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   auto front = pebbles.getStoneList().begin();
   // When
-  pebbles.multiplyPebbleByYear(front);
+  pebbles.multiplyStoneEngravingByYear(front);
   // Then
   ASSERT_EQ(1, pebbles.getStoneList().size());
-  ASSERT_EQ(2024, pebbles.getPebbleAtIndex(0));
+  ASSERT_EQ(2024, pebbles.getStoneEngravingAtIndex(0));
 }
 
 TEST(PebbleRow_MultiplyPebble_Test, ShouldModifyIfPebbleIsOddLarger) {
@@ -229,10 +229,10 @@ TEST(PebbleRow_MultiplyPebble_Test, ShouldModifyIfPebbleIsOddLarger) {
   PebbleRow pebbles = PebbleRow(pebbleInput);
   auto front = pebbles.getStoneList().begin();
   // When
-  pebbles.multiplyPebbleByYear(front);
+  pebbles.multiplyStoneEngravingByYear(front);
   // Then
   ASSERT_EQ(1, pebbles.getStoneList().size());
-  ASSERT_EQ(2021976L, pebbles.getPebbleAtIndex(0));
+  ASSERT_EQ(2021976L, pebbles.getStoneEngravingAtIndex(0));
 }
 
 TEST(PebbleRow_MultiplyPebble_Test, ShouldModifyIfPebbleIsOddLargerLoop) {
@@ -242,12 +242,12 @@ TEST(PebbleRow_MultiplyPebble_Test, ShouldModifyIfPebbleIsOddLargerLoop) {
   auto front = pebbles.getStoneList().begin();
   // When
   for (auto it = pebbles.getStoneList().begin(); it != pebbles.getStoneList().end(); ++it) {
-    pebbles.multiplyPebbleByYear(it);
+    pebbles.multiplyStoneEngravingByYear(it);
   }
   // Then
   ASSERT_EQ(2, pebbles.getStoneList().size());
-  ASSERT_EQ(2021976L, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(1034264L, pebbles.getPebbleAtIndex(1));
+  ASSERT_EQ(2021976L, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(1034264L, pebbles.getStoneEngravingAtIndex(1));
 }
 
 TEST(PebbleRow_ModifyAll_Test, ShouldModifyExample) {
@@ -255,21 +255,13 @@ TEST(PebbleRow_ModifyAll_Test, ShouldModifyExample) {
   std::string pebbleInput = "125 17";
   PebbleRow pebbles = PebbleRow(pebbleInput);
   // When
-  for (auto it = pebbles.getStoneList().begin(); it != pebbles.getStoneList().end(); ++it) {
-    bool flag = false;
-    flag = pebbles.upgradeZeroEngraving(it);
-    if(!flag) {
-      flag = pebbles.splitPebbleIfEven(it);
-    }
-    if(!flag) {
-      pebbles.multiplyPebbleByYear(it);
-    }
-  }
+  long long result = pebbles.performBlinks(1);
   // Then
-  ASSERT_EQ(3, pebbles.getStoneList().size());
-  ASSERT_EQ(253000L, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(1L, pebbles.getPebbleAtIndex(1));
-  ASSERT_EQ(7L, pebbles.getPebbleAtIndex(2));
+  ASSERT_EQ(3l, result);
+  ASSERT_EQ(3l, pebbles.getStoneList().size());
+  ASSERT_EQ(253000L, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(1L, pebbles.getStoneEngravingAtIndex(1));
+  ASSERT_EQ(7L, pebbles.getStoneEngravingAtIndex(2));
 }
 
 TEST(PebbleRow_ModifyAll_Test, ShouldModifyExampleTwo) {
@@ -277,21 +269,29 @@ TEST(PebbleRow_ModifyAll_Test, ShouldModifyExampleTwo) {
   std::string pebbleInput = "253 0 2024 14168";
   PebbleRow pebbles = PebbleRow(pebbleInput);
   // When
-  for (auto it = pebbles.getStoneList().begin(); it != pebbles.getStoneList().end(); ++it) {
-    bool flag = false;
-    flag = pebbles.upgradeZeroEngraving(it);
-    if(!flag) {
-      flag = pebbles.splitPebbleIfEven(it);
-    }
-    if(!flag) {
-      pebbles.multiplyPebbleByYear(it);
-    }
-  }
+  long long result = pebbles.performBlinks(1);
   // Then
-  ASSERT_EQ(5, pebbles.getStoneList().size());
-  ASSERT_EQ(512072L, pebbles.getPebbleAtIndex(0));
-  ASSERT_EQ(1L, pebbles.getPebbleAtIndex(1));
-  ASSERT_EQ(20L, pebbles.getPebbleAtIndex(2));
-  ASSERT_EQ(24L, pebbles.getPebbleAtIndex(3));
-  ASSERT_EQ(28676032L, pebbles.getPebbleAtIndex(4));
+  ASSERT_EQ(5l, pebbles.getStoneList().size());
+  ASSERT_EQ(5l, result);
+  ASSERT_EQ(512072L, pebbles.getStoneEngravingAtIndex(0));
+  ASSERT_EQ(1L, pebbles.getStoneEngravingAtIndex(1));
+  ASSERT_EQ(20L, pebbles.getStoneEngravingAtIndex(2));
+  ASSERT_EQ(24L, pebbles.getStoneEngravingAtIndex(3));
+  ASSERT_EQ(28676032L, pebbles.getStoneEngravingAtIndex(4));
+}
+
+TEST(PebbleRow_ModifyAll_Test, ShouldBeOptimized) {
+  // Given
+  std::string pebbleInput = "253 0 2024 14168";
+  PebbleRow pebbles = PebbleRow(pebbleInput);
+  // When
+  auto start = std::chrono::high_resolution_clock::now();
+  long long result = pebbles.performBlinks(30);
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+  // Then
+  // Assert that the task took less than 50ms
+  ASSERT_LT(duration, 50);
+  // Existing assertion
+  ASSERT_EQ(5l, result);
 }

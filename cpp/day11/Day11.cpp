@@ -19,10 +19,10 @@ namespace solutions {
         bool flag = false;
         flag = pebbles.upgradeZeroEngraving(it);
         if(!flag) {
-          flag = pebbles.splitPebbleIfEven(it);
+          flag = pebbles.splitStoneIfEven(it);
         }
         if(!flag) {
-          pebbles.multiplyPebbleByYear(it);
+          pebbles.multiplyStoneEngravingByYear(it);
         }
       }
 
@@ -38,10 +38,10 @@ namespace solutions {
         bool flag = false;
         flag = pebbles.upgradeZeroEngraving(it);
         if(!flag) {
-          flag = pebbles.splitPebbleIfEven(it);
+          flag = pebbles.splitStoneIfEven(it);
         }
         if(!flag) {
-          pebbles.multiplyPebbleByYear(it);
+          pebbles.multiplyStoneEngravingByYear(it);
         }
       }
 

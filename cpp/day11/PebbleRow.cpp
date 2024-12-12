@@ -16,16 +16,32 @@ namespace solutions {
     while (std::getline(stream, token, ' ')) {
       // Attempt to convert each token to a long and add to pebbleList
       try {
-        pebbleList.push_back(std::stoll(token));
+        stoneList.push_back(std::stoll(token));
       } catch (const std::invalid_argument &e) {
         // Ignore invalid tokens that cannot be converted to a number
       }
     }
   }
-  long long PebbleRow::getPebbleAtIndex(int index) {
-    auto front = this->pebbleList.begin();
+  long long PebbleRow::getStoneEngravingAtIndex(int index) {
+    auto front = this->stoneList.begin();
     std::advance(front, index);
     return *front;
+  }
+  long long PebbleRow::performBlinks(int totalBlinks) {
+    for (int i = 0; i < totalBlinks; i++) {
+      for (auto it = this->getStoneList().begin(); it != this->getStoneList().end(); ++it) {
+        bool flag = false;
+        flag = this->upgradeZeroEngraving(it);
+        if (!flag) {
+          flag = this->splitStoneIfEven(it);
+        }
+        if (!flag) {
+          this->multiplyStoneEngravingByYear(it);
+        }
+      }
+    }
+
+    return this->getStoneList().size();
   }
 
   bool PebbleRow::upgradeZeroEngraving(std::list<long long>::iterator &idx) {
@@ -35,10 +51,10 @@ namespace solutions {
     }
     return false;
   }
-  bool PebbleRow::splitPebbleIfEven(std::list<long long>::iterator &idx) {
+  bool PebbleRow::splitStoneIfEven(std::list<long long>::iterator &idx) {
     long long currentValue = *idx;
     std::string currentValueStr = std::to_string(currentValue);
-    if(currentValueStr.length() % 2 == 0) {
+    if (currentValueStr.length() % 2 == 0) {
       size_t halfSize = currentValueStr.size() / 2;
 
       // Handle if number has odd number of digits
@@ -48,18 +64,18 @@ namespace solutions {
       long long one = std::stoll(firstHalf);
       long long two = std::stoll(secondHalf);
 
-      this->pebbleList.insert(idx, one);
-      this->pebbleList.insert(idx, two);
+      this->stoneList.insert(idx, one);
+      this->stoneList.insert(idx, two);
 
       // Remove index, and update reference to iterator
-      idx = this->pebbleList.erase(idx);
+      idx = this->stoneList.erase(idx);
       // Move iterator to new last number inserted
       --idx;
       return true;
     }
     return false;
   }
-  bool PebbleRow::multiplyPebbleByYear(std::list<long long>::iterator &idx) {
+  bool PebbleRow::multiplyStoneEngravingByYear(std::list<long long>::iterator &idx) {
     long long currentValue = *idx;
     std::string currentValueStr = std::to_string(currentValue);
     if (currentValue > 0 && currentValueStr.length() % 2 != 0) {
@@ -74,8 +90,6 @@ namespace solutions {
     }
     std::cout << "" << std::endl << std::endl;
   }
-  int PebbleRow::getTotalStones() {
-    return this->getStoneList().size();
-  }
+  int PebbleRow::getTotalStones() { return this->getStoneList().size(); }
 
 } // namespace solutions
