@@ -70,7 +70,7 @@ needs solving.
 | [Day 8](puzzle%2FDay8.md)   | ✅        | ✅        | 
 | [Day 9](puzzle%2FDay9.md)   | ✅        | ✅        | 
 | [Day 10](puzzle%2FDay10.md) | ✅        | ✅        | 
-| [Day 11](puzzle%2FDay11.md) |          |          | 
+| [Day 11](puzzle%2FDay11.md) | ✅        | ✅        | 
 | Day 12                      |          |          | 
 | Day 13                      |          |          | 
 | Day 14                      |          |          | 

@@ -13,39 +13,14 @@ namespace solutions {
   std::string Day11::solvePartOne(const helper::SolutionInput *input) {
     PebbleRow pebbles = PebbleRow(input->getTestInput()[0]);
 
-    for (int totalBlinks = 1; totalBlinks <= 25; totalBlinks++) {
+    long long result = pebbles.performBlinks(25, true);
 
-      for (auto it = pebbles.getStoneList().begin(); it != pebbles.getStoneList().end(); ++it) {
-        bool flag = false;
-        flag = pebbles.upgradeZeroEngraving(it);
-        if(!flag) {
-          flag = pebbles.splitStoneIfEven(it);
-        }
-        if(!flag) {
-          pebbles.multiplyStoneEngravingByYear(it);
-        }
-      }
-
-    }
-    return std::to_string(pebbles.getTotalStones());
+    return std::to_string(result);
   }
   std::string Day11::solvePartTwo(const helper::SolutionInput *input) {
     PebbleRow pebbles = PebbleRow(input->getTestInput()[0]);
 
-    for (int totalBlinks = 1; totalBlinks <= 75; totalBlinks++) {
-
-      for (auto it = pebbles.getStoneList().begin(); it != pebbles.getStoneList().end(); ++it) {
-        bool flag = false;
-        flag = pebbles.upgradeZeroEngraving(it);
-        if(!flag) {
-          flag = pebbles.splitStoneIfEven(it);
-        }
-        if(!flag) {
-          pebbles.multiplyStoneEngravingByYear(it);
-        }
-      }
-
-    }
-    return std::to_string(pebbles.getTotalStones());
+    long long result = pebbles.performBlinks(75, true);
+    return std::to_string(result);
   }
 } // namespace solutions
