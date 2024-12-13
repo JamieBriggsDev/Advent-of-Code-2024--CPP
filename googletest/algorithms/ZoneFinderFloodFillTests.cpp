@@ -150,6 +150,24 @@ TEST(ZoneFinderFloodFill_FindZones_Tests, FindTwoZonesComplex) {
   ASSERT_TRUE(result[1].contains(core::Pair(1,1)));
 }
 
+TEST(ZoneFinderFloodFill_FindZones_Tests, PartialExampleInput) {
+  // Given
+  std::string inputRaw =  "VVIVCCJJEE\n"
+                          "VVIIICJJEE\n"
+                          "MIIIIIJJEE\n"
+                          "MIIISIJEEE\n"
+                          "MMMISSJEEE\n";
+  
+
+  std::vector<std::string> input = InputUtils::convertToVector(inputRaw);
+  solutions::FarmGrid grid(input);
+  // When
+  std::vector<algorithms::Zone> result = algorithms::ZoneFinderFloodFill::findAllZones(grid);
+  // Then
+  ASSERT_EQ(8, result.size());
+  // Check zone I
+}
+
 TEST(ZoneFinderFloodFill_FindZones_Tests, ShouldBeFast) {
   // Given
   std::string inputRaw =

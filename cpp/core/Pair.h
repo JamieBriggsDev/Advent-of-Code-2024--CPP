@@ -39,6 +39,10 @@ namespace core {
     bool operator<(const Pair &other) const {
       return (x < other.x) || (x == other.x && y < other.y);
     }
+    bool operator>(const Pair &other) const {
+      return (x > other.x) || (x == other.x && y > other.y);
+    }
+
   };
 
 } // namespace core

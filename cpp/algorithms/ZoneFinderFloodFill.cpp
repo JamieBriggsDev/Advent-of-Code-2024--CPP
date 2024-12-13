@@ -9,7 +9,7 @@
 namespace algorithms {
   Zone ZoneFinderFloodFill::floodFill(const solutions::FarmGrid& grid, std::vector<std::vector<bool>>& visited, int x, int y,
                                                 char label) {
-    Zone toReturn;
+    Zone toReturn(label);
     // Directions
     std::vector directions = {core::Directions::toPair(core::NORTH), core::Directions::toPair(core::EAST),
                               core::Directions::toPair(core::SOUTH), core::Directions::toPair(core::WEST)};
