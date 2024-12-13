@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.30.5)
 # 'Google_test' is the subproject name
 project(Google_tests)
 
