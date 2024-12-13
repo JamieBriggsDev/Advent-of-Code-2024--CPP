@@ -362,8 +362,8 @@ TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldCreateWithTwoRowWithTw
   ASSERT_EQ(4, antinodeLocations.size());
   ASSERT_EQ(core::Pair(0,3), antinodeLocations[0]);
   ASSERT_EQ(core::Pair(1,2), antinodeLocations[1]);
-  ASSERT_EQ(core::Pair(3,0), antinodeLocations[2]);
-  ASSERT_EQ(core::Pair(2,1), antinodeLocations[3]);
+  ASSERT_EQ(core::Pair(2,1), antinodeLocations[2]);
+  ASSERT_EQ(core::Pair(3,0), antinodeLocations[3]);
 }
 
 TEST(AntennaGrid_GetAntinodeLocationsUpdates_Tests, ShouldCreateWithTwoRowWithTwoAntennaAndAntinodesLarger) {

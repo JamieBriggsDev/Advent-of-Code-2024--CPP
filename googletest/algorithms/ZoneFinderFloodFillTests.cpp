@@ -149,3 +149,35 @@ TEST(ZoneFinderFloodFill_FindZones_Tests, FindTwoZonesComplex) {
   ASSERT_EQ(1, result[1].size());
   ASSERT_TRUE(result[1].contains(core::Pair(1,1)));
 }
+
+TEST(ZoneFinderFloodFill_FindZones_Tests, ShouldBeFast) {
+  // Given
+  std::string inputRaw =
+    "aaabbbbbbbbbcccccccccddddddddddddddd\n"
+    "zzaaabbbbbcccccccccccccccccccccddddd\n"
+    "aaabbbccccbbddddddddddeeeeeeeeeeefff\n"
+    "aaabbbbbbbbbcccccccccddddddddddddddd\n"
+    "zzaaabbbbbcccccccccccccccccccccddddd\n"
+    "aaabbbccccbbddddddddddeeeeeeeeeeefff\n"
+    "aaabbbbbbbbbcccccccccddddddddddddddd\n"
+    "zzaaabbbbbcccccccccccccccccccccddddd\n"
+    "aaabbbccccbbddddddddddeeeeeeeeeeefff\n"
+    "aaabbbbbbbbbcccccccccddddddddddddddd\n"
+    "zzaaabbbbbcccccccccccccccccccccddddd\n"
+    "aaabbbccccbbddddddddddeeeeeeeeeeefff\n"
+    "aaabbbbbbbbbcccccccccddddddddddddddd\n"
+    "zzaaabbbbbcccccccccccccccccccccddddd\n"
+    "aaabbbccccbbddddddddddeeeeeeeeeeefff\n"
+    "abbbbbbbbbbbbeeeeeeeeeeeefffffffffff\n";
+
+  std::vector<std::string> input = InputUtils::convertToVector(inputRaw);
+  solutions::FarmGrid grid(input);
+  // When
+  auto start = std::chrono::high_resolution_clock::now();
+  std::vector<algorithms::Zone> result = algorithms::ZoneFinderFloodFill::findAllZones(grid);
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+  // Then
+  // Assert that the task took less than 5ms
+  ASSERT_LT(duration, 5);
+}

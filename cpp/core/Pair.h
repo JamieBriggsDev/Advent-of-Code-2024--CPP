@@ -21,19 +21,24 @@ namespace core {
       return result;
     }
     bool setContainsPair(std::set<Pair> pairs) {
-      for (auto pair: pairs) {
+      return pairs.contains(core::Pair(x, y));
+      /*for (auto pair: pairs) {
         if (pair.x == x && pair.y == y) {
           return true;
         }
       }
-      return false;
+      return false;*/
     }
+
+
 
 
     bool operator==(const Pair &other) const { return (x == other.x) && (y == other.y); }
     Pair operator+(const Pair &other) const { return Pair(x + other.x, y + other.y); }
     Pair operator-(const Pair &other) const { return Pair(x - other.x, y - other.y); }
-    bool operator<(const Pair &other) const { return y < other.y || x < other.x; }
+    bool operator<(const Pair &other) const {
+      return (x < other.x) || (x == other.x && y < other.y);
+    }
   };
 
 } // namespace core
