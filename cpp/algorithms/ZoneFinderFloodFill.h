@@ -14,7 +14,7 @@
 namespace algorithms {
 
   class ZoneFinderFloodFill {
-    static Zone floodFill(const solutions::FarmGrid &grid, std::set<core::Pair>& visited, int x, int y, char label);
+    static Zone floodFill(const solutions::FarmGrid &grid, std::vector<std::vector<bool>>& visited, int x, int y, char label);
 
   public:
     // TODO: After solution or if needed again, change FarmGrid param to abstract

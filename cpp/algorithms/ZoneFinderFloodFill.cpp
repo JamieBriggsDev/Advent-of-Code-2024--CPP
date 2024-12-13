@@ -7,7 +7,7 @@
 #include <queue>
 
 namespace algorithms {
-  Zone ZoneFinderFloodFill::floodFill(const solutions::FarmGrid& grid, std::set<core::Pair>& visited, int x, int y,
+  Zone ZoneFinderFloodFill::floodFill(const solutions::FarmGrid& grid, std::vector<std::vector<bool>>& visited, int x, int y,
                                                 char label) {
     Zone toReturn;
     // Directions
@@ -18,7 +18,7 @@ namespace algorithms {
     q.emplace(x, y);
 
     core::Pair toAdd = {x, y};
-    visited.insert(toAdd);
+    visited[y][x] = true;
     toReturn.addLocation(toAdd);
 
     // Perform BFS
@@ -42,9 +42,9 @@ namespace algorithms {
         //  if has the same value as the starting cell.
         if(nx >= 0 && nx < grid.getHorizontalLength()
           && ny >= 0 && ny < grid.getVerticalLength()
-          && !core::Pair(nx, ny).setContainsPair(visited)
+          && !visited[ny][nx]
           && grid.getGrid()[ny][nx].getZoneLabel() == label) {
-          visited.insert({nx, ny});
+          visited[ny][nx] = true;
 
           if(!toReturn.contains(core::Pair(nx, ny))) {
             toReturn.addLocation(core::Pair(nx, ny));
@@ -59,14 +59,14 @@ namespace algorithms {
   }
   std::vector<Zone> ZoneFinderFloodFill::findAllZones(solutions::FarmGrid grid) {
     std::vector<Zone> zones;
-    int rows = grid.getHorizontalLength();
-    int cols = grid.getVerticalLength();
-    std::set<core::Pair> visited;
+    int cols = grid.getHorizontalLength();
+    int rows = grid.getVerticalLength();
+    std::vector<std::vector<bool>> visited(rows, std::vector<bool>(cols, false));
 
-    for(int x = 0; x < rows; ++x) {
-      for(int y = 0; y < cols; ++y) {
+    for(int x = 0; x < cols; ++x) {
+      for(int y = 0; y < rows; ++y) {
         // If cell is unvisted, start a new flood
-        if(!core::Pair(x, y).setContainsPair(visited)) {
+        if(!visited[y][x]) {
           // Get type to start flood with
           char zoneLabel = grid.getGrid()[y][x].getZoneLabel();
           // Perform flood fill
