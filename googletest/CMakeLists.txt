@@ -89,6 +89,8 @@ add_executable(Google_Tests_run
         ../cpp/day12/Plant.cpp
         ../cpp/day12/Plant.h
         day12/FarmGridTests.cpp
+        ../cpp/core/AocException.cpp
+        ../cpp/core/AocException.h
 )
 
 # Set optimization flags for Release configuration

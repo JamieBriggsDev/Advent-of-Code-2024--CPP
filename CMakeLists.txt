@@ -74,6 +74,8 @@ add_executable(aoc2024 main.cpp
         cpp/day12/FarmGrid.h
         cpp/day12/Plant.cpp
         cpp/day12/Plant.h
+        cpp/core/AocException.cpp
+        cpp/core/AocException.h
 )
 
 add_subdirectory(googletest)
