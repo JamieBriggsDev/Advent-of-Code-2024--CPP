@@ -11,18 +11,15 @@
 #include "../core/AocException.h"
 #include "../core/Orientation.h"
 #include "../core/Pair.h"
+#include "../algorithms/ZonedCell.h"
 
 namespace solutions {
 
-  struct Plant : public core::Pair {
-    char plantLabel;
+  struct Plant : algorithms::ZonedCell {
     std::unordered_map<core::Orientation, char> neighbourPlants;
-  public:
-    ~Plant() = default;
-    Plant(int x, int y, char plant_label) : Pair(x, y), plantLabel(plant_label) {}
-    Plant() : Pair(-1, -1), plantLabel('.') {}
+    Plant(int x, int y, char plantLabel) : ZonedCell(x, y, plantLabel) {}
+    Plant() : ZonedCell(-1, -1, '.') {}
     void addNeighbouringPlant(const core::Orientation &orientation, Plant other);
-    [[nodiscard]] char getPlantLabel() const { return this->plantLabel; }
     [[nodiscard]] bool containsNeighbour(const core::Orientation orientation) const {
       return this->neighbourPlants.contains(orientation);
     };

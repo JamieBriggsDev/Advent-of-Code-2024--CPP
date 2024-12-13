@@ -76,6 +76,12 @@ add_executable(aoc2024 main.cpp
         cpp/day12/Plant.h
         cpp/core/AocException.cpp
         cpp/core/AocException.h
+        cpp/algorithms/ZoneFinderFloodFill.cpp
+        cpp/algorithms/ZoneFinderFloodFill.h
+        cpp/algorithms/ZonedCell.h
+        cpp/algorithms/GridZones.h
+        cpp/algorithms/Zone.cpp
+        cpp/algorithms/Zone.h
 )
 
 add_subdirectory(googletest)

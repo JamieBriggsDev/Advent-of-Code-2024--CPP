@@ -6,6 +6,6 @@
 
 namespace solutions {
   void Plant::addNeighbouringPlant(const core::Orientation &orientation, Plant other) {
-    this->neighbourPlants[orientation] = other.getPlantLabel();
+    this->neighbourPlants[orientation] = other.getZoneLabel();
   }
 } // solutions

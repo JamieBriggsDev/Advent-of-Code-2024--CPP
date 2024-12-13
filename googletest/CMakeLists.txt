@@ -91,6 +91,13 @@ add_executable(Google_Tests_run
         day12/FarmGridTests.cpp
         ../cpp/core/AocException.cpp
         ../cpp/core/AocException.h
+        ../cpp/algorithms/ZoneFinderFloodFill.cpp
+        ../cpp/algorithms/ZoneFinderFloodFill.h
+        algorithms/ZoneFinderFloodFillTests.cpp
+        ../cpp/algorithms/GridZones.h
+        ../cpp/algorithms/Zone.cpp
+        ../cpp/algorithms/Zone.h
+        algorithms/ZoneTests.cpp
 )
 
 # Set optimization flags for Release configuration
