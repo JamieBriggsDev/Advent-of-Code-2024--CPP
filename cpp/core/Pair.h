@@ -35,6 +35,10 @@ namespace core {
 
     bool operator==(const Pair &other) const { return (x == other.x) && (y == other.y); }
     Pair operator+(const Pair &other) const { return Pair(x + other.x, y + other.y); }
+    void operator+=(const Pair &other) {
+      x += other.x;
+      y += other.y;
+    }
     Pair operator-(const Pair &other) const { return Pair(x - other.x, y - other.y); }
     bool operator<(const Pair &other) const {
       return (x < other.x) || (x == other.x && y < other.y);

@@ -10,10 +10,15 @@
 
 namespace solutions {
     class Day{
+    protected:
+      bool isTestMode = false;
     public:
       virtual ~Day() = default;
       virtual std::string solvePartOne(const helper::SolutionInput* input) = 0;
         virtual std::string solvePartTwo(const helper::SolutionInput* input) = 0;
+      void setTestMode(bool testMode) {
+        this->isTestMode = testMode;
+      }
     };
 }
 #endif //DAY_H

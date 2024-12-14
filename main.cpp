@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
   const auto start = std::chrono::high_resolution_clock::now();
 
   const auto startInput = std::chrono::high_resolution_clock::now();
-  const auto day = AOCInitializer::getDay(StringUtils::toInt(argv[1]));
+  const auto day = AOCInitializer::getDay(StringUtils::toInt(argv[1]), argc > 2);
   const auto inputOne = AOCInitializer::getInput(StringUtils::toInt(argv[1]), argc > 2, 1);
   const auto inputTwo = AOCInitializer::getInput(StringUtils::toInt(argv[1]), argc > 2, 2);
   const auto endInput = std::chrono::high_resolution_clock::now();

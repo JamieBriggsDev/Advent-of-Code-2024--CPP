@@ -7,7 +7,6 @@ set(CMAKE_CXX_STANDARD 23)
 # 'lib' is the folder with Google Test sources
 add_subdirectory(lib)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-
 # 'Google_Tests_run' is the target name
 # 'test1.cpp test2.cpp' are source files with tests
 add_executable(Google_Tests_run
@@ -107,6 +106,9 @@ add_executable(Google_Tests_run
         ../cpp/day14/Day14.h
         ../cpp/day15/Day15.cpp
         ../cpp/day15/Day15.h
+        ../cpp/day14/Robot.cpp
+        ../cpp/day14/Robot.h
+        day14/RobotTests.cpp
 )
 
 # Set optimization flags for Release configuration

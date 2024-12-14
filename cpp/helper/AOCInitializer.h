@@ -14,7 +14,7 @@ namespace helper {
 
 class AOCInitializer {
 public:
-  static solutions::Day* getDay(int dayNumber);
+  static solutions::Day* getDay(int dayNumber, bool test);
   static SolutionInput* getInput(int dayNumber);
   static SolutionInput* getInput(int dayNumber, bool test, int part);
 };
