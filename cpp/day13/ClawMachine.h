@@ -20,7 +20,8 @@ namespace solutions {
     ClawMachineButton buttonB;
     core::Pair prize;
   public:
-    explicit ClawMachine(std::vector<std::string> input);
+    explicit ClawMachine(std::vector<std::string> input, bool withCorrectMeasurements = false);
+
     [[nodiscard]] ClawMachineButton getButtonA() const {
       return buttonA;
     }

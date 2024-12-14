@@ -11,11 +11,11 @@ namespace core {
 
   class Pair {
   public:
-    int x = 0, y = 0;
+    long long x = 0, y = 0;
     Pair() = default;
-    Pair(int a, int b) : x(a), y(b) {}
-    [[nodiscard]] int distance() const {
-      int result = x - y;
+    Pair(long long a, long long b) : x(a), y(b) {}
+    [[nodiscard]] long long distance() const {
+      long long result = x - y;
       if (result < 0)
         result = -result;
       return result;

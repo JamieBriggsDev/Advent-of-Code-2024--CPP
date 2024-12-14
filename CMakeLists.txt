@@ -86,6 +86,10 @@ add_executable(aoc2024 main.cpp
         cpp/day13/ClawMachine.h
         cpp/day13/Day13.cpp
         cpp/day13/Day13.h
+        cpp/day14/Day14.cpp
+        cpp/day14/Day14.h
+        cpp/day15/Day15.cpp
+        cpp/day15/Day15.h
 )
 
 add_subdirectory(googletest)

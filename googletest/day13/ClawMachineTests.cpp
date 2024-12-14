@@ -65,3 +65,31 @@ TEST(ClawMachine_getCheapestWayToPrize_Test, ShouldReturnExampleTwoImpossible) {
   // Then
   ASSERT_EQ(core::Pair(0,0), result);
 }
+
+TEST(ClawMachine_getCheapestWayToPrize_Test, ShouldReturnExampleOneImpossibleLarge) {
+  std::string rawInput =
+    "Button A: X+94, Y+34\n"
+    "Button B: X+22, Y+67\n"
+    "Prize: X=8400, Y=5400\n"
+  ;
+  std::vector<std::string> input = InputUtils::convertToVector(rawInput);
+  solutions::ClawMachine machine(input, true);
+  // When
+  core::Pair result = machine.getCheapestWayToPrize();
+  // Then
+  ASSERT_EQ(core::Pair(0,0), result);
+}
+
+TEST(ClawMachine_getCheapestWayToPrize_Test, ShouldReturnExampleTwoLarge) {
+  std::string rawInput =
+    "Button A: X+26, Y+66\n"
+    "Button B: X+67, Y+21\n"
+    "Prize: X=12748, Y=12176\n"
+  ;
+  std::vector<std::string> input = InputUtils::convertToVector(rawInput);
+  solutions::ClawMachine machine(input, true);
+  // When
+  core::Pair result = machine.getCheapestWayToPrize();
+  // Then
+  ASSERT_EQ(core::Pair(118679050709l,103199174542l), result);
+}

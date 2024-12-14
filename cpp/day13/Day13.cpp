@@ -13,13 +13,20 @@ namespace solutions {
     for (auto &rawInput : inputs) {
       ClawMachine machine(rawInput);
       core::Pair buttonPresses = machine.getCheapestWayToPrize();
-      int toAdd = buttonPresses.x * 3 + buttonPresses.y;
       tokensSpent += buttonPresses.x * 3; // Button A costs 3 tokens :(
       tokensSpent += buttonPresses.y;
     }
     return std::to_string(tokensSpent);
   }
   std::string Day13::solvePartTwo(const helper::SolutionInput *input) {
-    return "Solve me";
+    vector<vector<string>> inputs = input->getSplitTestInput("");
+    long long tokensSpent = 0L;
+    for (auto &rawInput : inputs) {
+      ClawMachine machine(rawInput, true);
+      core::Pair buttonPresses = machine.getCheapestWayToPrize();
+      tokensSpent += buttonPresses.x * 3; // Button A costs 3 tokens :(
+      tokensSpent += buttonPresses.y;
+    }
+    return std::to_string(tokensSpent);
   }
 } // solutions
