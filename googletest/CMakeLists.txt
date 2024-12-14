@@ -98,6 +98,11 @@ add_executable(Google_Tests_run
         ../cpp/algorithms/Zone.cpp
         ../cpp/algorithms/Zone.h
         algorithms/ZoneTests.cpp
+        ../cpp/day13/ClawMachine.cpp
+        ../cpp/day13/ClawMachine.h
+        day13/ClawMachineTests.cpp
+        ../cpp/day13/Day13.cpp
+        ../cpp/day13/Day13.h
 )
 
 # Set optimization flags for Release configuration

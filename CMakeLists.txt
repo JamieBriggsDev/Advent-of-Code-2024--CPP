@@ -82,6 +82,10 @@ add_executable(aoc2024 main.cpp
         cpp/algorithms/GridZones.h
         cpp/algorithms/Zone.cpp
         cpp/algorithms/Zone.h
+        cpp/day13/ClawMachine.cpp
+        cpp/day13/ClawMachine.h
+        cpp/day13/Day13.cpp
+        cpp/day13/Day13.h
 )
 
 add_subdirectory(googletest)

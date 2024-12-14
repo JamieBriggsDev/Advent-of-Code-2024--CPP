@@ -71,8 +71,8 @@ needs solving.
 | [Day 9](puzzle%2FDay9.md)   | ✅        | ✅        | 
 | [Day 10](puzzle%2FDay10.md) | ✅        | ✅        | 
 | [Day 11](puzzle%2FDay11.md) | ✅        | ✅        | 
-| Day 12                      |          |          | 
-| Day 13                      |          |          | 
+| [Day12](puzzle/Day12.md)    | ✅        | ✅        | 
+| [Day13](puzzle/Day13.md)    |          |          | 
 | Day 14                      |          |          | 
 | Day 15                      |          |          | 
 | Day 16                      |          |          | 
