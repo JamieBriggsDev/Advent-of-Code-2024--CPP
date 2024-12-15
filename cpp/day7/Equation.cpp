@@ -11,7 +11,7 @@
 using namespace std;
 
 namespace solutions {
-  vector<string> Equation::findPossibleSolutions() {
+  vector<string> Equation::findPossibleSolutions(bool useConcatendationOperator) {
 
     // Possible solutions:
     // When 2 Numbers and 1 operands: 2 (+, -)
@@ -33,6 +33,11 @@ namespace solutions {
       // Recursive calls: Add + or *
       generatePossibleOperands(currentOperand + 1, currentOutcome + "+");
       generatePossibleOperands(currentOperand + 1, currentOutcome + "*");
+      if (useConcatendationOperator) {
+        // The operator in the solution is actually "||", but that's not
+        //  a single character and annoys me...
+        generatePossibleOperands(currentOperand + 1, currentOutcome + "|");
+      }
     };
 
     generatePossibleOperands(0, "");
@@ -45,15 +50,25 @@ namespace solutions {
       string possibleSolution = to_string(this->getAnswer()) + " = " + to_string(this->getNumbers()[0]);
       for (int i =1; i < this->getNumbers().size(); i++) {
         char operand = possibleOperand[i - 1];
-        // Multiply
+        auto thisNumber = to_string(this->getNumbers()[i]);
+        // Addition
         if (operand == '+') {
           possibleResult += this->getNumbers()[i];
-          possibleSolution += " + " + to_string(this->getNumbers()[i]);
+          possibleSolution += " + " + thisNumber;
         }
         // Multiply
         if (operand == '*') {
           possibleResult *= this->getNumbers()[i];
-          possibleSolution += " * " + to_string(this->getNumbers()[i]);
+          possibleSolution += " * " + thisNumber;
+        }
+        // Concatenate
+        if (operand == '|') {
+          // Convert possibleResult to temp string
+          string temporaryString = to_string(possibleResult);
+          // Concat next number to it
+          temporaryString += thisNumber;
+          possibleResult = stoll(temporaryString);
+          possibleSolution += " || " + thisNumber;
         }
       }
 

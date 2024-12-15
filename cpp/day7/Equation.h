@@ -22,7 +22,7 @@ public:
    * Finds possible solutions to the equation
    * @return a vector of strings showing the possible solutions to the equation.
    */
-  std::vector<std::string> findPossibleSolutions();
+  std::vector<std::string> findPossibleSolutions(bool useConcatendationOperator = false);
 
   long long getAnswer() {
     return answer;
