@@ -1,3 +1,4 @@
+[Go back](..%2FReadme.md)
 # Day 13: Claw Contraption
 
 Next up: the lobby of a resort on a tropical island. The Historians take 

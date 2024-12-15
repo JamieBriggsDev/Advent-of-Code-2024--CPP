@@ -73,8 +73,8 @@ needs solving.
 | [Day 11](puzzle%2FDay11.md) | ✅        | ✅        | 
 | [Day12](puzzle/Day12.md)    | ✅        | ✅        | 
 | [Day13](puzzle/Day13.md)    | ✅        | ✅        | 
-| Day 14                      |          |          | 
-| Day 15                      |          |          | 
+| [Day14](puzzle/Day14.md)    | ✅        | ✅        | 
+| [Day15](puzzle/Day15.md)    |          |          | 
 | Day 16                      |          |          | 
 | Day 17                      |          |          | 
 | Day 18                      |          |          | 
