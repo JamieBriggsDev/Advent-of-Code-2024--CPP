@@ -109,6 +109,15 @@ add_executable(Google_Tests_run
         ../cpp/day14/Robot.cpp
         ../cpp/day14/Robot.h
         day14/RobotTests.cpp
+        ../cpp/day15/Warehouse.cpp
+        ../cpp/day15/Warehouse.h
+        day15/WarehouseTests.cpp
+        ../cpp/day15/Box.h
+        ../cpp/day15/Wall.h
+        ../cpp/day15/Robot.h
+        ../cpp/day15/DirectionQueue.cpp
+        ../cpp/day15/DirectionQueue.h
+        day15/DirectionQueueTests.cpp
 )
 
 # Set optimization flags for Release configuration

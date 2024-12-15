@@ -44,6 +44,20 @@ namespace core {
             return {0,0};
         }
       }
+    char static toArrow(Orientation orientation) {
+        switch (orientation) {
+          case NORTH:
+            return '^';
+          case EAST:
+            return '>';
+          case SOUTH:
+            return 'v';
+          case WEST:
+            return '<';
+          default:
+            return '?';
+        }
+      }
       static Orientation fromPair(const Pair &pair) {
         if (pair == Pair(0, -1)) {
           return NORTH;

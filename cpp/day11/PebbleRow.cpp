@@ -75,7 +75,7 @@ namespace solutions {
     long long total = 0;
     for (auto it = stoneListCopy.begin(); it != stoneListCopy.end(); ++it) {
       if (it->second != 0) {
-        std::cout << "Found " << it->second << " stones with " << it->first << " engraved on them" << std::endl;
+        //std::cout << "Found " << it->second << " stones with " << it->first << " engraved on them" << std::endl;
         total += it->second;
       }
     }

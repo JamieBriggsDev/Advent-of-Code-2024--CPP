@@ -92,6 +92,14 @@ add_executable(aoc2024 main.cpp
         cpp/day15/Day15.h
         cpp/day14/Robot.cpp
         cpp/day14/Robot.h
+        cpp/day15/Warehouse.cpp
+        cpp/day15/Warehouse.h
+        cpp/day15/Entity.h
+        cpp/day15/Wall.h
+        cpp/day15/Box.h
+        cpp/day15/Robot.h
+        cpp/day15/DirectionQueue.cpp
+        cpp/day15/DirectionQueue.h
 )
 
 add_subdirectory(googletest)
