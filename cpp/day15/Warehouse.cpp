@@ -22,6 +22,16 @@ namespace solutions {
       this->boxes.push_back(box);
       return box;
     }
+    if (c == '[') {
+      auto box = new warehouse::Box(x, y, core::WEST);
+      this->boxes.push_back(box);
+      return box;
+    }
+    if (c == ']') {
+      auto box = new warehouse::Box(x, y, core::EAST);
+      this->boxes.push_back(box);
+      return box;
+    }
     if (c == '@') {
       this->robot = new warehouse::Robot(x, y);
       return this->robot;
@@ -31,47 +41,75 @@ namespace solutions {
   void Warehouse::moveRobot(core::Orientation orientation) {
     auto robot = this->robot;
     auto pairDirection = core::Directions::toPair(orientation);
-    /*// Before moving robot, find if there is a wall next to the robot and just exit quickly
-    if (dynamic_cast<warehouse::Wall *>(this->getGrid()[robot->y + pairDirection.y][robot->x + pairDirection.x]) !=
-        nullptr) {
-      // Return and do nothing
-      return;
-    }*/
 
     std::stack<warehouse::Entity *> stackToMove;
     stackToMove.emplace(robot);
 
-    auto nextEntity = this->getGrid()[robot->y + pairDirection.y][robot->x + pairDirection.x];
+    // Get next entity to check
 
-    // Before moving robot, find boxes in direction
-    while (nextEntity != nullptr && !nextEntity->isWall()) {
-      if (nextEntity != nullptr && !nextEntity->isWall()) {
+    std::vector<warehouse::Entity *> rootMovementSources;
+    rootMovementSources.push_back(robot);
+
+    for (int i = 0; i < rootMovementSources.size(); i++) {
+
+      auto nextEntity =
+          this->getGrid()[rootMovementSources[i]->y + pairDirection.y][rootMovementSources[i]->x + pairDirection.x];
+
+      // At this point, nextEntity should be a box or wall. If it's empty, end of the line for that
+      //  root as every box from the root movement or robot can be moved
+      while (nextEntity != nullptr) {
+        if (nextEntity != nullptr && nextEntity->isWall()) {
+          // Return without moving. Things can't move due to blockage!
+          return;
+        }
+
+        // Add mext entity to stack!
         stackToMove.emplace(nextEntity);
-      }
-      nextEntity = this->getGrid()[nextEntity->y + pairDirection.y][nextEntity->x + pairDirection.x];
-    }
 
-    // If next entity is null, then there is a gap to move all objects into! this is because as part
-    //  of the above algorithm, it will exit the loop if there is either a gap, or a wall. If there
-    //  is a wall, that means there is no more space between the robot, and the wall with boxes.
-    bool foundGap = nextEntity == nullptr;
+        // If left or right, find next entity
+        if (orientation == core::Orientation::WEST || orientation == core::Orientation::EAST) {
+          nextEntity = this->getGrid()[nextEntity->y + pairDirection.y][nextEntity->x + pairDirection.x];
+        }
 
-    // If gap not found, clear stack as nothing can't move!
-    if (!foundGap) {
-      while (!stackToMove.empty()) {
-        stackToMove.pop();
+        // If up or down, may have to add more root movement sources as boxes can take up two
+        //  spaces. If source tries to push right of box, add the left of the box to the
+        //  rootMovementSources list
+        if (orientation == core::Orientation::NORTH || orientation == core::Orientation::SOUTH) {
+          // Get Box, and is larger, add other side of box to rootMovementSources
+          auto box = dynamic_cast<warehouse::Box *>(nextEntity);
+          if (box->getBoxSide() != core::NOWHERE) {
+            // Find otherside to box
+            warehouse::Entity *otherSide = nullptr;
+            if (box->getBoxSide() == core::WEST) {
+              otherSide = this->getGrid()[nextEntity->y][nextEntity->x + 1];
+            }
+            if (box->getBoxSide() == core::EAST) {
+              otherSide = this->getGrid()[nextEntity->y][nextEntity->x - 1];
+            }
+            // Add otherSide to rootMovementSources and stackToMove.
+            stackToMove.emplace(otherSide);
+            rootMovementSources.push_back(otherSide);
+          }
+
+          nextEntity = this->getGrid()[nextEntity->y + pairDirection.y][nextEntity->x + pairDirection.x];
+        }
       }
     }
 
     // Starting from top of the stack, move entities
+    // Ensure that when something has been moved, it isn't moved a second time
+    std::set<core::Pair *> moved;
     while (!stackToMove.empty()) {
       warehouse::Entity *toMove = stackToMove.top();
-      // Remove reference to entity in Grid
-      this->grid[toMove->y][toMove->x] = nullptr;
-      // Set robot coordinates
-      toMove->move(pairDirection);
-      // Update grid to new robot location
-      this->grid[toMove->y][toMove->x] = toMove;
+      if (!moved.contains(toMove)) {
+        moved.emplace(toMove);
+        // Remove reference to entity in Grid
+        this->grid[toMove->y][toMove->x] = nullptr;
+        // Set robot coordinates
+        toMove->move(pairDirection);
+        // Update grid to new robot location
+        this->grid[toMove->y][toMove->x] = toMove;
+      }
       stackToMove.pop();
     }
 

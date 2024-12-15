@@ -14,7 +14,7 @@ namespace solutions {
     // Split input
     auto bothInputs = input->getSplitTestInput("");
     // Create warehouse
-    Warehouse warehouse(bothInputs[0]);
+    Warehouse warehouse(bothInputs[0], false);
     // Get list of directions
     DirectionQueue directionQueue(bothInputs[1]);
     // Loop through directions and move all boxes
@@ -29,10 +29,36 @@ namespace solutions {
 
     // Loop through all boxes and get GPS coordinates
     long long totalGPSValues = 0l;
-    for (auto box : warehouse.getBoxes()) {
+    for (auto box: warehouse.getBoxes()) {
       totalGPSValues += (100l * box->y) + box->x;
     }
     return std::to_string(totalGPSValues);
   }
-  std::string Day15::solvePartTwo(const helper::SolutionInput *input) {return "To solve"; }
-} // solutions
+  std::string Day15::solvePartTwo(const helper::SolutionInput *input) {
+    // Split input
+    auto bothInputs = input->getSplitTestInput("");
+    // Create warehouse
+    Warehouse warehouse(bothInputs[0], true, false);
+    // Get list of directions
+    DirectionQueue directionQueue(bothInputs[1]);
+    // Loop through directions and move all boxes
+    while (directionQueue.size() > 0) {
+      warehouse.moveRobot(directionQueue.peekNext());
+      directionQueue.pop();
+    }
+
+    // Print for fun!
+    std::cout << "\n";
+    warehouse.printWarehouseLayout();
+
+    // Loop through all boxes and get GPS coordinates
+    long long totalGPSValues = 0l;
+    for (auto box: warehouse.getBoxes()) {
+      // Only use the left side of a box for GPS!
+      if (box->getBoxSide() == core::WEST) {
+        totalGPSValues += (100l * box->y) + box->x;
+      }
+    }
+    return std::to_string(totalGPSValues);
+  }
+} // namespace solutions

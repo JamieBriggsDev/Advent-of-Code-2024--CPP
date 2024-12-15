@@ -74,7 +74,7 @@ needs solving.
 | [Day12](puzzle/Day12.md)    | ✅        | ✅        | 
 | [Day13](puzzle/Day13.md)    | ✅        | ✅        | 
 | [Day14](puzzle/Day14.md)    | ✅        | ✅        | 
-| [Day15](puzzle/Day15.md)    |          |          | 
+| [Day15](puzzle/Day15.md)    | ✅        | ✅        | 
 | Day 16                      |          |          | 
 | Day 17                      |          |          | 
 | Day 18                      |          |          | 

@@ -8,17 +8,26 @@
 
 namespace warehouse {
 
-class Box : public Entity{
-public:
-  Box(int x, int y) : Entity(x, y) {}
-  char getSymbol() override {
-    return 'O';
+  class Box : public Entity {
+  private:
+    core::Orientation orientation;
+
+  public:
+    Box(int x, int y) : Entity(x, y) { orientation = core::Orientation::NOWHERE; }
+    Box(int x, int y, core::Orientation boxSide) : Entity(x, y) { orientation = boxSide; }
+    char getSymbol() override {
+      if (orientation == core::Orientation::EAST) {
+        return ']';
+      }
+      if (orientation == core::Orientation::WEST) {
+        return '[';
+      }
+      return 'O';
+    };
+    core::Orientation getBoxSide() { return orientation; }
+    bool isWall() override { return false; }
   };
-  bool isWall() override {
-    return false;
-  }
-};
 
-} // warehouse
+} // namespace warehouse
 
-#endif //BOX_H
+#endif // BOX_H

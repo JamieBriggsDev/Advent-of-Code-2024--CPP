@@ -4,6 +4,9 @@
 
 #ifndef WAREHOUSE_H
 #define WAREHOUSE_H
+#include <stack>
+
+
 #include "../core/Grid.h"
 #include "../core/Orientation.h"
 #include "../day15/Robot.h"
@@ -20,8 +23,37 @@ namespace solutions {
     std::vector<warehouse::Box*> boxes;
     bool isDebug;
   public:
-    Warehouse(std::vector<std::string> input, bool isDebug = false) {
-      this->init(input);
+    Warehouse(std::vector<std::string> input, bool isWider, bool isDebug = false) {
+      if (!isWider) {
+        this->init(input);
+      }
+      else {
+        std::vector<std::string> widerInput;
+        for (auto row : input) {
+
+          // Replacing all instances of '#' with "##" in the variable `row`.
+          std::string modifiedRow;
+          for (char c: row) {
+            if (c == '#')
+              modifiedRow += "##";
+
+
+            if (c == '.')
+              modifiedRow += "..";
+
+
+            if (c == 'O')
+              modifiedRow += "[]";
+
+
+            if (c == '@')
+              modifiedRow += "@.";
+
+          }
+          widerInput.push_back(modifiedRow);
+        }
+        this->init(widerInput);
+      }
       this->isDebug = isDebug;
     }
     warehouse::Robot *getRobot() { return robot; }
