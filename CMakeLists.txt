@@ -100,6 +100,8 @@ add_executable(aoc2024 main.cpp
         cpp/day15/Robot.h
         cpp/day15/DirectionQueue.cpp
         cpp/day15/DirectionQueue.h
+        cpp/day7/Equation.cpp
+        cpp/day7/Equation.h
 )
 
 add_subdirectory(googletest)

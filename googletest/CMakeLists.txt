@@ -118,6 +118,8 @@ add_executable(Google_Tests_run
         ../cpp/day15/DirectionQueue.cpp
         ../cpp/day15/DirectionQueue.h
         day15/DirectionQueueTests.cpp
+        ../cpp/day7/Equation.cpp
+        ../cpp/day7/Equation.h
 )
 
 # Set optimization flags for Release configuration
