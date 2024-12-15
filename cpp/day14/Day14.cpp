@@ -66,7 +66,7 @@ namespace solutions {
     }
 
     bool foundTree;
-    long currentMinSafetyFactor = 9999999999l;
+    long long currentMinSafetyFactor = 9999999999l;
     // Should be enough seconds
     int seconds = 1;
     for (; seconds <= 10000; seconds++) {
