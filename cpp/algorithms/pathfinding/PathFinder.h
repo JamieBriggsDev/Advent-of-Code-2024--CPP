@@ -5,17 +5,16 @@
 #ifndef PATHFINDER_H
 #define PATHFINDER_H
 
-#include <stack>
 
-#include "../../core/Node.h"
 #include <queue>
+#include "Node.h"
 
 
 namespace core {
   class PathFinder {
   public:
     virtual ~PathFinder() = default;
-    virtual std::vector<std::queue<core::Node *>> findAllPaths(core::Node *start) = 0;
+    virtual std::vector<std::queue<Node *>> findAllPaths(Node *start) = 0;
   };
 }
 

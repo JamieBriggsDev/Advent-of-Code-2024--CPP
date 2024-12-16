@@ -5,7 +5,7 @@
 #include <gtest/gtest.h>
 
 #include "../../cpp/algorithms/pathfinding/IncrementalPathFinder.h"
-#include "../../cpp/core/Node.h"
+#include "../../cpp/algorithms/pathfinding/Node.h"
 
 using namespace std;
 using namespace core;

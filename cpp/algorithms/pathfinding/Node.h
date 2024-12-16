@@ -4,7 +4,7 @@
 
 #ifndef PATH_H
 #define PATH_H
-#include "../core/Pair.h"
+#include "../../core/Pair.h"
 
 #include <vector>
 
@@ -15,12 +15,15 @@ class Node : public Pair{
   // Pointer to all parent nodes (Parent being towards start
   std::vector<Node*> parentNodes;
 public:
-  Node(int height, int x, int y) : Pair(x, y), weight(height) {}
-  int getHeight() const {
+  Node(int weight, int x, int y) : Pair(x, y), weight(weight) {}
+  int getWeight() const {
     return this->weight;
   }
   void addParent(Node* path) {
     this->parentNodes.push_back(path);
+  }
+  [[nodiscard]] Pair getPosition() const {
+    return static_cast<Pair>(*this);
   }
   std::vector<Node *> getParentNodes() const { return this->parentNodes; }
   friend bool operator==(const Node &lhs, const Node &rhs) {

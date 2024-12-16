@@ -68,8 +68,8 @@ add_executable(Google_Tests_run
         ../cpp/day10/TopographicMap.cpp
         ../cpp/day10/TopographicMap.h
         day10/TopographicMapTests.cpp
-        ../cpp/core/Node.h
-        ../cpp/core/Node.cpp
+        ../cpp/algorithms/pathfinding/Node.h
+        ../cpp/algorithms/pathfinding/Node.cpp
         ../cpp/algorithms/pathfinding/PathFinder.h
         ../cpp/algorithms/pathfinding/IncrementalPathFinder.cpp
         ../cpp/algorithms/pathfinding/IncrementalPathFinder.h
@@ -131,6 +131,13 @@ add_executable(Google_Tests_run
         ../cpp/day19/Day19.h
         ../cpp/day20/Day20.cpp
         ../cpp/day20/Day20.h
+        ../cpp/algorithms/pathfinding/AStarPathFinder.cpp
+        ../cpp/algorithms/pathfinding/AStarPathFinder.h
+        ../cpp/day16/MazeTile.cpp
+        ../cpp/day16/MazeTile.h
+        ../cpp/day16/Maze.cpp
+        ../cpp/day16/Maze.h
+        day16/MazeTests.cpp
 )
 
 # Set optimization flags for Release configuration

@@ -7,7 +7,7 @@
 namespace core {
   Node *TopographicMap::convertToObject(char c, int x, int y) {
     auto path = new Node(c - '0', x, y);
-    if (path->getHeight() == 0) {
+    if (path->getWeight() == 0) {
       this->startingPaths.push_back(path);
     }
     return path;
@@ -37,16 +37,16 @@ namespace core {
           west = this->grid[y][x - 1];
         }
         // Check each neighbour if viable neighbour
-        if (north != nullptr && north->getHeight() == node->getHeight() + 1) {
+        if (north != nullptr && north->getWeight() == node->getWeight() + 1) {
           node->addParent(north);
         }
-        if (east != nullptr && east->getHeight() == node->getHeight() + 1) {
+        if (east != nullptr && east->getWeight() == node->getWeight() + 1) {
           node->addParent(east);
         }
-        if (south != nullptr && south->getHeight() == node->getHeight() + 1) {
+        if (south != nullptr && south->getWeight() == node->getWeight() + 1) {
           node->addParent(south);
         }
-        if (west != nullptr && west->getHeight() == node->getHeight() + 1) {
+        if (west != nullptr && west->getWeight() == node->getWeight() + 1) {
           node->addParent(west);
         }
       }

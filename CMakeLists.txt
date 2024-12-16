@@ -57,8 +57,8 @@ add_executable(aoc2024 main.cpp
         cpp/day10/Day10.h
         cpp/day10/TopographicMap.cpp
         cpp/day10/TopographicMap.h
-        cpp/core/Node.h
-        cpp/core/Node.cpp
+        cpp/algorithms/pathfinding/Node.h
+        cpp/algorithms/pathfinding/Node.cpp
         cpp/algorithms/pathfinding/PathFinder.h
         cpp/algorithms/pathfinding/IncrementalPathFinder.cpp
         cpp/algorithms/pathfinding/IncrementalPathFinder.h
@@ -112,6 +112,12 @@ add_executable(aoc2024 main.cpp
         cpp/day19/Day19.h
         cpp/day20/Day20.cpp
         cpp/day20/Day20.h
+        cpp/algorithms/pathfinding/AStarPathFinder.cpp
+        cpp/algorithms/pathfinding/AStarPathFinder.h
+        cpp/day16/MazeTile.cpp
+        cpp/day16/MazeTile.h
+        cpp/day16/Maze.cpp
+        cpp/day16/Maze.h
 )
 
 add_subdirectory(googletest)

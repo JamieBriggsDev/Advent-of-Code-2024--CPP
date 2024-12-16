@@ -20,18 +20,18 @@ TEST(TopographicMap_Initialize_Tests, ShouldInitializeWithGrid) {
   // When
   core::TopographicMap topographicMap = core::TopographicMap(input);
   // Then
-  ASSERT_EQ(0, topographicMap.getGrid()[0][0]->getHeight());
-  ASSERT_EQ(1, topographicMap.getGrid()[0][1]->getHeight());
-  ASSERT_EQ(2, topographicMap.getGrid()[0][2]->getHeight());
-  ASSERT_EQ(3, topographicMap.getGrid()[0][3]->getHeight());
-  ASSERT_EQ(6, topographicMap.getGrid()[1][0]->getHeight());
-  ASSERT_EQ(6, topographicMap.getGrid()[1][1]->getHeight());
-  ASSERT_EQ(5, topographicMap.getGrid()[1][2]->getHeight());
-  ASSERT_EQ(4, topographicMap.getGrid()[1][3]->getHeight());
-  ASSERT_EQ(7, topographicMap.getGrid()[2][0]->getHeight());
-  ASSERT_EQ(8, topographicMap.getGrid()[2][1]->getHeight());
-  ASSERT_EQ(8, topographicMap.getGrid()[2][2]->getHeight());
-  ASSERT_EQ(9, topographicMap.getGrid()[2][3]->getHeight());
+  ASSERT_EQ(0, topographicMap.getGrid()[0][0]->getWeight());
+  ASSERT_EQ(1, topographicMap.getGrid()[0][1]->getWeight());
+  ASSERT_EQ(2, topographicMap.getGrid()[0][2]->getWeight());
+  ASSERT_EQ(3, topographicMap.getGrid()[0][3]->getWeight());
+  ASSERT_EQ(6, topographicMap.getGrid()[1][0]->getWeight());
+  ASSERT_EQ(6, topographicMap.getGrid()[1][1]->getWeight());
+  ASSERT_EQ(5, topographicMap.getGrid()[1][2]->getWeight());
+  ASSERT_EQ(4, topographicMap.getGrid()[1][3]->getWeight());
+  ASSERT_EQ(7, topographicMap.getGrid()[2][0]->getWeight());
+  ASSERT_EQ(8, topographicMap.getGrid()[2][1]->getWeight());
+  ASSERT_EQ(8, topographicMap.getGrid()[2][2]->getWeight());
+  ASSERT_EQ(9, topographicMap.getGrid()[2][3]->getWeight());
 }
 
 TEST(TopographicMap_Initialize_Tests, ShouldReturnWithStartingPaths) {

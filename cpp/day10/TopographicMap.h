@@ -9,7 +9,7 @@
 #include <vector>
 #include "../core/Grid.h"
 
-#include "../core/Node.h"
+#include "../algorithms/pathfinding/Node.h"
 
 namespace core {
 
