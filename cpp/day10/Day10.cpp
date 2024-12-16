@@ -9,8 +9,8 @@
 #include <queue>
 #include <unordered_set>
 
-#include "../core/IncrementalPathFinder.h"
-#include "../core/PathFinder.h"
+#include "../algorithms/pathfinding/IncrementalPathFinder.h"
+#include "../algorithms/pathfinding/PathFinder.h"
 #include "TopographicMap.h"
 
 namespace solutions {

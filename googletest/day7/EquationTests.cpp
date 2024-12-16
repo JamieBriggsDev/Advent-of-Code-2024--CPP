@@ -98,7 +98,7 @@ TEST(Equation_FindPossibleSolutions_Tests, ExampleOne) {
   auto result = equation.findPossibleSolutions();
   // Then
   ASSERT_EQ(1, result.size());
-  ASSERT_EQ("292 = 11 + 6 * 16 + 20", result[0]);
+  ASSERT_EQ("303269403 = 678 * 71 * 700 * 9 + 3", result[0]);
 }
 
 TEST(Equation_FindPossibleSolutionsAdvanced_Tests, ExampleOne) {

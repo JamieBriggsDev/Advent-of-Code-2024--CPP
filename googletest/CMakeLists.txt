@@ -70,9 +70,9 @@ add_executable(Google_Tests_run
         day10/TopographicMapTests.cpp
         ../cpp/core/Node.h
         ../cpp/core/Node.cpp
-        ../cpp/core/PathFinder.h
-        ../cpp/core/IncrementalPathFinder.cpp
-        ../cpp/core/IncrementalPathFinder.h
+        ../cpp/algorithms/pathfinding/PathFinder.h
+        ../cpp/algorithms/pathfinding/IncrementalPathFinder.cpp
+        ../cpp/algorithms/pathfinding/IncrementalPathFinder.h
         day10/IncrementalPathFinderTests.cpp
         ../cpp/day7/Day07.cpp
         ../cpp/day7/Day07.h

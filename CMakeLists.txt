@@ -59,9 +59,9 @@ add_executable(aoc2024 main.cpp
         cpp/day10/TopographicMap.h
         cpp/core/Node.h
         cpp/core/Node.cpp
-        cpp/core/PathFinder.h
-        cpp/core/IncrementalPathFinder.cpp
-        cpp/core/IncrementalPathFinder.h
+        cpp/algorithms/pathfinding/PathFinder.h
+        cpp/algorithms/pathfinding/IncrementalPathFinder.cpp
+        cpp/algorithms/pathfinding/IncrementalPathFinder.h
         cpp/day7/Day07.cpp
         cpp/day7/Day07.h
         cpp/day11/Day11.h

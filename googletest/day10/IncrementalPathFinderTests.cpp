@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 
-#include "../../cpp/core/IncrementalPathFinder.h"
+#include "../../cpp/algorithms/pathfinding/IncrementalPathFinder.h"
 #include "../../cpp/core/Node.h"
 
 using namespace std;
