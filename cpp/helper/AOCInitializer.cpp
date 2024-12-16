@@ -14,6 +14,11 @@
 #include "../day13/Day13.h"
 #include "../day14/Day14.h"
 #include "../day15/Day15.h"
+#include "../day16/Day16.h"
+#include "../day17/Day17.h"
+#include "../day18/Day18.h"
+#include "../day19/Day19.h"
+#include "../day20/Day20.h"
 #include "../day2/Day02.h"
 #include "../day3/Day03.h"
 #include "../day4/Day04.h"
@@ -73,6 +78,21 @@ namespace helper {
       case 15:
         day = new solutions::Day15();
         break;
+      case 16:
+        day = new solutions::Day16();
+      break;
+      case 17:
+        day = new solutions::Day17();
+      break;
+      case 18:
+        day = new solutions::Day18();
+      break;
+      case 19:
+        day = new solutions::Day19();
+      break;
+      case 20:
+        day = new solutions::Day20();
+      break;
       default:
         printf("Unknown day passed %d", dayNumber);
         throw std::invalid_argument("Day could not be found");

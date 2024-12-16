@@ -121,6 +121,16 @@ add_executable(Google_Tests_run
         ../cpp/day7/Equation.cpp
         ../cpp/day7/Equation.h
         day7/EquationTests.cpp
+        ../cpp/day16/Day16.cpp
+        ../cpp/day16/Day16.h
+        ../cpp/day17/Day17.cpp
+        ../cpp/day17/Day17.h
+        ../cpp/day18/Day18.cpp
+        ../cpp/day18/Day18.h
+        ../cpp/day19/Day19.cpp
+        ../cpp/day19/Day19.h
+        ../cpp/day20/Day20.cpp
+        ../cpp/day20/Day20.h
 )
 
 # Set optimization flags for Release configuration

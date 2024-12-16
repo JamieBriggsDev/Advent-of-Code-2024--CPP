@@ -102,6 +102,16 @@ add_executable(aoc2024 main.cpp
         cpp/day15/DirectionQueue.h
         cpp/day7/Equation.cpp
         cpp/day7/Equation.h
+        cpp/day16/Day16.cpp
+        cpp/day16/Day16.h
+        cpp/day17/Day17.cpp
+        cpp/day17/Day17.h
+        cpp/day18/Day18.cpp
+        cpp/day18/Day18.h
+        cpp/day19/Day19.cpp
+        cpp/day19/Day19.h
+        cpp/day20/Day20.cpp
+        cpp/day20/Day20.h
 )
 
 add_subdirectory(googletest)
