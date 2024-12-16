@@ -66,3 +66,37 @@ TEST_F(MazeTests, ShouldInitializeMaze) {
   ASSERT_EQ(core::Pair(1, 3), maze.getStartTile()->getPosition());
   ASSERT_EQ(core::Pair(2, 1), maze.getEndTile()->getPosition());
 }
+
+TEST_F(MazeTests, ShouldInitializePaths) {
+  // Given
+  // When
+  Maze maze(inputBasic);
+  // Then
+  auto oneOne = maze.getTileInPosition(1,1);
+  EXPECT_TRUE(oneOne != nullptr);
+  ASSERT_EQ(core::Pair(2,1), oneOne->getNeighbourNodes()[0]->getPosition());
+  ASSERT_EQ(core::Pair(1,2), oneOne->getNeighbourNodes()[1]->getPosition());
+  auto twoOne = maze.getTileInPosition(2,1);
+  EXPECT_TRUE(twoOne != nullptr);
+  ASSERT_EQ(core::Pair(2,2), twoOne->getNeighbourNodes()[0]->getPosition());
+  ASSERT_EQ(core::Pair(1,1), twoOne->getNeighbourNodes()[1]->getPosition());
+  auto oneTwo = maze.getTileInPosition(1,2);
+  EXPECT_TRUE(oneTwo != nullptr);
+  ASSERT_EQ(core::Pair(1,1), oneTwo->getNeighbourNodes()[0]->getPosition());
+  ASSERT_EQ(core::Pair(2,2), oneTwo->getNeighbourNodes()[1]->getPosition());
+  ASSERT_EQ(core::Pair(1,3), oneTwo->getNeighbourNodes()[2]->getPosition());
+  auto twoTwo = maze.getTileInPosition(2,2);
+  EXPECT_TRUE(twoTwo != nullptr);
+  ASSERT_EQ(core::Pair(2,1), twoTwo->getNeighbourNodes()[0]->getPosition());
+  ASSERT_EQ(core::Pair(2,3), twoTwo->getNeighbourNodes()[1]->getPosition());
+  ASSERT_EQ(core::Pair(1,2), twoTwo->getNeighbourNodes()[2]->getPosition());
+  auto oneThree = maze.getTileInPosition(1,3);
+  EXPECT_TRUE(oneThree != nullptr);
+  ASSERT_EQ(core::Pair(1,2), oneThree->getNeighbourNodes()[0]->getPosition());
+  ASSERT_EQ(core::Pair(2,3), oneThree->getNeighbourNodes()[1]->getPosition());
+  auto twoThree = maze.getTileInPosition(2,3);
+  EXPECT_TRUE(twoThree != nullptr);
+  ASSERT_EQ(core::Pair(2,2), twoThree->getNeighbourNodes()[0]->getPosition());
+  ASSERT_EQ(core::Pair(1,3), twoThree->getNeighbourNodes()[1]->getPosition());
+}
+

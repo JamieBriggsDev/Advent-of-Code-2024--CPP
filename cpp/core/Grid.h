@@ -24,10 +24,6 @@ namespace core {
       return pair.x >= 0 && pair.y >= 0 && pair.x < getHorizontalLength() && pair.y < getVerticalLength();
     }
     virtual ~Grid() {
-      /*for (int y = 0; y < verticalLength; ++y) {
-        delete[] grid[y];
-      }
-      delete[] grid;*/
     }
 
   public:

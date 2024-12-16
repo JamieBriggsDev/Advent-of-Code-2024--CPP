@@ -45,7 +45,7 @@ TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnStackWithJustDestinationW
   // Given
   Node * start = new Node(9, 0, 0);
   Node * second = new Node(8, 0, 1);
-  start->addParent(second);
+  start->addNeighbour(second);
   IncrementalPathFinder pathFinder;
   // When
   std::queue<Node*> result = pathFinder.findAllPaths(start)[0];
@@ -66,8 +66,8 @@ TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnRouteWithThreeNodes) {
   Node * start = new Node(9, 0, 0);
   Node * second = new Node(8, 0, 1);
   Node * third = new Node(7, 0, 1);
-  start->addParent(second);
-  second->addParent(third);
+  start->addNeighbour(second);
+  second->addNeighbour(third);
   IncrementalPathFinder pathFinder;
   // When
   std::queue<Node*> result = pathFinder.findAllPaths(start)[0];
@@ -96,11 +96,11 @@ TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnTwoPaths) {
   Node * e = new Node(1, 4, 1);
   Node * c = new Node(2, 2, 1);
   Node * d = new Node(3, 5, 1);
-  a->addParent(b);
-  a->addParent(e);
-  b->addParent(c);
-  c->addParent(d);
-  e->addParent(d);
+  a->addNeighbour(b);
+  a->addNeighbour(e);
+  b->addNeighbour(c);
+  c->addNeighbour(d);
+  e->addNeighbour(d);
   IncrementalPathFinder pathFinder;
   // When
   std::queue<Node*> resultOne = pathFinder.findAllPaths(a).at(0);

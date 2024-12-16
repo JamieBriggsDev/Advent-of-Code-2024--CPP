@@ -13,14 +13,14 @@ core::IncrementalPathFinder::findPath(std::vector<std::queue<Node*>> &result,
   core::Node *current = start;
   while (current != nullptr) {
     copyOfCurrentPath.push(current);
-    if (!current->getParentNodes().empty()) {
+    if (!current->getNeighbourNodes().empty()) {
       // If node has more than 1, create new paths from second parents
-      for (int idx = 1; idx < current->getParentNodes().size(); idx++) {
+      for (int idx = 1; idx < current->getNeighbourNodes().size(); idx++) {
         // If in here, well done you've found more potential routes!
-        findPath(result, copyOfCurrentPath, current->getParentNodes()[idx]);
+        findPath(result, copyOfCurrentPath, current->getNeighbourNodes()[idx]);
       }
       // Update current afterwards. If done before, reference would've changed
-      current = current->getParentNodes()[0];
+      current = current->getNeighbourNodes()[0];
     } else {
       current = nullptr;
     }

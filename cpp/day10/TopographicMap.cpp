@@ -38,16 +38,16 @@ namespace core {
         }
         // Check each neighbour if viable neighbour
         if (north != nullptr && north->getWeight() == node->getWeight() + 1) {
-          node->addParent(north);
+          node->addNeighbour(north);
         }
         if (east != nullptr && east->getWeight() == node->getWeight() + 1) {
-          node->addParent(east);
+          node->addNeighbour(east);
         }
         if (south != nullptr && south->getWeight() == node->getWeight() + 1) {
-          node->addParent(south);
+          node->addNeighbour(south);
         }
         if (west != nullptr && west->getWeight() == node->getWeight() + 1) {
-          node->addParent(west);
+          node->addNeighbour(west);
         }
       }
     }

@@ -23,7 +23,7 @@ namespace solutions {
     MazeTile* convertToObject(char c, int x, int y) override;
 
   public:
-    Maze(vector<string> input) { this->init(input); }
+    Maze(vector<string> input);
     core::Node *getTileInPosition(int x, int y) { return this->getGrid()[y][x]; }
     MazeTile* getStartTile() { return startTile; }
     MazeTile* getEndTile() { return endTile; }
