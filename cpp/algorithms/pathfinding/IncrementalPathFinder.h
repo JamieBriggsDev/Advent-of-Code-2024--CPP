@@ -16,6 +16,7 @@ namespace core {
                   Node *start);
   public:
     std::vector<std::queue<Node *>> findAllPaths(Node *start) override;
+    FinalPath findPath(Node *start, Node *finish) override;
   };
 }
 

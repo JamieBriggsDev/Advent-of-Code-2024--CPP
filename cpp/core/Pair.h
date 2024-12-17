@@ -20,6 +20,10 @@ namespace core {
         result = -result;
       return result;
     }
+
+    [[nodiscard]] long long manhattanDistance(const Pair &other) const {
+      return std::abs(x - other.x) + std::abs(y - other.y);
+    }
     bool setContainsPair(std::set<Pair> pairs) {
       return pairs.contains(core::Pair(x, y));
       /*for (auto pair: pairs) {

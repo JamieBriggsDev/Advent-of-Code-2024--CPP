@@ -138,6 +138,7 @@ add_executable(Google_Tests_run
         ../cpp/day16/Maze.cpp
         ../cpp/day16/Maze.h
         day16/MazeTests.cpp
+        algorithms/pathfinding/AStarPathFinderTests.cpp
 )
 
 # Set optimization flags for Release configuration
