@@ -38,13 +38,14 @@ namespace pathfinding {
     // 3. Whilst open list is not empty
     while (!openList.empty()) {
       // 3 - SETUP
-      long long f = LONG_LONG_MAX;
       Node *q = nullptr;
 
 
       // 3a. Find Node with smallest F value
+      long long trackingF = LONG_LONG_MAX;
       for (const auto node: openList) {
-        if (node->getF() < f) {
+        if (node->getF() < trackingF) {
+          trackingF = node->getF();
           q = node;
         }
       }

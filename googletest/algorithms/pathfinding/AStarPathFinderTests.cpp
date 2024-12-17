@@ -99,32 +99,7 @@ TEST_F(AStarPathFinderTestFixture, ShouldFindWithCost7036) {
   Maze simpleMaze = Maze(inputLargerStartFinish);
   // When
   auto result = pathFinder->findPath(simpleMaze.getStartTile(), simpleMaze.getEndTile());
-  vector<vector<core::Node*>> path(simpleMaze.getVerticalLength(), std::vector<core::Node *>(simpleMaze.getHorizontalLength(), nullptr));;
-  while (!result.path.empty()) {
-    core::Node* node = result.path.top();
-    path[node->y][node->x] = node;
-    result.path.pop();
-  }
-  for(int y = 0; y < simpleMaze.getVerticalLength(); y++) {
-    for(int x = 0; x < simpleMaze.getHorizontalLength(); x++) {
-      core::Node * toDraw = path[y][x];
-      if(toDraw != nullptr) {
-        if(toDraw->getOrientation() == core::NORTH) {
-          std::cout << "^";
-        }else if(toDraw->getOrientation() == core::SOUTH) {
-          std::cout << "v";
-        }else if(toDraw->getOrientation() == core::EAST) {
-          std::cout << ">";
-        }else if(toDraw->getOrientation() == core::WEST) {
-          std::cout << "<";
-        }
-      }else {
-        std::cout << ".";
-      }
-
-    }
-    std::cout << std::endl;
-  }
+  simpleMaze.printMaze(result);
   // Then
   EXPECT_EQ(7036, result.cost);
 }
