@@ -51,6 +51,7 @@ namespace solutions {
     MazeTile *tile = nullptr;
     if (c == 'S') {
       tile = new MazeTile(x, y);
+      tile->setOrientation(core::EAST);
       this->startTile = tile;
     }
     if (c == 'E') {

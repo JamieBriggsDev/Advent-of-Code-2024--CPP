@@ -20,6 +20,24 @@ namespace core {
     NOWHERE
   };
 
+  class Rotations {
+  public:
+    Orientation static rotate90Degrees(Orientation orientation) {
+      switch (orientation) {
+        case NORTH:
+          return EAST;
+        case EAST:
+          return SOUTH;
+        case SOUTH:
+          return WEST;
+        case WEST:
+          return NORTH;
+        default:
+          throw AocException("Unknown orientation");
+      }
+    }
+  };
+
   class Directions {
     public:
       Pair static toPair(Orientation orientation) {

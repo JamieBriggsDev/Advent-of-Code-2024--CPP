@@ -8,12 +8,15 @@
 
 #include <vector>
 
+#include "../../core/Orientation.h"
+
 namespace core {
 
 class Node : public Pair{
   int weight;
   // Pointer to all neighbour nodes
   std::vector<Node*> neighbourNodes;
+  Orientation orientation;
   Node* parent = nullptr;
   long g = 0L;
   long h = 0L;
@@ -33,6 +36,12 @@ public:
   }
   Node* getParent() const {
     return this->parent;
+  }
+  void setOrientation(Orientation orientation) {
+    this->orientation = orientation;
+  }
+  Orientation getOrientation() const {
+    return this->orientation;
   }
   void setG(long g) {
     this->g = g;

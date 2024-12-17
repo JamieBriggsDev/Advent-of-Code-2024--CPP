@@ -4,6 +4,9 @@
 
 #include "AStarPathFinder.h"
 
+#include <iostream>
+#include <ostream>
+
 #include "../../core/AocException.h"
 
 using namespace core;
@@ -59,8 +62,6 @@ namespace pathfinding {
       // 3d. Loop through each successor
       bool finishFound = false;
       for (auto &neighbour: neighbours) {
-        // TODO: Will have to compensate for rotational cost when calculating G!
-
         // 0. Add parent whilst here
         if (neighbour->getPosition() == start->getPosition()) { continue; }
         neighbour->setParent(q);
@@ -74,7 +75,24 @@ namespace pathfinding {
         }
 
         // ii. Compute the G and H for the successor
-        neighbour->setG(q->getG() + neighbour->getWeight());
+        Orientation directionOfNeighbour = Directions::fromPair(neighbour->getPosition() - q->getPosition());
+        Orientation directionOfQ = q->getOrientation();
+        neighbour->setOrientation(directionOfNeighbour);
+
+        // Find total turns to make move
+        int totalTurns = 0;
+        Orientation trackingOrientation = directionOfQ;
+        while(trackingOrientation != directionOfNeighbour) {
+          trackingOrientation = Rotations::rotate90Degrees(trackingOrientation);
+          totalTurns++;
+        }
+        if (totalTurns > 2) {
+          totalTurns -= 2;
+        }
+
+        const int scoreToAdd = totalTurns * 1000;
+
+        neighbour->setG(q->getG() + neighbour->getWeight() + scoreToAdd);
         neighbour->setH(neighbour->manhattanDistance(finish->getPosition()));
 
         // ii. If a node with the same position as successor is in the OPEN list
@@ -114,7 +132,9 @@ namespace pathfinding {
 
     std::stack<Node *> path;
     Node* trackedNode = finish;
+    std::cout << "Returning result!" << std::endl;
     while (trackedNode != nullptr) {
+      std::cout << "(" << trackedNode->x << ", " << trackedNode->y << ") from " << trackedNode->getOrientation() << std::endl;
       path.push(trackedNode);
       trackedNode = trackedNode->getParent();
     }
