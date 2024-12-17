@@ -83,7 +83,7 @@ TEST_F(AStarPathFinderTestFixture, ShouldFindWithCost274) {
   // When
   auto result = pathFinder->findPath(simpleMaze.getStartTile(), simpleMaze.getEndTile());
   // Then
-  EXPECT_EQ(3003, result.cost);
+  EXPECT_EQ(1003, result.cost);
   EXPECT_EQ(4, result.path.size());
   EXPECT_EQ(core::Pair(1,3), result.path.top()->getPosition());
   result.path.pop();

@@ -139,6 +139,26 @@ add_executable(Google_Tests_run
         ../cpp/day16/Maze.h
         day16/MazeTests.cpp
         algorithms/pathfinding/AStarPathFinderTests.cpp
+        ../cpp/day17/ChronospatialComputer.cpp
+        ../cpp/day17/ChronospatialComputer.h
+        day17/ChronospatialComputerTests.cpp
+        ../cpp/day17/Instruction.h
+        ../cpp/day17/ADVInstruction.h
+        ../cpp/day17/BDVInstruction.h
+        ../cpp/day17/CDVInstruction.h
+        ../cpp/day17/BXLInstruction.h
+        ../cpp/day17/BSTInstruction.h
+        ../cpp/day17/JNZInstruction.h
+        ../cpp/day17/BXCInstruction.h
+        ../cpp/day17/OUTInstruction.h
+        day17/ADVInstructionTests.cpp
+        day17/BXLInstructionTests.cpp
+        day17/BSTInstructionTests.cpp
+        day17/JNZInstructionTests.cpp
+        day17/BXCInstructionTests.cpp
+        day17/OUTInstructionTests.cpp
+        day17/BDVInstructionTests.cpp
+        day17/CDVInstructionTests.cpp
 )
 
 # Set optimization flags for Release configuration

@@ -76,13 +76,13 @@ needs solving.
 | [Day14](puzzle/Day14.md)    | ✅        | ✅       | 
 | [Day15](puzzle/Day15.md)    | ✅        | ✅       | 
 | [Day16](puzzle/Day16.md)    | ✅        |         |
-| [Day17](puzzle/Day17.md)    |         |         |
-| [Day18](puzzle/Day18.md)    |         |         |
-| [Day19](puzzle/Day19.md)    |         |         |
-| [Day20](puzzle/Day20.md)    |         |         |
-| [Day21](puzzle/Day21.md)    |         |         |
-| [Day22](puzzle/Day22.md)    |         |         |
-| [Day23](puzzle/Day23.md)    |         |         |
-| [Day24](puzzle/Day24.md)    |         |         |
-| [Day25 🎄](puzzle/Day25.md) |         |         |
+| [Day17](puzzle/Day17.md)    | ✅        |         |
+| [Day18](puzzle/Day18.md)    |          |         |
+| [Day19](puzzle/Day19.md)    |          |         |
+| [Day20](puzzle/Day20.md)    |          |         |
+| [Day21](puzzle/Day21.md)    |          |         |
+| [Day22](puzzle/Day22.md)    |          |         |
+| [Day23](puzzle/Day23.md)    |          |         |
+| [Day24](puzzle/Day24.md)    |          |         |
+| [Day25 🎄](puzzle/Day25.md) |          |         |
 

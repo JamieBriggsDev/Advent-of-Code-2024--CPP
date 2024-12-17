@@ -118,6 +118,15 @@ add_executable(aoc2024 main.cpp
         cpp/day16/MazeTile.h
         cpp/day16/Maze.cpp
         cpp/day16/Maze.h
+        cpp/day17/ChronospatialComputer.cpp
+        cpp/day17/ChronospatialComputer.h
+        cpp/day17/Instruction.h
+        cpp/day17/ADVInstruction.h
+        cpp/day17/BXLInstruction.h
+        cpp/day17/BSTInstruction.h
+        cpp/day17/JNZInstruction.h
+        cpp/day17/BXCInstruction.h
+        cpp/day17/OUTInstruction.h
 )
 
 add_subdirectory(googletest)

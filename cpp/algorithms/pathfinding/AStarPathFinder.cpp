@@ -133,9 +133,7 @@ namespace pathfinding {
 
     std::stack<Node *> path;
     Node* trackedNode = finish;
-    std::cout << "Returning result!" << std::endl;
     while (trackedNode != nullptr) {
-      std::cout << "(" << trackedNode->x << ", " << trackedNode->y << ") from " << trackedNode->getOrientation() << std::endl;
       path.push(trackedNode);
       trackedNode = trackedNode->getParent();
     }
