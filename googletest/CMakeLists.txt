@@ -159,6 +159,12 @@ add_executable(Google_Tests_run
         day17/OUTInstructionTests.cpp
         day17/BDVInstructionTests.cpp
         day17/CDVInstructionTests.cpp
+        ../cpp/day18/MemorySpace.cpp
+        ../cpp/day18/MemorySpace.h
+        ../cpp/day18/CorruptedByte.h
+        ../cpp/day18/FreeByte.h
+        ../cpp/day18/Byte.h
+        day18/MemorySpaceTests.cpp
 )
 
 # Set optimization flags for Release configuration

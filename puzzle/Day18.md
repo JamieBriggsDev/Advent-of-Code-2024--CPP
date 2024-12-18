@@ -10,7 +10,7 @@ Just as you're about to check out your surroundings, a program runs up to you.
 is and their algorithm is pushing whole **bytes** down on top of us! Run!"
 
 The algorithm is fast - it's going to cause a byte to fall into your
-memory space once every [nanosecond](https://www.youtube.com/watch?v=9eyFDBPk4Yw)]! 
+memory space once every [nanosecond](https://www.youtube.com/watch?v=9eyFDBPk4Yw)! 
 Fortunately, you're **faster**, and by quickly scanning the algorithm, you create a 
 **list of which bytes will fall** (your puzzle input) in the order they'll land in your memory 
 space.

@@ -127,6 +127,11 @@ add_executable(aoc2024 main.cpp
         cpp/day17/JNZInstruction.h
         cpp/day17/BXCInstruction.h
         cpp/day17/OUTInstruction.h
+        cpp/day18/MemorySpace.cpp
+        cpp/day18/MemorySpace.h
+        cpp/day18/CorruptedByte.h
+        cpp/day18/FreeByte.h
+        cpp/day18/Byte.h
 )
 
 add_subdirectory(googletest)

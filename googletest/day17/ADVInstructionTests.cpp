@@ -64,7 +64,7 @@ TEST(ADVInstruction_Execute_Tests, shouldExecuteInstructionComboOperandC) {
   // Then
   // Should store in A = 9 / 2^4 = 1
   ASSERT_EQ(-1, result);
-  ASSERT_EQ(9, registerA);
+  ASSERT_EQ(0, registerA);
   ASSERT_EQ(2, registerB);
   ASSERT_EQ(4, registerC);
 }

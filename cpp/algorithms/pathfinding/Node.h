@@ -31,6 +31,9 @@ public:
   void addNeighbour(Node* path) {
     this->neighbourNodes.push_back(path);
   }
+  void removeNeighbour(Node* path) {
+    this->neighbourNodes.erase(std::remove(this->neighbourNodes.begin(), this->neighbourNodes.end(), path), this->neighbourNodes.end());
+  }
   void setParent(Node* parent) {
     this->parent = parent;
   }
