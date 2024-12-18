@@ -59,30 +59,30 @@ which
 needs solving.
 
 | Day                         | Part One | Part Two |
-|-----------------------------|----------|---------|
-| [Day 1](puzzle%2FDay1.md)   | ✅        | ✅       | 
-| [Day 2](puzzle%2FDay2.md)   | ✅        | ✅       | 
-| [Day 3](puzzle%2FDay3.md)   | ✅        | ✅       | 
-| [Day 4](puzzle%2FDay4.md)   | ✅        | ✅       | 
-| [Day 5](puzzle%2FDay5.md)   | ✅        | ✅       | 
-| [Day 6](puzzle%2FDay6.md)   | ✅        | ✅       | 
-| [Day 7](puzzle%2FDay7.md)   | ✅        | ✅       | 
-| [Day 8](puzzle%2FDay8.md)   | ✅        | ✅       | 
-| [Day 9](puzzle%2FDay9.md)   | ✅        | ✅       | 
-| [Day 10](puzzle%2FDay10.md) | ✅        | ✅       | 
-| [Day 11](puzzle%2FDay11.md) | ✅        | ✅       | 
-| [Day12](puzzle/Day12.md)    | ✅        | ✅       | 
-| [Day13](puzzle/Day13.md)    | ✅        | ✅       | 
-| [Day14](puzzle/Day14.md)    | ✅        | ✅       | 
-| [Day15](puzzle/Day15.md)    | ✅        | ✅       | 
-| [Day16](puzzle/Day16.md)    | ✅        |         |
-| [Day17](puzzle/Day17.md)    | ✅        |         |
-| [Day18](puzzle/Day18.md)    |          |         |
-| [Day19](puzzle/Day19.md)    |          |         |
-| [Day20](puzzle/Day20.md)    |          |         |
-| [Day21](puzzle/Day21.md)    |          |         |
-| [Day22](puzzle/Day22.md)    |          |         |
-| [Day23](puzzle/Day23.md)    |          |         |
-| [Day24](puzzle/Day24.md)    |          |         |
-| [Day25 🎄](puzzle/Day25.md) |          |         |
+|-----------------------------|----------|----------|
+| [Day 1](puzzle%2FDay1.md)   | ✅        | ✅        | 
+| [Day 2](puzzle%2FDay2.md)   | ✅        | ✅        | 
+| [Day 3](puzzle%2FDay3.md)   | ✅        | ✅        | 
+| [Day 4](puzzle%2FDay4.md)   | ✅        | ✅        | 
+| [Day 5](puzzle%2FDay5.md)   | ✅        | ✅        | 
+| [Day 6](puzzle%2FDay6.md)   | ✅        | ✅        | 
+| [Day 7](puzzle%2FDay7.md)   | ✅        | ✅        | 
+| [Day 8](puzzle%2FDay8.md)   | ✅        | ✅        | 
+| [Day 9](puzzle%2FDay9.md)   | ✅        | ✅        | 
+| [Day 10](puzzle%2FDay10.md) | ✅        | ✅        | 
+| [Day 11](puzzle%2FDay11.md) | ✅        | ✅        | 
+| [Day12](puzzle/Day12.md)    | ✅        | ✅        | 
+| [Day13](puzzle/Day13.md)    | ✅        | ✅        | 
+| [Day14](puzzle/Day14.md)    | ✅        | ✅        | 
+| [Day15](puzzle/Day15.md)    | ✅        | ✅        | 
+| [Day16](puzzle/Day16.md)    | ✅        |          |
+| [Day17](puzzle/Day17.md)    | ✅        |          |
+| [Day18](puzzle/Day18.md)    | ✅        | ✅        |
+| [Day19](puzzle/Day19.md)    |          |          |
+| [Day20](puzzle/Day20.md)    |          |          |
+| [Day21](puzzle/Day21.md)    |          |          |
+| [Day22](puzzle/Day22.md)    |          |          |
+| [Day23](puzzle/Day23.md)    |          |          |
+| [Day24](puzzle/Day24.md)    |          |          |
+| [Day25 🎄](puzzle/Day25.md) |          |          |
 

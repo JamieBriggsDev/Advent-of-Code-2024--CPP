@@ -71,7 +71,7 @@ TEST_F(AStarPathFinderTestFixture, ShouldFindWithCostOne) {
   // Given
   Maze simpleMaze = Maze(inputEasyStartFinish);
   // When
-  auto result = pathFinder->findPath(simpleMaze.getStartTile(), simpleMaze.getEndTile());
+  auto result = pathFinder->findPath(simpleMaze.getStartTile(), simpleMaze.getEndTile(), true);
   // Then
   EXPECT_EQ(1, result.cost);
   EXPECT_EQ(2, result.path.size());
@@ -81,7 +81,7 @@ TEST_F(AStarPathFinderTestFixture, ShouldFindWithCost274) {
   // Given
   Maze simpleMaze = Maze(inputModerateStartFinish);
   // When
-  auto result = pathFinder->findPath(simpleMaze.getStartTile(), simpleMaze.getEndTile());
+  auto result = pathFinder->findPath(simpleMaze.getStartTile(), simpleMaze.getEndTile(), true);
   // Then
   EXPECT_EQ(1003, result.cost);
   EXPECT_EQ(4, result.path.size());
@@ -98,7 +98,7 @@ TEST_F(AStarPathFinderTestFixture, ShouldFindWithCost7036) {
   // Given
   Maze simpleMaze = Maze(inputLargerStartFinish);
   // When
-  auto result = pathFinder->findPath(simpleMaze.getStartTile(), simpleMaze.getEndTile());
+  auto result = pathFinder->findPath(simpleMaze.getStartTile(), simpleMaze.getEndTile(), true);
   simpleMaze.printMaze(result);
   // Then
   EXPECT_EQ(7036, result.cost);

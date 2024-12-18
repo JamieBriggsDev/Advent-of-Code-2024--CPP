@@ -4,8 +4,10 @@
 
 #ifndef PAIR_H
 #define PAIR_H
+#include <cmath>
 #include <functional>
 #include <set>
+#include <string>
 
 namespace core {
 
@@ -24,6 +26,10 @@ namespace core {
     [[nodiscard]] long long manhattanDistance(const Pair &other) const {
       return std::abs(x - other.x) + std::abs(y - other.y);
     }
+    [[nodiscard]] double heuristicDistance(const Pair &other) const {
+      return sqrt(pow(x - other.x, 2) + pow(y - other.y, 2));
+    }
+
     bool setContainsPair(std::set<Pair> pairs) {
       return pairs.contains(core::Pair(x, y));
       /*for (auto pair: pairs) {
@@ -32,6 +38,10 @@ namespace core {
         }
       }
       return false;*/
+    }
+
+    std::string toString() const {
+      return "(" + std::to_string(x) + ", " + std::to_string(y) + ")";
     }
 
 

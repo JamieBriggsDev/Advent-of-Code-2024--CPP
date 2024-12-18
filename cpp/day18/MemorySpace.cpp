@@ -92,10 +92,13 @@ namespace algorithms {
       corruptedBytes.push(new solutions::CorruptedByte(x, y));
     }
   }
-  void MemorySpace::dropBytes(int totalBytesToDrop) {
+  solutions::CorruptedByte* MemorySpace::dropBytes(int totalBytesToDrop) {
+    solutions::CorruptedByte* droppedByte = nullptr;
     for (int i = 0; i < totalBytesToDrop; i++) {
-      addCorruptedByte(corruptedBytes.front());
+      droppedByte = corruptedBytes.front();
+      addCorruptedByte(droppedByte);
       corruptedBytes.pop();
     }
+    return droppedByte;
   }
 } // algorithms

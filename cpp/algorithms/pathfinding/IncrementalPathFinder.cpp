@@ -36,7 +36,7 @@ std::vector<std::queue<core::Node *>> core::IncrementalPathFinder::findAllPaths(
 
   return result;
 }
-core::FinalPath core::IncrementalPathFinder::findPath(Node *start, Node *finish) {
+core::FinalPath core::IncrementalPathFinder::findPath(Node *start, Node *finish, bool rotationAddsCost) {
   std::stack<core::Node *> path;
 
   core::FinalPath result { path, 0};

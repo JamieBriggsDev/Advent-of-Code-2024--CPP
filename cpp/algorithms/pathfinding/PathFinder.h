@@ -16,12 +16,16 @@ namespace core {
   struct FinalPath {
     std::stack<Node *> path;
     long cost;
+    [[nodiscard]] bool pathFound() const {
+      return path.size() > 1;
+    }
   };
   class PathFinder {
   public:
     virtual ~PathFinder() = default;
     virtual std::vector<std::queue<Node *>> findAllPaths(Node *start) = 0;
-    virtual FinalPath findPath(Node *start, Node *finish) = 0;
+    virtual FinalPath findPath(Node *start, Node *finish, bool rotationAddsCost) = 0;
+
   };
 }
 

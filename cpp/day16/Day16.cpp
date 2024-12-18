@@ -12,7 +12,7 @@ namespace solutions {
   std::string Day16::solvePartOne(const helper::SolutionInput *input) {
     Maze maze = Maze(input->getTestInput());
     core::PathFinder *pathFinder = new pathfinding::AStarPathFinder();
-    auto result = pathFinder->findPath(maze.getStartTile(), maze.getEndTile());
+    auto result = pathFinder->findPath(maze.getStartTile(), maze.getEndTile(), true);
 
     maze.printMaze(result);
 

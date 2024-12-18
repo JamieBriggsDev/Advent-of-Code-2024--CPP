@@ -19,7 +19,7 @@ class Node : public Pair{
   Orientation orientation;
   Node* parent = nullptr;
   long g = 0L;
-  long h = 0L;
+  double h = 0L;
 public:
   Node(int weight, int x, int y) : Pair(x, y), weight(weight) {}
   Node* copy() const {
@@ -49,16 +49,16 @@ public:
   void setG(long g) {
     this->g = g;
   }
-  long getG() const {
+  [[nodiscard]] long getG() const {
     return this->g;
   }
-  void setH(long h) {
+  void setH(double h) {
     this->h = h;
   }
-  long getH() const {
+  [[nodiscard]] long getH() const {
     return this->h;
   }
-  long getF() const {
+  [[nodiscard]] double getF() const {
     return this->g + this->h;
   }
   [[nodiscard]] Pair getPosition() const {
