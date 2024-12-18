@@ -4,6 +4,8 @@
 
 #include "Day17.h"
 
+#include <iostream>
+
 #include "ChronospatialComputer.h"
 
 namespace solutions {
@@ -32,23 +34,28 @@ namespace solutions {
       }
     }
 
-    int i = 0;
+    long long i = 0;
     while (true) {
       // Due to the modula 8 operation, taking an assumption and going up in 8s. This is
       //   VERY brute force...
       // Perhaps the solution to this is to work backwards?
-      i += 8;
+      i += 1;
 
-      ChronospatialComputer computerToCheck(input->getTestInput());
-      computerToCheck.setRegisterAValue(i);
-      vector<int> output = computerToCheck.run();
+      auto* computerToCheck = new ChronospatialComputer(input->getTestInput());
+      computerToCheck->setRegisterAValue(i);
+      vector<int> output = computerToCheck->run();
       string result = "";
-      for (int i = 0; i < output.size(); i++) {
-        result += to_string(output[i]);
-        if (i < output.size() - 1) {
+      for (int x = 0; x < output.size(); x++) {
+        result += to_string(output[x]);
+        if (x < output.size() - 1) {
           result += ",";
         }
       }
+      if(i % 1000 == 0) {
+        std::cout << "Have checked " << i << " values" << std::endl;
+      }
+
+      delete computerToCheck;
 
       if (result == program) {
         return to_string(i);
