@@ -165,6 +165,9 @@ add_executable(Google_Tests_run
         ../cpp/day18/FreeByte.h
         ../cpp/day18/Byte.h
         day18/MemorySpaceTests.cpp
+        ../cpp/algorithms/pathfinding/DijkstraPathFinder.cpp
+        ../cpp/algorithms/pathfinding/DijkstraPathFinder.h
+        algorithms/pathfinding/DijkstraPathFinderTests.cpp
 )
 
 # Set optimization flags for Release configuration

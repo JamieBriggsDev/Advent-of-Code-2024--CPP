@@ -24,7 +24,7 @@ namespace core {
   public:
     virtual ~PathFinder() = default;
     virtual std::vector<std::queue<Node *>> findAllPaths(Node *start) = 0;
-    virtual FinalPath findPath(Node *start, Node *finish, bool rotationAddsCost) = 0;
+    virtual FinalPath findPath(Node *start, Node *finish, bool rotationAddsCost = false) = 0;
 
   };
 }

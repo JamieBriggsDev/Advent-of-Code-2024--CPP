@@ -132,6 +132,8 @@ add_executable(aoc2024 main.cpp
         cpp/day18/CorruptedByte.h
         cpp/day18/FreeByte.h
         cpp/day18/Byte.h
+        cpp/algorithms/pathfinding/DijkstraPathFinder.cpp
+        cpp/algorithms/pathfinding/DijkstraPathFinder.h
 )
 
 add_subdirectory(googletest)
