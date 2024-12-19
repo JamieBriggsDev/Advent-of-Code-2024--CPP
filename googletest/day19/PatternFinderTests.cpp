@@ -16,6 +16,7 @@ class PatternFinderTests : public ::testing::Test {
   vector<string> singleLetterPatternsRaw = {"a", "b", "c"};
   vector<string> examplePatternsRaw = {"r", "wr", "b", "g", "bwu", "rb", "gb", "br"};
 public:
+  vector<Pattern> exampleLetterPatterns;
   vector<Pattern> singleLetterPatterns;
   vector<string> basicPatterns = {"a", "b", "c", "ab", "bc", "ac", "abc"};
   static Pattern getPattern(const string &input) {
@@ -26,6 +27,9 @@ public:
   void SetUp() override {
     for (string raw : singleLetterPatternsRaw) {
       singleLetterPatterns.push_back(getPattern(raw));
+    }
+    for (string raw : examplePatternsRaw) {
+      exampleLetterPatterns.push_back(getPattern(raw));
     }
   }
 
@@ -67,11 +71,49 @@ TEST_F(PatternFinderTests, ShouldMakePatternWithMultipleTowelsDuplicates) {
   ASSERT_TRUE(result);
 }
 
-TEST_F(PatternFinderTests, ShouldReturnCorrectAmountOfWaysToFormPattern) {
+TEST_F(PatternFinderTests, ShouldReturnCorrectAmountOfWaysToFormPattern1) {
+  // Given
+  Pattern toMatch = getPattern("bggr");
+  // When
+  int result = PatternFinder::countTotalWaysPatternCanBeMade(toMatch, exampleLetterPatterns);
+  // Then
+  ASSERT_EQ(1, result);
+}
+
+
+TEST_F(PatternFinderTests, ShouldReturnCorrectAmountOfWaysToFormPattern2) {
+  // Given
+  Pattern toMatch = getPattern("brwrr");
+  // When
+  int result = PatternFinder::countTotalWaysPatternCanBeMade(toMatch, exampleLetterPatterns);
+  // Then
+  ASSERT_EQ(2, result);
+}
+
+TEST_F(PatternFinderTests, ShouldReturnCorrectAmountOfWaysToFormPattern4) {
   // Given
   Pattern toMatch = getPattern("gbbr");
   // When
-  //int result = PatternFinder::patternCanBeMade(toMatch, singleLetterPatterns);
+  int result = PatternFinder::countTotalWaysPatternCanBeMade(toMatch, exampleLetterPatterns);
   // Then
-  //ASSERT_TRUE(result);
+  ASSERT_EQ(4, result);
+}
+
+TEST_F(PatternFinderTests, ShouldReturnCorrectAmountOfWaysToFormPattern6) {
+  // Given
+  Pattern toMatch = getPattern("rrbgbr");
+  // When
+  int result = PatternFinder::countTotalWaysPatternCanBeMade(toMatch, exampleLetterPatterns);
+  // Then
+  ASSERT_EQ(6, result);
+}
+
+TEST_F(PatternFinderTests, ShouldReturnCorrectAmountOfWaysToFormPatternEdgeCase) {
+  // Given
+  Pattern toMatch = getPattern("rrb");
+  vector<Pattern> patterns = {getPattern("r"), getPattern("b")};
+  // When
+  int result = PatternFinder::countTotalWaysPatternCanBeMade(toMatch, patterns);
+  // Then
+  ASSERT_EQ(1, result);
 }

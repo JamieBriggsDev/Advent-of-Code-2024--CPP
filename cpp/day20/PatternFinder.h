@@ -17,8 +17,10 @@ namespace solutions {
 class PatternFinder {
   PatternFinder() = default;
   static bool canFindPattern(Pattern patternDesign, vector<Pattern> towels, unordered_map<string, bool>& memos);
+  static long long countWaysToFormPatter(Pattern patternDesign, vector<Pattern> towels, unordered_map<string, long long>& memos);
 public:
   static bool patternCanBeMade(Pattern pattern, vector<Pattern> towels);
+  static long long countTotalWaysPatternCanBeMade(Pattern pattern, vector<Pattern> towels);
 };
 
 } // solutions

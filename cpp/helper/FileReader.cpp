@@ -18,7 +18,7 @@ SolutionInput* FileReader::readFile(const string& fileLocation) {
   vector<string> solutionInput;
   // Open a file in read mode
   if (FILE *fp = fopen(fileLocation.c_str(), "r")) {
-    char row[100000];
+    char row[200000];
 
     while (fgets(row, sizeof(row), fp)) {
       // Remove potential newline character at the end

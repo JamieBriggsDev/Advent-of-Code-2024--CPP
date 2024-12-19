@@ -5,6 +5,8 @@
 #include "Day19.h"
 
 #include <iostream>
+#include <unordered_map>
+#include <unordered_set>
 
 #include "../day20/Pattern.h"
 #include "../day20/PatternFinder.h"
@@ -26,5 +28,24 @@ namespace solutions {
     std::cout << "Total possible designs: " << totalPossibleDesigns << std::endl;
     return to_string(totalPossibleDesigns);
   }
-  std::string Day19::solvePartTwo(const helper::SolutionInput *input) { return "Solve me!"; }
+  std::string Day19::solvePartTwo(const helper::SolutionInput *input) {
+    auto lines = input->getSplitTestInput("");
+    PatternHolder holder(lines[1], lines[0][0]);
+
+    long long totalPossibleDesigns = 0;
+    std::cout << std::endl;
+    for (const auto design : holder.getDesigns()) {
+      long long totalTowels =
+          PatternFinder::countTotalWaysPatternCanBeMade(design, holder.getTowels());
+      std::cout << totalTowels << " => ";
+      totalPossibleDesigns += totalTowels;
+      std::cout << totalPossibleDesigns << std::endl;
+    }
+
+    std::cout << "Total possible designs: " << totalPossibleDesigns << std::endl;
+    // not 1806150113
+    // not 156424972769 too low
+    // not 156424972769 too low
+    return to_string(totalPossibleDesigns);
+  }
 } // namespace solutions
