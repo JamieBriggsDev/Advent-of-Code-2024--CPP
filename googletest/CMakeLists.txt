@@ -168,6 +168,12 @@ add_executable(Google_Tests_run
         ../cpp/algorithms/pathfinding/DijkstraPathFinder.cpp
         ../cpp/algorithms/pathfinding/DijkstraPathFinder.h
         algorithms/pathfinding/DijkstraPathFinderTests.cpp
+        ../cpp/day20/Pattern.h
+        ../cpp/day20/PatternHolder.h
+        day19/PatternHolderTests.cpp
+        ../cpp/day20/PatternFinder.cpp
+        ../cpp/day20/PatternFinder.h
+        day19/PatternFinderTests.cpp
 )
 
 # Set optimization flags for Release configuration
