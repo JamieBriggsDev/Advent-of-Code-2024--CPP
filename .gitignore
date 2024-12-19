@@ -83,3 +83,4 @@ cmake-build-debug
 cmake-build-release
 /build/
 /.vs/
+/.idea/aws.xml
