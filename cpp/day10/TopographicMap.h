@@ -13,10 +13,10 @@
 
 namespace core {
 
-  class TopographicMap : public core::Grid<Node *> {
+  class TopographicMap : public core::Grid<pathfinding::Node *> {
   protected:
-    Node *convertToObject(char c, int x, int y) override;
-    std::vector<Node*> startingPaths;
+    pathfinding::Node *convertToObject(char c, int x, int y) override;
+    std::vector<pathfinding::Node *> startingPaths;
   public:
     ~TopographicMap() override {
       for (int y = 0; y < this->getVerticalLength(); ++y) {
@@ -26,7 +26,7 @@ namespace core {
       }
     }
     explicit TopographicMap(std::vector<std::string> input);
-    std::vector<Node *> getStartingPositions() {
+    std::vector<pathfinding::Node *> getStartingPositions() {
       return startingPaths;
     }
   };

@@ -11,6 +11,7 @@
 
 using namespace std;
 using namespace solutions;
+using namespace pathfinding;
 
 class MazeTests : public ::testing::Test {
 private:

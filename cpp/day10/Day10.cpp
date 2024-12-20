@@ -19,23 +19,23 @@ namespace solutions {
     // Get all starting positions
     auto nodes = map.getStartingPositions();
     // Get all paths from positions
-    vector<queue<core::Node *>> allPaths;
+    vector<queue<pathfinding::Node *>> allPaths;
 
-    core::IncrementalPathFinder pathFinder;
+    pathfinding::IncrementalPathFinder pathFinder;
 
-    std::map<core::Node *, int> trailHeadPoints;
+    std::map<pathfinding::Node *, int> trailHeadPoints;
 
     for (auto node: nodes) {
       // First add node to trailHeadPoints
       trailHeadPoints[node] = 0;
       // Next start map of found finishing nodes
-      std::unordered_set<core::Node *> finishingNodes;
+      std::unordered_set<pathfinding::Node *> finishingNodes;
       // Next find all possible paths with starting node
       auto paths = pathFinder.findAllPaths(node);
       // Loop through each path, and find ones which end on a peak (i.e size of 10)
       for (auto path: paths) {
         if (path.size() == 10) {
-          core::Node *destination = path.back();
+          pathfinding::Node *destination = path.back();
           if (!finishingNodes.contains(destination)) {
             finishingNodes.insert(destination);
             trailHeadPoints[node]++;
@@ -57,11 +57,11 @@ namespace solutions {
     // Get all starting positions
     auto nodes = map.getStartingPositions();
     // Get all paths from positions
-    vector<queue<core::Node *>> allPaths;
+    vector<queue<pathfinding::Node *>> allPaths;
 
-    core::IncrementalPathFinder pathFinder;
+    pathfinding::IncrementalPathFinder pathFinder;
 
-    std::map<core::Node *, int> trailHeadPoints;
+    std::map<pathfinding::Node *, int> trailHeadPoints;
 
     for (auto node: nodes) {
       // First add node to trailHeadPoints

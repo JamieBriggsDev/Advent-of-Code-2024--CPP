@@ -172,6 +172,8 @@ add_executable(Google_Tests_run
         ../cpp/day19/PatternFinder.cpp
         ../cpp/day19/PatternFinder.h
         day19/PatternFinderTests.cpp
+        ../cpp/day20/RaceTrack.cpp
+        ../cpp/day20/RaceTrack.h
 )
 
 # Set optimization flags for Release configuration

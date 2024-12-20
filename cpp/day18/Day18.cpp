@@ -19,7 +19,7 @@ namespace solutions {
     pathfinding::AStarPathFinder pathFinder;
 
     auto foundPath = pathFinder.findPath(memorySpace.getStart(), memorySpace.getFinish(), false);
-    //core::FinalPath foundPath;
+    //pathfinding::FinalPath foundPath;
     memorySpace.printPath(foundPath);
     // Remove 1 as don't include the start as a step
     return to_string(foundPath.path.size() - 1);

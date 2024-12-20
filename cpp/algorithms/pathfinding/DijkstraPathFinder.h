@@ -10,11 +10,11 @@
 
 namespace pathfinding {
 
-class DijkstraPathFinder : public core::PathFinder {
+class DijkstraPathFinder : public PathFinder {
   public:
-    std::vector<std::queue<core::Node *>> findAllPaths(core::Node *start) override;
-    core::FinalPath findPath(core::Node *start, core::Node *finish, bool rotationAddsCost = false) override;
-    std::vector<core::FinalPath> findPaths(core::Node *start, core::Node *finish, bool rotationAddsCost = false);
+    std::vector<std::queue<Node *>> findAllPaths(Node *start) override;
+    FinalPath findPath(Node *start, Node *finish, bool rotationAddsCost = false) override;
+    std::vector<FinalPath> findPaths(Node *start, Node *finish, bool rotationAddsCost = false);
   };
 
 } // pathfinding

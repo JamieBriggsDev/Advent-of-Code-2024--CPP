@@ -9,6 +9,7 @@
 
 using namespace std;
 using namespace core;
+using namespace pathfinding;
 
 TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnStackWithJustDestination) {
   // Given

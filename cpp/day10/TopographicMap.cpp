@@ -4,6 +4,8 @@
 
 #include "TopographicMap.h"
 
+using namespace pathfinding;
+
 namespace core {
   Node *TopographicMap::convertToObject(char c, int x, int y) {
     auto path = new Node(c - '0', x, y, true);

@@ -14,6 +14,7 @@
 
 using namespace std;
 using namespace solutions;
+using namespace pathfinding;
 
 class DijkstraPathFinderTestFixture : public ::testing::Test {
   string rawInputBasic =
@@ -51,7 +52,7 @@ protected:
   vector<string> inputEasyStartFinish;
   vector<string> inputModerateStartFinish;
   vector<string> inputLargerStartFinish;
-  core::PathFinder* pathFinder;
+  pathfinding::PathFinder* pathFinder;
 
   // Setup after each
   void SetUp() override {

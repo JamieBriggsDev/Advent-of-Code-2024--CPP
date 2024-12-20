@@ -10,7 +10,7 @@
 
 using namespace std;
 
-namespace core {
+namespace pathfinding {
   class IncrementalPathFinder : public PathFinder {
     void findPath(std::vector<std::queue<Node *>> &result, std::queue<Node *> currentPath,
                   Node *start);

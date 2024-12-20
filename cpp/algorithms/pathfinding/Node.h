@@ -10,14 +10,14 @@
 
 #include "../../core/Orientation.h"
 
-namespace core {
+namespace pathfinding {
 
-class Node : public Pair{
+class Node : public core::Pair {
   int weight;
   bool isWalkable = false;
   // Pointer to all neighbour nodes
-  std::vector<Node*> neighbourNodes;
-  Orientation orientation;
+  std::vector<Node *> neighbourNodes;
+  core::Orientation orientation;
   Node* parent = nullptr;
   long g = 0L;
   double h = 0L;
@@ -42,10 +42,8 @@ public:
   Node* getParent() const {
     return this->parent;
   }
-  void setOrientation(Orientation orientation) {
-    this->orientation = orientation;
-  }
-  Orientation getOrientation() const {
+  void setOrientation(core::Orientation orientation) { this->orientation = orientation; }
+  core::Orientation getOrientation() const {
     return this->orientation;
   }
   void setG(long g) {

@@ -9,7 +9,7 @@
 
 namespace solutions {
 
-  class Byte : public core::Node {
+  class Byte : public pathfinding::Node {
   public:
     virtual ~Byte() = default;
     Byte(int x, int y, bool isWalkable) : Node(1, x, y, isWalkable) {}

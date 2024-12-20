@@ -11,16 +11,15 @@
 #include <vector>
 
 #include "MazeTile.h"
+#include "PathFinder.h"
 
 
-namespace core {
-  struct FinalPath;
-}
 using namespace std;
 
-namespace solutions {
+namespace pathfinding {
 
-  class Maze final : public core::Grid<MazeTile *> {
+
+  class Maze : public core::Grid<MazeTile *> {
   protected:
     MazeTile* startTile;
     MazeTile* endTile;
@@ -38,7 +37,7 @@ namespace solutions {
     }
     MazeTile* getStartTile() { return startTile; }
     MazeTile* getEndTile() { return endTile; }
-    void printMaze(core::FinalPath finalPath);
+    void printMaze(FinalPath finalPath);
   };
 
 } // namespace solutions

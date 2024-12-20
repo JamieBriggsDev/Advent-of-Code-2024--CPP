@@ -6,9 +6,9 @@
 #define MAZETILE_H
 #include "Node.h"
 
-namespace solutions {
+namespace pathfinding {
 
-class MazeTile : public core::Node {
+class MazeTile : public Node {
 
   public:
     // Weight is 1 as every node has equal distance to each other in a Maze!

@@ -9,30 +9,30 @@
 
 namespace pathfinding {
   struct ComparePair {
-    bool operator()(const std::pair<int, core::Node*>& a, const std::pair<int, core::Node*>& b) {
+    bool operator()(const std::pair<int, pathfinding::Node*>& a, const std::pair<int, pathfinding::Node*>& b) {
       return a.first > b.first; // Compare by distance (smaller distance = higher priority)
     }
   };
 
-  std::vector<std::queue<core::Node *>> DijkstraPathFinder::findAllPaths(core::Node *start) {
+  std::vector<std::queue<pathfinding::Node *>> DijkstraPathFinder::findAllPaths(pathfinding::Node *start) {
     return {};
   }
-  core::FinalPath DijkstraPathFinder::findPath(core::Node *start, core::Node *finish, bool rotationAddsCost) {
+  pathfinding::FinalPath DijkstraPathFinder::findPath(pathfinding::Node *start, pathfinding::Node *finish, bool rotationAddsCost) {
     return findPaths(start, finish, rotationAddsCost)[0];
   }
-  std::vector<core::FinalPath> DijkstraPathFinder::findPaths(core::Node *start, core::Node *finish, bool rotationAddsCost) {
+  std::vector<pathfinding::FinalPath> DijkstraPathFinder::findPaths(pathfinding::Node *start, pathfinding::Node *finish, bool rotationAddsCost) {
 
-    using NodeDistPair = std::pair<int, core::Node*>;
+    using NodeDistPair = std::pair<int, pathfinding::Node*>;
 
     std::priority_queue<NodeDistPair, std::vector<NodeDistPair>, ComparePair> priorityQueue;
     // Distance map doesn't keep copies of nodes with their specific orientation at the time of distance.
     //  This means that rotation cost doesn't get calculated correctly.
-    std::unordered_map<core::Node*, int> distanceMap;
+    std::unordered_map<pathfinding::Node*, int> distanceMap;
     // This second map aims to remember the best facing orientation when entering a node and whenever
     //   the next smallest distance is found
-    std::unordered_map<core::Node*, core::Orientation> orientationMap;
-    std::unordered_map<core::Node*, core::Node*> previousMap;
-    std::unordered_set<core::Node*> visitedNodes;
+    std::unordered_map<pathfinding::Node*, core::Orientation> orientationMap;
+    std::unordered_map<pathfinding::Node*, pathfinding::Node*> previousMap;
+    std::unordered_set<pathfinding::Node*> visitedNodes;
 
     start->setOrientation(core::EAST);
     // Initialize distance of zero for starting node
@@ -44,7 +44,7 @@ namespace pathfinding {
     // Loop until priority queue is empty
     while (!priorityQueue.empty()) {
       // Pop the node with the lowest distance
-      core::Node* node = priorityQueue.top().second;
+      pathfinding::Node* node = priorityQueue.top().second;
       priorityQueue.pop();
 
       // If finish found, stop!
@@ -111,8 +111,8 @@ namespace pathfinding {
 
     }
 
-    std::vector<core::Node*> reconstructedPath;
-    core::Node *current = finish;
+    std::vector<pathfinding::Node*> reconstructedPath;
+    pathfinding::Node *current = finish;
     while (previousMap.contains(current)) {
       reconstructedPath.emplace_back(current);
       current = previousMap[current];
@@ -121,14 +121,14 @@ namespace pathfinding {
       }
     }
     
-    std::stack<core::Node*> stack;
+    std::stack<pathfinding::Node*> stack;
     //stack.emplace(st);
     for (int i = 0; i < reconstructedPath.size(); i++) {
       stack.push(reconstructedPath[i]);
     }
     stack.emplace(start);
 
-    core::FinalPath path = { stack, distanceMap[finish]};
+    pathfinding::FinalPath path = { stack, distanceMap[finish]};
     std::vector paths = {path};
     return paths;
   }

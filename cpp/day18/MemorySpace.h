@@ -48,11 +48,11 @@ namespace algorithms {
     solutions::FreeByte *getFinish() const {
       return dynamic_cast<solutions::FreeByte *>(this->getGrid()[verticalLength - 1][horizontalLength - 1]);
     }
-    void printPath(core::FinalPath finalPath) {
-      vector path(this->getVerticalLength(), std::vector<core::Node *>(this->getHorizontalLength(), nullptr));
-      ;
+    void printPath(pathfinding::FinalPath finalPath) {
+      vector path(this->getVerticalLength(), std::vector<pathfinding::Node *>(this->getHorizontalLength(), nullptr));
+
       while (!finalPath.path.empty()) {
-        core::Node *node = finalPath.path.top();
+        pathfinding::Node *node = finalPath.path.top();
         path[node->y][node->x] = node;
         finalPath.path.pop();
       }
@@ -60,7 +60,7 @@ namespace algorithms {
       std::cout << std::endl;
       for (int y = 0; y < this->getVerticalLength(); y++) {
         for (int x = 0; x < this->getHorizontalLength(); x++) {
-          core::Node *toDraw = path[y][x];
+          pathfinding::Node *toDraw = path[y][x];
           if (toDraw != nullptr) {
             std::cout << "O";
           } else {

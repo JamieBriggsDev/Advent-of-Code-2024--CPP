@@ -8,10 +8,10 @@
 
 namespace pathfinding {
 
-class AStarPathFinder : public core::PathFinder {
+class AStarPathFinder : public PathFinder {
   public:
-    std::vector<std::queue<core::Node *>> findAllPaths(core::Node *start) override;
-    core::FinalPath findPath(core::Node *start, core::Node *finish, bool rotationAddsCost) override;
+    std::vector<std::queue<Node *>> findAllPaths(Node *start) override;
+    FinalPath findPath(Node *start, Node *finish, bool rotationAddsCost) override;
 };
 
 } // pathfinding

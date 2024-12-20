@@ -5,12 +5,13 @@
 #include "IncrementalPathFinder.h"
 
 
-void
-core::IncrementalPathFinder::findPath(std::vector<std::queue<Node*>> &result,
-                                           std::queue<core::Node *> currentPath, core::Node *start) {
+using namespace pathfinding;
+
+void IncrementalPathFinder::findPath(std::vector<std::queue<Node *>> &result,
+                                           std::queue<Node *> currentPath, Node *start) {
   // Add this path to the result
-  std::queue<core::Node *> copyOfCurrentPath = currentPath;
-  core::Node *current = start;
+  std::queue<Node *> copyOfCurrentPath = currentPath;
+  Node *current = start;
   while (current != nullptr) {
     copyOfCurrentPath.push(current);
     if (!current->getNeighbourNodes().empty()) {
@@ -28,7 +29,7 @@ core::IncrementalPathFinder::findPath(std::vector<std::queue<Node*>> &result,
   result.push_back(copyOfCurrentPath);
 }
 
-std::vector<std::queue<core::Node *>> core::IncrementalPathFinder::findAllPaths(core::Node *start) {
+std::vector<std::queue<Node *>> IncrementalPathFinder::findAllPaths(Node *start) {
   std::vector<std::queue<Node *>> result;
   std::queue<Node *> path;
 
@@ -36,10 +37,10 @@ std::vector<std::queue<core::Node *>> core::IncrementalPathFinder::findAllPaths(
 
   return result;
 }
-core::FinalPath core::IncrementalPathFinder::findPath(Node *start, Node *finish, bool rotationAddsCost) {
-  std::stack<core::Node *> path;
+FinalPath IncrementalPathFinder::findPath(Node *start, Node *finish, bool rotationAddsCost) {
+  std::stack<Node *> path;
 
-  core::FinalPath result { path, 0};
+  FinalPath result { path, 0};
   return result;
 }
 

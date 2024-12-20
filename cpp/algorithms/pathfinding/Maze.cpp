@@ -8,7 +8,9 @@
 
 #include "PathFinder.h"
 
-namespace solutions {
+
+
+namespace pathfinding {
   Maze::Maze(vector<string> input) {
     const vector walls(input.size(), vector<bool>(input[0].size(), false));
     this->walls = walls;
@@ -74,16 +76,16 @@ namespace solutions {
     return tile;
   }
 
-  void Maze::printMaze(core::FinalPath finalPath) {
-    vector path(this->getVerticalLength(), std::vector<core::Node *>(this->getHorizontalLength(), nullptr));;
+  void Maze::printMaze(FinalPath finalPath) {
+    vector path(this->getVerticalLength(), std::vector<pathfinding::Node *>(this->getHorizontalLength(), nullptr));;
     while (!finalPath.path.empty()) {
-      core::Node* node = finalPath.path.top();
+      pathfinding::Node* node = finalPath.path.top();
       path[node->y][node->x] = node;
       finalPath.path.pop();
     }
     for(int y = 0; y < this->getVerticalLength(); y++) {
       for(int x = 0; x < this->getHorizontalLength(); x++) {
-        core::Node * toDraw = path[y][x];
+        pathfinding::Node * toDraw = path[y][x];
         if(toDraw != nullptr) {
           if (toDraw == this->startTile) {
             std::cout << "S";
