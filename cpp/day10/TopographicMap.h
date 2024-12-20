@@ -1,5 +1,5 @@
 //
-// Created by perso on 10/12/2024.
+// Created by Jamie Briggs on 10/12/2024.
 //
 
 #ifndef TOPOGRAPHICMAP_H

@@ -1,5 +1,5 @@
 //
-// Created by perso on 16/12/2024.
+// Created by Jamie Briggs on 16/12/2024.
 //
 
 #include "AStarPathFinder.h"
@@ -44,17 +44,17 @@ namespace pathfinding {
 
       // 3a. Find Node with smallest F value
       double trackingF = LONG_LONG_MAX;
-      //std::cout << "Iteration: " << iterations++ << std::endl;
+      // std::cout << "Iteration: " << iterations++ << std::endl;
       for (const auto node: openList) {
-        //std::cout << node->getPosition().toString() << ": G(" << node->getG() << ") H(" << node->getH() << ") -> F("
-        //          << node->getF() << ")" << std::endl;
+        // std::cout << node->getPosition().toString() << ": G(" << node->getG() << ") H(" << node->getH() << ") -> F("
+        //           << node->getF() << ")" << std::endl;
         if (node->getF() < trackingF) {
           trackingF = node->getF();
           q = node;
         }
       }
-      //std::cout << "Chose node: " << q->getPosition().toString() << std::endl << std::endl;
-      // q should be true, if not throw an exception
+      // std::cout << "Chose node: " << q->getPosition().toString() << std::endl << std::endl;
+      //  q should be true, if not throw an exception
       if (q == nullptr) {
         throw new AocException("Current is null, should've been found!");
       }
@@ -155,7 +155,12 @@ namespace pathfinding {
     Node *trackedNode = finish;
     while (trackedNode != nullptr) {
       path.push(trackedNode);
-      trackedNode = trackedNode->getParent();
+      auto toTrackNext = trackedNode->getParent();
+      if (toTrackNext != nullptr) {
+        auto pair = trackedNode->getPosition() - toTrackNext->getPosition();
+        trackedNode->setOrientation(Directions::fromPair(pair));
+      }
+      trackedNode = toTrackNext;
     }
 
     FinalPath result{path, finish->getG()};

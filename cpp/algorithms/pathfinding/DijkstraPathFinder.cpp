@@ -1,5 +1,5 @@
 //
-// Created by perso on 18/12/2024.
+// Created by Jamie Briggs on 18/12/2024.
 //
 
 #include "DijkstraPathFinder.h"

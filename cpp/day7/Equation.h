@@ -1,5 +1,5 @@
 //
-// Created by perso on 15/12/2024.
+// Created by Jamie Briggs on 15/12/2024.
 //
 
 #ifndef EQUATION_H

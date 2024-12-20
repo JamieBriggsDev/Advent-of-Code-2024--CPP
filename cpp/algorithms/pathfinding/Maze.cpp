@@ -1,5 +1,5 @@
 //
-// Created by perso on 16/12/2024.
+// Created by Jamie Briggs on 16/12/2024.
 //
 
 #include "Maze.h"
@@ -77,12 +77,14 @@ namespace pathfinding {
   }
 
   void Maze::printMaze(FinalPath finalPath) {
-    vector path(this->getVerticalLength(), std::vector<pathfinding::Node *>(this->getHorizontalLength(), nullptr));;
+    vector path(this->getVerticalLength(), std::vector<pathfinding::Node *>(this->getHorizontalLength(), nullptr));
     while (!finalPath.path.empty()) {
       pathfinding::Node* node = finalPath.path.top();
       path[node->y][node->x] = node;
       finalPath.path.pop();
     }
+
+    std::cout << std::endl;
     for(int y = 0; y < this->getVerticalLength(); y++) {
       for(int x = 0; x < this->getHorizontalLength(); x++) {
         pathfinding::Node * toDraw = path[y][x];

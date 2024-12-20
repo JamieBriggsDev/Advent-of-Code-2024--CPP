@@ -1,5 +1,5 @@
 //
-// Created by perso on 09/12/2024.
+// Created by Jamie Briggs on 09/12/2024.
 //
 
 #ifndef DISKMAP_H

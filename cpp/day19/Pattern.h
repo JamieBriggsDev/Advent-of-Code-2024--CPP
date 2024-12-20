@@ -1,5 +1,5 @@
 //
-// Created by perso on 19/12/2024.
+// Created by Jamie Briggs on 19/12/2024.
 //
 
 #ifndef PATTERN_H
