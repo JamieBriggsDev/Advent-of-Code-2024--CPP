@@ -4,14 +4,15 @@
 
 #ifndef MAZETILE_H
 #define MAZETILE_H
-#include "../algorithms/pathfinding/Node.h"
+#include "Node.h"
 
 namespace solutions {
 
 class MazeTile : public core::Node {
+
   public:
     // Weight is 1 as every node has equal distance to each other in a Maze!
-    MazeTile(int x, int y) : Node(1, x, y) {}
+    MazeTile(int x, int y, bool isWalkable) : Node(1, x, y, isWalkable) {}
   };
 
 } // solutions

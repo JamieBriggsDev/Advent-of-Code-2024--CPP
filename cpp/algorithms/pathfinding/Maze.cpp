@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-#include "../algorithms/pathfinding/PathFinder.h"
+#include "PathFinder.h"
 
 namespace solutions {
   Maze::Maze(vector<string> input) {
@@ -51,6 +51,29 @@ namespace solutions {
       }
     }
   }
+  MazeTile *Maze::convertToObject(char c, int x, int y) {
+    // Not bothering with walls, they are just more stuff to hold for the sake
+    //  of inheritance..
+    MazeTile *tile = nullptr;
+    if (c == 'S') {
+      tile = new MazeTile(x, y, true);
+      tile->setOrientation(core::EAST);
+      this->startTile = tile;
+    }
+    if (c == 'E') {
+      tile = new MazeTile(x, y, true);
+      this->endTile = tile;
+    }
+    if (c == '.') {
+      tile = new MazeTile(x, y, true);
+    }
+    if (c == '#') {
+      walls[y][x] = true;
+      tile = new MazeTile(x, y, false);
+    }
+    return tile;
+  }
+
   void Maze::printMaze(core::FinalPath finalPath) {
     vector path(this->getVerticalLength(), std::vector<core::Node *>(this->getHorizontalLength(), nullptr));;
     while (!finalPath.path.empty()) {
@@ -90,27 +113,6 @@ namespace solutions {
     }
   }
 
-  MazeTile *Maze::convertToObject(char c, int x, int y) {
-    // Not bothering with walls, they are just more stuff to hold for the sake
-    //  of inheritance..
-    MazeTile *tile = nullptr;
-    if (c == 'S') {
-      tile = new MazeTile(x, y);
-      tile->setOrientation(core::EAST);
-      this->startTile = tile;
-    }
-    if (c == 'E') {
-      tile = new MazeTile(x, y);
-      this->endTile = tile;
-    }
-    if (c == '.') {
-      tile = new MazeTile(x, y);
-    }
-    if (c == '#') {
-      walls[y][x] = true;
-      tile = nullptr;
-    }
-    return tile;
-  }
+
 
 } // solutions

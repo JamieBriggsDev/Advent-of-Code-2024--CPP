@@ -14,6 +14,7 @@ namespace core {
 
 class Node : public Pair{
   int weight;
+  bool isWalkable = false;
   // Pointer to all neighbour nodes
   std::vector<Node*> neighbourNodes;
   Orientation orientation;
@@ -21,7 +22,8 @@ class Node : public Pair{
   long g = 0L;
   double h = 0L;
 public:
-  Node(int weight, int x, int y) : Pair(x, y), weight(weight) {}
+  virtual ~Node() = default;
+  Node(int weight, int x, int y, bool isWalkable) : Pair(x, y), weight(weight), isWalkable(isWalkable) {}
   Node* copy() const {
     return new Node(*this);
   }
@@ -64,7 +66,15 @@ public:
   [[nodiscard]] Pair getPosition() const {
     return static_cast<Pair>(*this);
   }
-  [[nodiscard]] std::vector<Node *> getNeighbourNodes() const { return this->neighbourNodes; }
+  [[nodiscard]] std::vector<Node *> getNeighbourNodes() const {
+    std::vector<Node *> walkableNodes;
+    for (const auto &node: this->neighbourNodes) {
+      if (node->getIsWalkable()) {
+        walkableNodes.push_back(node);
+      }
+    }
+    return walkableNodes;
+  }
   [[nodiscard]] std::vector<Node *> createCopiesOfNeighbours() const {
     std::vector<Node *> copy;
     for (auto &node : this->neighbourNodes) {
@@ -72,6 +82,8 @@ public:
     }
     return copy;
   }
+  [[nodiscard]] bool getIsWalkable() const { return isWalkable; }
+
   friend bool operator==(const Node &lhs, const Node &rhs) {
     return static_cast<const Pair &>(lhs) == static_cast<const Pair &>(rhs) && lhs.weight == rhs.weight &&
            lhs.neighbourNodes == rhs.neighbourNodes;

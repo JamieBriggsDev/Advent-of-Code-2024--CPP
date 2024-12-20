@@ -8,7 +8,7 @@
 
 #include "../../../cpp/algorithms/pathfinding/AStarPathFinder.h"
 #include "../../../cpp/algorithms/pathfinding/DijkstraPathFinder.h"
-#include "../../../cpp/day16/Maze.h"
+#include "../../../cpp/algorithms/pathfinding/Maze.h"
 #include "../../testHelper/InputUtils.h"
 
 

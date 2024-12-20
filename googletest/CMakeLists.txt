@@ -69,7 +69,6 @@ add_executable(Google_Tests_run
         ../cpp/day10/TopographicMap.h
         day10/TopographicMapTests.cpp
         ../cpp/algorithms/pathfinding/Node.h
-        ../cpp/algorithms/pathfinding/Node.cpp
         ../cpp/algorithms/pathfinding/PathFinder.h
         ../cpp/algorithms/pathfinding/IncrementalPathFinder.cpp
         ../cpp/algorithms/pathfinding/IncrementalPathFinder.h
@@ -133,11 +132,10 @@ add_executable(Google_Tests_run
         ../cpp/day20/Day20.h
         ../cpp/algorithms/pathfinding/AStarPathFinder.cpp
         ../cpp/algorithms/pathfinding/AStarPathFinder.h
-        ../cpp/day16/MazeTile.cpp
-        ../cpp/day16/MazeTile.h
-        ../cpp/day16/Maze.cpp
-        ../cpp/day16/Maze.h
-        day16/MazeTests.cpp
+        ../cpp/algorithms/pathfinding/MazeTile.h
+        ../cpp/algorithms/pathfinding/Maze.cpp
+        ../cpp/algorithms/pathfinding/Maze.h
+        algorithms/pathfinding/MazeTests.cpp
         algorithms/pathfinding/AStarPathFinderTests.cpp
         ../cpp/day17/ChronospatialComputer.cpp
         ../cpp/day17/ChronospatialComputer.h
@@ -168,11 +166,11 @@ add_executable(Google_Tests_run
         ../cpp/algorithms/pathfinding/DijkstraPathFinder.cpp
         ../cpp/algorithms/pathfinding/DijkstraPathFinder.h
         algorithms/pathfinding/DijkstraPathFinderTests.cpp
-        ../cpp/day20/Pattern.h
-        ../cpp/day20/PatternHolder.h
+        ../cpp/day19/Pattern.h
+        ../cpp/day19/PatternHolder.h
         day19/PatternHolderTests.cpp
-        ../cpp/day20/PatternFinder.cpp
-        ../cpp/day20/PatternFinder.h
+        ../cpp/day19/PatternFinder.cpp
+        ../cpp/day19/PatternFinder.h
         day19/PatternFinderTests.cpp
 )
 

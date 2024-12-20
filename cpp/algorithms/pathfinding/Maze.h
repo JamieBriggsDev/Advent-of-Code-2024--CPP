@@ -4,13 +4,14 @@
 
 #ifndef MAZE_H
 #define MAZE_H
-#include "../algorithms/pathfinding/Node.h"
-#include "../core/Grid.h"
+#include "../../core/Grid.h"
+#include "Node.h"
 
 #include <string>
 #include <vector>
 
 #include "MazeTile.h"
+
 
 namespace core {
   struct FinalPath;
@@ -26,8 +27,15 @@ namespace solutions {
     MazeTile* convertToObject(char c, int x, int y) override;
     vector<vector<bool>> walls;
   public:
-    Maze(vector<string> input);
-    core::Node *getTileInPosition(int x, int y) { return this->getGrid()[y][x]; }
+    explicit Maze(vector<string> input);
+    MazeTile *getTileInPosition(int x, int y) { return this->getGrid()[y][x]; }
+    bool isTileWalkable(int x, int y) {
+      auto tile = getTileInPosition(x, y);
+      if (tile == nullptr) {
+        return false;
+      }
+      return tile->getIsWalkable();
+    }
     MazeTile* getStartTile() { return startTile; }
     MazeTile* getEndTile() { return endTile; }
     void printMaze(core::FinalPath finalPath);

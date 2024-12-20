@@ -5,8 +5,8 @@
 #include "Day16.h"
 
 #include "../algorithms/pathfinding/AStarPathFinder.h"
+#include "../algorithms/pathfinding/Maze.h"
 #include "../algorithms/pathfinding/PathFinder.h"
-#include "Maze.h"
 
 namespace solutions {
   std::string Day16::solvePartOne(const helper::SolutionInput *input) {

@@ -6,7 +6,7 @@
 
 namespace core {
   Node *TopographicMap::convertToObject(char c, int x, int y) {
-    auto path = new Node(c - '0', x, y);
+    auto path = new Node(c - '0', x, y, true);
     if (path->getWeight() == 0) {
       this->startingPaths.push_back(path);
     }

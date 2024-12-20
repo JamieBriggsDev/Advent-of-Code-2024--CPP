@@ -11,7 +11,7 @@ namespace solutions {
 
   class CorruptedByte : public Byte {
   public:
-    CorruptedByte(int x, int y) : Byte(x, y) {}
+    CorruptedByte(int x, int y) : Byte(x, y, false) {}
   };
 
 }

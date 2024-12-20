@@ -10,7 +10,7 @@ namespace solutions {
 
   class FreeByte : public Byte {
   public:
-    FreeByte(int x, int y) : Byte(x, y) {}
+    FreeByte(int x, int y) : Byte(x, y, true) {}
   };
 
 }

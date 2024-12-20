@@ -12,7 +12,7 @@ namespace solutions {
   class Byte : public core::Node {
   public:
     virtual ~Byte() = default;
-    Byte(int x, int y) : Node(1, x, y) {}
+    Byte(int x, int y, bool isWalkable) : Node(1, x, y, isWalkable) {}
   };
 
 }

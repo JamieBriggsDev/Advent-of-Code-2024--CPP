@@ -12,7 +12,7 @@ using namespace core;
 
 TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnStackWithJustDestination) {
   // Given
-  Node * start = new Node(9, 0, 0);
+  Node * start = new Node(9, 0, 0, true);
   IncrementalPathFinder pathFinder;
   // When
   auto stacks = pathFinder.findAllPaths(start);
@@ -27,8 +27,8 @@ TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnStackWithJustDestination)
 
 TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnStackWithJustDestinationWhenStartNotLinked) {
   // Given
-  Node * start = new Node(9, 0, 0);
-  Node * second = new Node(8, 0, 1);
+  Node * start = new Node(9, 0, 0, true);
+  Node * second = new Node(8, 0, 1, true);
   IncrementalPathFinder pathFinder;
   // When
   std::queue<Node*> result = pathFinder.findAllPaths(start)[0];
@@ -43,8 +43,8 @@ TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnStackWithJustDestinationW
 
 TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnStackWithJustDestinationWhenStartLinked) {
   // Given
-  Node * start = new Node(9, 0, 0);
-  Node * second = new Node(8, 0, 1);
+  Node * start = new Node(9, 0, 0, true);
+  Node * second = new Node(8, 0, 1, true);
   start->addNeighbour(second);
   IncrementalPathFinder pathFinder;
   // When
@@ -63,9 +63,9 @@ TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnStackWithJustDestinationW
 
 TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnRouteWithThreeNodes) {
   // Given
-  Node * start = new Node(9, 0, 0);
-  Node * second = new Node(8, 0, 1);
-  Node * third = new Node(7, 0, 1);
+  Node * start = new Node(9, 0, 0, true);
+  Node * second = new Node(8, 0, 1, true);
+  Node * third = new Node(7, 0, 1, true);
   start->addNeighbour(second);
   second->addNeighbour(third);
   IncrementalPathFinder pathFinder;
@@ -91,11 +91,11 @@ TEST(IncrementalPathFinder_FindPath_Tests, ShouldReturnTwoPaths) {
   // Given
   //   /--->e----> d
   // a -> b -> c -> d
-  Node * a = new Node(0, 0, 1);
-  Node * b = new Node(1, 1, 1);
-  Node * e = new Node(1, 4, 1);
-  Node * c = new Node(2, 2, 1);
-  Node * d = new Node(3, 5, 1);
+  Node * a = new Node(0, 0, 1, true);
+  Node * b = new Node(1, 1, 1, true);
+  Node * e = new Node(1, 4, 1, true);
+  Node * c = new Node(2, 2, 1, true);
+  Node * d = new Node(3, 5, 1, true);
   a->addNeighbour(b);
   a->addNeighbour(e);
   b->addNeighbour(c);

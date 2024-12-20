@@ -2,12 +2,12 @@
 // Created by perso on 16/12/2024.
 //
 
-#include <gtest/gtest.h>
+#include <../../lib/googletest/include/gtest/gtest.h>
 #include <string>
 #include <vector>
 
-#include "../../cpp/day16/Maze.h"
-#include "../testHelper/InputUtils.h"
+#include "../../../cpp/algorithms/pathfinding/Maze.h"
+#include "../../testHelper/InputUtils.h"
 
 using namespace std;
 using namespace solutions;
@@ -43,26 +43,26 @@ TEST_F(MazeTests, ShouldInitializeMaze) {
   // Then
   ASSERT_EQ(4, maze.getHorizontalLength());
   ASSERT_EQ(5, maze.getVerticalLength());
-  EXPECT_FALSE(maze.getTileInPosition(0,0) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(1,0) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(2,0) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(3,0) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(0,1) != nullptr);
-  EXPECT_TRUE(maze.getTileInPosition(1,1) != nullptr);
-  EXPECT_TRUE(maze.getTileInPosition(2,1) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(3,1) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(0,2) != nullptr);
-  EXPECT_TRUE(maze.getTileInPosition(1,2) != nullptr);
-  EXPECT_TRUE(maze.getTileInPosition(2,2) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(3,2) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(0,3) != nullptr);
-  EXPECT_TRUE(maze.getTileInPosition(1,3) != nullptr);
-  EXPECT_TRUE(maze.getTileInPosition(2,3) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(3,3) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(0,4) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(1,4) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(2,4) != nullptr);
-  EXPECT_FALSE(maze.getTileInPosition(3,4) != nullptr);
+  EXPECT_FALSE(maze.isTileWalkable(0,0));
+  EXPECT_FALSE(maze.isTileWalkable(1,0));
+  EXPECT_FALSE(maze.isTileWalkable(2,0));
+  EXPECT_FALSE(maze.isTileWalkable(3,0));
+  EXPECT_FALSE(maze.isTileWalkable(0,1));
+  EXPECT_TRUE(maze.isTileWalkable(1,1));
+  EXPECT_TRUE(maze.isTileWalkable(2,1));
+  EXPECT_FALSE(maze.isTileWalkable(3,1));
+  EXPECT_FALSE(maze.isTileWalkable(0,2));
+  EXPECT_TRUE(maze.isTileWalkable(1,2));
+  EXPECT_TRUE(maze.isTileWalkable(2,2));
+  EXPECT_FALSE(maze.isTileWalkable(3,2));
+  EXPECT_FALSE(maze.isTileWalkable(0,3));
+  EXPECT_TRUE(maze.isTileWalkable(1,3));
+  EXPECT_TRUE(maze.isTileWalkable(2,3));
+  EXPECT_FALSE(maze.isTileWalkable(3,3));
+  EXPECT_FALSE(maze.isTileWalkable(0,4));
+  EXPECT_FALSE(maze.isTileWalkable(1,4));
+  EXPECT_FALSE(maze.isTileWalkable(2,4));
+  EXPECT_FALSE(maze.isTileWalkable(3,4));
   ASSERT_EQ(core::Pair(1, 3), maze.getStartTile()->getPosition());
   ASSERT_EQ(core::Pair(2, 1), maze.getEndTile()->getPosition());
 }

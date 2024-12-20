@@ -8,9 +8,9 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "../day20/Pattern.h"
-#include "../day20/PatternFinder.h"
-#include "../day20/PatternHolder.h"
+#include "Pattern.h"
+#include "PatternFinder.h"
+#include "PatternHolder.h"
 
 namespace solutions {
   std::string Day19::solvePartOne(const helper::SolutionInput *input) {
