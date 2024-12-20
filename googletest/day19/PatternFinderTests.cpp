@@ -117,3 +117,14 @@ TEST_F(PatternFinderTests, ShouldReturnCorrectAmountOfWaysToFormPatternEdgeCase)
   // Then
   ASSERT_EQ(1, result);
 }
+
+TEST_F(PatternFinderTests, ShouldReturnCorrectAmountOfWaysToFormPatternEdgeCaseTwo) {
+  // Given
+  Pattern toMatch = getPattern("gbbr");
+  vector<Pattern> patterns = {getPattern("r"), getPattern("b"),
+  getPattern("br"),getPattern("gb")};
+  // When
+  int result = PatternFinder::countTotalWaysPatternCanBeMade(toMatch, patterns);
+  // Then
+  ASSERT_EQ(1, result);
+}

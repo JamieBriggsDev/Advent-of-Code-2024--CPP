@@ -59,7 +59,12 @@ namespace solutions {
       string pattern = towel.getPattern();
       if (design.rfind(pattern, 0) == 0) { // Matches prefix
         string remaining = design.substr(pattern.size());
-        totalWays += countWaysToFormPatter(remaining, towels, memos);
+        totalWays += countWaysToFormPatter(Pattern(remaining), towels, memos);
+        /*long long ways = countWaysToFormPatter(remaining, towels, memos);
+        if (ways > 0) {
+          memos[design] += ways;
+          totalWays += ways;
+        }*/
       }
     }
 
