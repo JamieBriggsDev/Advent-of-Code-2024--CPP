@@ -138,6 +138,9 @@ add_executable(aoc2024 main.cpp
         cpp/day19/PatternFinder.h
         cpp/day20/RaceTrack.cpp
         cpp/day20/RaceTrack.h
+        cpp/core/HashConfig.h
+        cpp/day20/RaceTrackCheatFinder.cpp
+        cpp/day20/RaceTrackCheatFinder.h
 )
 
 add_subdirectory(googletest)

@@ -6,13 +6,18 @@
 #define RACETRACK_H
 #include "../algorithms/pathfinding/Maze.h"
 
+#include <map>
+
+using namespace std;
+
 namespace solutions {
 
-class RaceTrack final : public pathfinding::Maze {
+  class RaceTrack final : public pathfinding::Maze {
   public:
     explicit RaceTrack(const vector<string> &input) : Maze(input) {}
+    vector<std::pair<pathfinding::MazeTile *, core::Orientation>> findAllCheatSourceOptions();
   };
 
-} // solutions
+} // namespace solutions
 
-#endif //RACETRACK_H
+#endif // RACETRACK_H

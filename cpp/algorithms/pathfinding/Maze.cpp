@@ -25,28 +25,28 @@ namespace pathfinding {
         }
         if (y - 1 >= 0) {
           auto *north = grid[y - 1][x];
-          if (north != nullptr) {
+          if (north != nullptr && north->getIsWalkable()) {
             currTile->addNeighbour(north);
           }
         }
         // Get East
         if (x + 1 < this->horizontalLength) {
           auto *east = grid[y][x + 1];
-          if (east != nullptr) {
+          if (east != nullptr && east->getIsWalkable()) {
             currTile->addNeighbour(east);
           }
         }
         // Get South
         if (y + 1 < this->verticalLength) {
           auto *south = grid[y + 1][x];
-          if (south != nullptr) {
+          if (south != nullptr && south->getIsWalkable()) {
             currTile->addNeighbour(south);
           }
         }
         // Get West
         if (x - 1 >= 0) {
           auto *west = grid[y][x - 1];
-          if (west != nullptr) {
+          if (west != nullptr && west->getIsWalkable()) {
             currTile->addNeighbour(west);
           }
         }
@@ -60,11 +60,11 @@ namespace pathfinding {
     if (c == 'S') {
       tile = new MazeTile(x, y, true);
       tile->setOrientation(core::EAST);
-      this->startTile = tile;
+      this->startPosition = core::Pair(x, y);
     }
     if (c == 'E') {
       tile = new MazeTile(x, y, true);
-      this->endTile = tile;
+      this->endPosition = core::Pair(x, y);
     }
     if (c == '.') {
       tile = new MazeTile(x, y, true);
@@ -75,6 +75,72 @@ namespace pathfinding {
     }
     return tile;
   }
+
+  /*void Maze::makeTileWalkable(int x, int y) {
+    // Get tile making walkable
+    auto tileBeingMadeWalkable = getTileInPosition(x, y);
+    if (tileBeingMadeWalkable == nullptr) {
+      throw core::AocException("Tile being made walkable is null!");
+    }
+    tileBeingMadeWalkable->setIsWalkable(true);
+
+    // Add the tile to related tiles north east south and west if they're walkable
+    auto north = getTileInPosition(x, y - 1);
+    auto east = getTileInPosition(x + 1, y);
+    auto south = getTileInPosition(x, y + 1);
+    auto west = getTileInPosition(x - 1, y);
+    if (north != nullptr && north->getIsWalkable()) {
+      north->addNeighbour(tileBeingMadeWalkable);
+      tileBeingMadeWalkable->addNeighbour(north);
+    }
+    if (east != nullptr && east->getIsWalkable()) {
+      east->addNeighbour(tileBeingMadeWalkable);
+      tileBeingMadeWalkable->addNeighbour(east);
+    }
+    if (south != nullptr && south->getIsWalkable()) {
+      south->addNeighbour(tileBeingMadeWalkable);
+      tileBeingMadeWalkable->addNeighbour(south);
+    }
+    if (west != nullptr && west->getIsWalkable()) {
+      west->addNeighbour(tileBeingMadeWalkable);
+      tileBeingMadeWalkable->addNeighbour(west);
+    }
+  }
+  void Maze::makeTileUnwalkable(int x, int y) {
+    // Get tile making walkable
+    auto tileBeingMadeWalkable = getTileInPosition(x, y);
+    if (tileBeingMadeWalkable == nullptr) {
+      throw core::AocException("Tile being made walkable is null!");
+    }
+    if (walls[y][x] != true) {
+      // If not a wall, keep walkable
+      return;
+    }
+    tileBeingMadeWalkable->setIsWalkable(false);
+
+    // Add the tile to related tiles north east south and west if they're walkable
+    auto north = getTileInPosition(x, y - 1);
+    auto east = getTileInPosition(x + 1, y);
+    auto south = getTileInPosition(x, y + 1);
+    auto west = getTileInPosition(x - 1, y);
+    if (north != nullptr && north->getIsWalkable()) {
+      north->removeNeighbour(tileBeingMadeWalkable);
+      tileBeingMadeWalkable->removeNeighbour(north);
+    }
+    if (east != nullptr && east->getIsWalkable()) {
+      east->removeNeighbour(tileBeingMadeWalkable);
+      tileBeingMadeWalkable->removeNeighbour(east);
+    }
+    if (south != nullptr && south->getIsWalkable()) {
+      south->removeNeighbour(tileBeingMadeWalkable);
+      tileBeingMadeWalkable->removeNeighbour(south);
+    }
+    if (west != nullptr && west->getIsWalkable()) {
+      west->removeNeighbour(tileBeingMadeWalkable);
+      tileBeingMadeWalkable->removeNeighbour(west);
+    }
+  }*/
+
 
   void Maze::printMaze(FinalPath finalPath) {
     vector path(this->getVerticalLength(), std::vector<pathfinding::Node *>(this->getHorizontalLength(), nullptr));
@@ -89,10 +155,10 @@ namespace pathfinding {
       for(int x = 0; x < this->getHorizontalLength(); x++) {
         pathfinding::Node * toDraw = path[y][x];
         if(toDraw != nullptr) {
-          if (toDraw == this->startTile) {
+          if (toDraw == this->getStartTile()) {
             std::cout << "S";
           }
-          else if (toDraw == this->endTile) {
+          else if (toDraw == this->getEndTile()) {
             std::cout << "E";
           }
           else if(toDraw->getOrientation() == core::NORTH) {

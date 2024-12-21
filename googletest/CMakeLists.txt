@@ -175,6 +175,10 @@ add_executable(Google_Tests_run
         ../cpp/day20/RaceTrack.cpp
         ../cpp/day20/RaceTrack.h
         day20/RaceTrackTests.cpp
+        ../cpp/core/HashConfig.h
+        ../cpp/day20/RaceTrackCheatFinder.cpp
+        ../cpp/day20/RaceTrackCheatFinder.h
+        day20/RaceTrackCheatFindertESTS.cpp
 )
 
 # Set optimization flags for Release configuration

@@ -30,8 +30,10 @@ public:
   int getWeight() const {
     return this->weight;
   }
-  void addNeighbour(Node* path) {
-    this->neighbourNodes.push_back(path);
+  void addNeighbour(Node* neighbour) {
+    if (std::find(this->neighbourNodes.begin(), this->neighbourNodes.end(), neighbour) == this->neighbourNodes.end()) {
+      this->neighbourNodes.push_back(neighbour);
+    }
   }
   void removeNeighbour(Node* path) {
     this->neighbourNodes.erase(std::remove(this->neighbourNodes.begin(), this->neighbourNodes.end(), path), this->neighbourNodes.end());
@@ -81,6 +83,7 @@ public:
     return copy;
   }
   [[nodiscard]] bool getIsWalkable() const { return isWalkable; }
+  void setIsWalkable(bool isWalkable) { this->isWalkable = isWalkable; }
 
   friend bool operator==(const Node &lhs, const Node &rhs) {
     return static_cast<const Pair &>(lhs) == static_cast<const Pair &>(rhs) && lhs.weight == rhs.weight &&

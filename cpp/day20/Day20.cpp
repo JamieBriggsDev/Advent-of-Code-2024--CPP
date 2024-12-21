@@ -9,17 +9,40 @@
 
 #include <iostream>
 
+#include "RaceTrackCheatFinder.h"
+
 namespace solutions {
   std::string Day20::solvePartOne(const helper::SolutionInput *input) {
     RaceTrack track(input->getTestInput());
 
-    pathfinding::AStarPathFinder aStarPathFinder;
-    auto path = aStarPathFinder.findPath(track.getStartTile(), track.getEndTile(), false);
+    auto cheats = RaceTrackCheatFinder::findCheats(track);
 
-    std::cout << "Initial path without cheats found: " << std::endl;
-    track.printMaze(path);
+    unordered_map<int, int> cheatMap;
+    vector<RaceTrackCheat> cheatList;
 
-    return to_string(path.cost);
+    for (auto cheat : cheats) {
+
+      // Stupid cheat!!
+      if (cheat.savedTime == 0) { continue; }
+
+
+      if (cheat.savedTime > 100) {
+        cheatList.emplace_back(cheat);
+      }
+
+      if (!cheatMap.contains(cheat.savedTime)) {
+        cheatMap[cheat.savedTime] = 0;
+      }
+      cheatMap[cheat.savedTime]++;
+    }
+
+    cout << endl;
+    // Print all the saved times!
+    for (auto cheat : cheatMap) {
+      cout << "There are " << cheat.second << " cheats that save " << cheat.first << " picoseconds." << endl;
+    }
+
+    return to_string(cheatList.size());
   }
   std::string Day20::solvePartTwo(const helper::SolutionInput *input) {
     return "Solve me!";
