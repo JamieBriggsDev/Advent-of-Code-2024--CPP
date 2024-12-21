@@ -26,7 +26,7 @@ namespace solutions {
       if (cheat.savedTime == 0) { continue; }
 
 
-      if (cheat.savedTime > 100) {
+      if (cheat.savedTime >= 100) {
         cheatList.emplace_back(cheat);
       }
 
@@ -43,6 +43,7 @@ namespace solutions {
     }
 
     // 1501 too low
+    // 1503 too low
     return to_string(cheatList.size());
   }
   std::string Day20::solvePartTwo(const helper::SolutionInput *input) {
