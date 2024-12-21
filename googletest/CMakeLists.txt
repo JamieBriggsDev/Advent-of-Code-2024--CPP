@@ -179,6 +179,8 @@ add_executable(Google_Tests_run
         ../cpp/day20/RaceTrackCheatFinder.cpp
         ../cpp/day20/RaceTrackCheatFinder.h
         day20/RaceTrackCheatFindertESTS.cpp
+        ../cpp/algorithms/pathfinding/BFSPathFinder.cpp
+        ../cpp/algorithms/pathfinding/BFSPathFinder.h
 )
 
 # Set optimization flags for Release configuration

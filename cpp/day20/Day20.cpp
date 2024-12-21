@@ -42,6 +42,7 @@ namespace solutions {
       cout << "There are " << cheat.second << " cheats that save " << cheat.first << " picoseconds." << endl;
     }
 
+    // 1501 too low
     return to_string(cheatList.size());
   }
   std::string Day20::solvePartTwo(const helper::SolutionInput *input) {

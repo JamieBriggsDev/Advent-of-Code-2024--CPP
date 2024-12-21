@@ -10,13 +10,14 @@
 #include <set>
 
 #include "../algorithms/pathfinding/AStarPathFinder.h"
+#include "../algorithms/pathfinding/BFSPathFinder.h"
 
 namespace solutions {
   std::vector<RaceTrackCheat> RaceTrackCheatFinder::findCheats(RaceTrack raceTrack) {
 
     vector<RaceTrackCheat> cheats;
 
-    pathfinding::AStarPathFinder pathFinder;
+    pathfinding::BFSPathFinder pathFinder;
     // First find without cheats
     auto normalSolution = pathFinder.findPath(raceTrack.getStartTile(), raceTrack.getEndTile(), false);
     // Next get list of source cheat locations
