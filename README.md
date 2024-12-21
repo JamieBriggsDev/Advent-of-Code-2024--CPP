@@ -84,5 +84,5 @@ needs solving.
 | [Day22](puzzle/Day22.md)    |          |          |
 | [Day23](puzzle/Day23.md)    |          |          |
 | [Day24](puzzle/Day24.md)    |          |          |
-| [Day25 🎄](puzzle/Day25.md) |          |          |
+| [Day25](puzzle/Day25.md) 🎄  |          |          |
 
