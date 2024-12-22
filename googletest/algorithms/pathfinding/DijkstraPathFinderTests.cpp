@@ -11,6 +11,8 @@
 #include "../../../cpp/algorithms/pathfinding/Maze.h"
 #include "../../testHelper/InputUtils.h"
 
+#include <unordered_set>
+
 
 using namespace std;
 using namespace solutions;
@@ -31,6 +33,14 @@ class DijkstraPathFinderTestFixture : public ::testing::Test {
     "####\n"
   ;
 
+  string rawInputTwoPaths =
+    "#####\n"
+    "#..E#\n"
+    "#.#.#\n"
+    "#S..#\n"
+    "#####\n"
+  ;
+
   string rawInputLargeExample =
     "###############\n"
     "#.......#....E#\n"
@@ -48,24 +58,51 @@ class DijkstraPathFinderTestFixture : public ::testing::Test {
     "#S..#.....#...#\n"
     "###############\n"
   ;
+
+string rawExampleTwo =
+  "#################\n"
+  "#...#...#...#..E#\n"
+  "#.#.#.#.#.#.#.#.#\n"
+  "#.#.#.#...#...#.#\n"
+  "#.#.#.#.###.#.#.#\n"
+  "#...#.#.#.....#.#\n"
+  "#.#.#.#.#.#####.#\n"
+  "#.#...#.#.#.....#\n"
+  "#.#.#####.#.###.#\n"
+  "#.#.#.......#...#\n"
+  "#.#.###.#####.###\n"
+  "#.#.#...#.....#.#\n"
+  "#.#.#.#####.###.#\n"
+  "#.#.#.........#.#\n"
+  "#.#.#.#########.#\n"
+  "#S#.............#\n"
+  "#################\n"
+  ;
 protected:
   vector<string> inputEasyStartFinish;
   vector<string> inputModerateStartFinish;
+  vector<string> inputTwoPaths;
   vector<string> inputLargerStartFinish;
-  pathfinding::PathFinder* pathFinder;
+  vector<string> inputLargerStartFinishExampleTwo;
+  DijkstraPathFinder* pathFinder;
 
   // Setup after each
   void SetUp() override {
-    pathFinder = new pathfinding::DijkstraPathFinder();
+    pathFinder = new DijkstraPathFinder();
     inputEasyStartFinish = InputUtils::convertToVector(rawInputBasic);
     inputModerateStartFinish = InputUtils::convertToVector(rawInputHigherBasic);
     inputLargerStartFinish = InputUtils::convertToVector(rawInputLargeExample);
+    inputTwoPaths = InputUtils::convertToVector(rawInputTwoPaths);
+    inputLargerStartFinishExampleTwo = InputUtils::convertToVector(rawExampleTwo);
   }
 
   // TearDown after each test
   void TearDown() override {
     inputEasyStartFinish.clear();
     inputModerateStartFinish.clear();
+    inputLargerStartFinish.clear();
+    inputTwoPaths.clear();
+    inputLargerStartFinishExampleTwo.clear();
   }
 };
 
@@ -106,3 +143,85 @@ TEST_F(DijkstraPathFinderTestFixture, ShouldFindWithCost7036) {
   EXPECT_EQ(7036, result.cost);
 }
 
+TEST_F(DijkstraPathFinderTestFixture, ShouldFindMultiplePaths) {
+  // Given
+  Maze simpleMaze = Maze(inputTwoPaths);
+  // When
+  auto result = pathFinder->findPaths(simpleMaze.getStartTile(), simpleMaze.getEndTile());
+  // Then
+  EXPECT_EQ(2, result.size());
+}
+
+TEST_F(DijkstraPathFinderTestFixture, ShouldFindMultiplePathsExampleOne) {
+  // Given
+  Maze maze = Maze(inputLargerStartFinish);
+  // When
+  auto result = pathFinder->findPaths(maze.getStartTile(), maze.getEndTile());
+  // Then
+  EXPECT_EQ(3, result.size());
+
+
+  std::unordered_set<core::Pair> visited;
+  vector<vector<bool>> paths(maze.getHorizontalLength(), std::vector<bool>(maze.getVerticalLength(), false));
+  for (auto path : result) {
+    while (!path.path.empty()) {
+      visited.emplace(path.path.top()->getPosition());
+      paths[path.path.top()->getPosition().x][path.path.top()->getPosition().y] = true;
+      path.path.pop();
+    }
+  }
+
+  cout << endl;
+  for (int y = 0; y < maze.getVerticalLength(); y++) {
+    for (int x = 0; x < maze.getHorizontalLength(); x++) {
+      if (paths[x][y]) {
+        cout << "O";
+      } else {
+        if (maze.getWalls()[y][x]) {
+          cout << "#";
+        }
+        else {
+          cout << ".";
+        }
+      }
+    }
+    cout << endl;
+  }
+}
+
+TEST_F(DijkstraPathFinderTestFixture, DISABLED_ShouldFindMultiplePathsExampleTwo) {
+  // Given
+  Maze maze = Maze(inputLargerStartFinishExampleTwo);
+  // When
+  auto result = pathFinder->findPaths(maze.getStartTile(), maze.getEndTile());
+  // Then
+  EXPECT_EQ(3, result.size());
+
+
+  std::unordered_set<core::Pair> visited;
+  vector<vector<bool>> paths(maze.getHorizontalLength(), std::vector<bool>(maze.getVerticalLength(), false));
+  for (auto path : result) {
+    while (!path.path.empty()) {
+      visited.emplace(path.path.top()->getPosition());
+      paths[path.path.top()->getPosition().x][path.path.top()->getPosition().y] = true;
+      path.path.pop();
+    }
+  }
+
+  cout << endl;
+  for (int y = 0; y < maze.getVerticalLength(); y++) {
+    for (int x = 0; x < maze.getHorizontalLength(); x++) {
+      if (paths[x][y]) {
+        cout << "O";
+      } else {
+        if (maze.getWalls()[y][x]) {
+          cout << "#";
+        }
+        else {
+          cout << ".";
+        }
+      }
+    }
+    cout << endl;
+  }
+}

@@ -10,11 +10,13 @@
 
 namespace pathfinding {
 
-class DijkstraPathFinder : public PathFinder {
+class DijkstraPathFinder final : public PathFinder {
   public:
+    DijkstraPathFinder() = default;
     std::vector<std::queue<Node *>> findAllPaths(Node *start) override;
     FinalPath findPath(Node *start, Node *finish, bool rotationAddsCost = false) override;
     std::vector<FinalPath> findPaths(Node *start, Node *finish, bool rotationAddsCost = false);
+
   };
 
 } // pathfinding

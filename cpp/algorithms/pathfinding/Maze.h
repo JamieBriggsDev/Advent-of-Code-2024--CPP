@@ -43,6 +43,7 @@ namespace pathfinding {
     MazeTile* getStartTile() { return getTileInPosition(startPosition.x, startPosition.y); }
     MazeTile* getEndTile() { return getTileInPosition(endPosition.x, endPosition.y); }
 
+    vector<vector<bool>> getWalls() { return walls; }
     // Don't think I need these
     //void makeTileWalkable(int x, int y);
     //void makeTileUnwalkable(int x, int y);
