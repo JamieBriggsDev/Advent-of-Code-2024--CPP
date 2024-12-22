@@ -188,6 +188,8 @@ add_executable(Google_Tests_run
         day22/SecretEvolverTests.cpp
         ../cpp/day22/Day22.cpp
         ../cpp/day22/Day22.h
+        ../cpp/day22/BananaSellingUtil.h
+        day22/BananaSellingUtilTests.cpp
 )
 
 # Set optimization flags for Release configuration
