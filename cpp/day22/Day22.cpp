@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <string>
+#include <unordered_map>
 #include <unordered_set>
 #include <vector>
 
@@ -46,10 +47,14 @@ namespace solutions {
     return to_string(result);
   }
   std::string Day22::solvePartTwo(const helper::SolutionInput *input) {
-    // First get list of all possible differences to look out for
+    // Store a list of all possible differences to look out for
     std::unordered_set<std::vector<int>, VectorHash, VectorEqual> sequences;
+    // Cache for bananas which could be sold during specific sequences
+    std::unordered_map<int, std::unordered_map<std::vector<int>, int, VectorHash, VectorEqual>> bananasSoldCache;
     // Perform first loop of solution to get differences
+    int buyerId = 0;
     for (const auto &buyerSecret: input->getTestInput()) {
+      std::unordered_map<std::vector<int>, int, VectorHash, VectorEqual> buyerBananaCache;
     std:
       vector<int> differencesOfCurrentSecret;
       long long secret = stoll(buyerSecret);
@@ -59,10 +64,11 @@ namespace solutions {
       for (int i = 0; i < 2000; i++) {
         previousValue = finalSecretValue;
         finalSecretValue = SecretEvolver::evolveSecret(finalSecretValue);
+        int bananasSold = BananaSellingUtil::getLastDigitNumber(finalSecretValue);
         // Get difference
         int difference =
             BananaSellingUtil::getDifferenceBetweenTwoNumbers(BananaSellingUtil::getLastDigitNumber(previousValue),
-                                                              BananaSellingUtil::getLastDigitNumber(finalSecretValue));
+                                                              bananasSold);
         differencesOfCurrentSecret.push_back(difference);
 
         // Add to differences set if more than 4 added
@@ -70,8 +76,18 @@ namespace solutions {
           std::vector<int> toAdd = {differencesOfCurrentSecret[i - 3], differencesOfCurrentSecret[i - 2],
                                     differencesOfCurrentSecret[i - 1], differencesOfCurrentSecret[i]};
           sequences.emplace(toAdd);
+          // Add value of sequence to bananaSoldCache if not found
+          if (!buyerBananaCache.contains(toAdd)) {
+            buyerBananaCache[toAdd] = bananasSold;
+          }
         }
       }
+
+      // Remember bananas sold
+      bananasSoldCache[buyerId] = buyerBananaCache;
+
+      // Increment buyerId
+      buyerId++;
     }
 
     vector<int> bestSequence;
@@ -84,33 +100,8 @@ namespace solutions {
       int totalBananas = 0;
 
       // Loop through each buyer
-      for (const auto &buyerSecret: input->getTestInput()) {
-        std::vector<int> differencesOfCurrentSecret;
-        long long secret = stoll(buyerSecret);
-        long long previousValue = 0l;
-        long long finalSecretValue = secret;
-
-        for (int i = 0; i < 2000; i++) {
-          previousValue = finalSecretValue;
-          finalSecretValue = SecretEvolver::evolveSecret(finalSecretValue);
-          // Get difference
-          int difference = BananaSellingUtil::getDifferenceBetweenTwoNumbers(
-              BananaSellingUtil::getLastDigitNumber(previousValue),
-              BananaSellingUtil::getLastDigitNumber(finalSecretValue));
-          differencesOfCurrentSecret.push_back(difference);
-
-          // Continue if useless
-          if (i < 4)
-            continue;
-          // If sequence found, return value found
-          if (differencesOfCurrentSecret[i - 3] == sequenceToFind[i - 3] &&
-              differencesOfCurrentSecret[i - 2] == sequenceToFind[i - 2] &&
-              differencesOfCurrentSecret[i - 1] == sequenceToFind[i - 1] &&
-              differencesOfCurrentSecret[i] == sequenceToFind[i]) {
-            totalBananas += BananaSellingUtil::getLastDigitNumber(finalSecretValue);
-            break;
-          }
-        }
+      for(int i = 0; i < input->getTestInput().size(); i++) {
+        totalBananas += bananasSoldCache[i][sequenceToFind];
       }
 
       if (totalBananas >= bestBananasSold) {
