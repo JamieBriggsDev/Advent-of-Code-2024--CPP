@@ -81,7 +81,7 @@ needs solving.
 | [Day19](puzzle/Day19.md)    | ✅        |          |
 | [Day20](puzzle/Day20.md)    | ✅        |          |
 | [Day21](puzzle/Day21.md)    |          |          |
-| [Day22](puzzle/Day22.md)    |          |          |
+| [Day22](puzzle/Day22.md)    | ✅        |          |
 | [Day23](puzzle/Day23.md)    |          |          |
 | [Day24](puzzle/Day24.md)    |          |          |
 | [Day25](puzzle/Day25.md) 🎄  |          |          |
