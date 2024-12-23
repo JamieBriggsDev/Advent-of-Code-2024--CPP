@@ -190,6 +190,9 @@ add_executable(Google_Tests_run
         ../cpp/day22/Day22.h
         ../cpp/day22/BananaSellingUtil.h
         day22/BananaSellingUtilTests.cpp
+        ../cpp/day21/NumberPad.cpp
+        ../cpp/day21/NumberPad.h
+        day21/NumberPadTests.cpp
 )
 
 # Set optimization flags for Release configuration

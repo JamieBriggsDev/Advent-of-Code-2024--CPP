@@ -149,6 +149,8 @@ add_executable(aoc2024 main.cpp
         cpp/day22/Day22.cpp
         cpp/day22/Day22.h
         cpp/day22/BananaSellingUtil.h
+        cpp/day21/NumberPad.cpp
+        cpp/day21/NumberPad.h
 )
 
 add_subdirectory(googletest)
